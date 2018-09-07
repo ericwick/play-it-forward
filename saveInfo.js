@@ -33,3 +33,48 @@
           <h1>TEAMS</h1>
           {squads}</div> */
 }
+
+// AUTH0 STUFF I COULDN'T FIGURE OUT 9/10 morning
+// app.get(
+//   "/login",
+//   passport.authenticate("auth0", {
+//     successRedirect: "/KidRegistration",
+//     failureRedirect: "/login"
+//   })
+// );
+// app.get("/leagues", authenticated, (req, res, next) => {
+//   res.status(200).json(leagues);
+// });
+// function authenticated(req, res, next) {
+//   if (!req.user) {
+//     res.sendStatus(401);
+//   } else {
+//     next();
+//   }
+// }
+// passport.use(strategy);
+
+// passport.serializeUser((user, done) => {
+//   const db = app.get("db", db);
+//   db.get_user_by_authid(user.id).then(user => {
+//     // CHECK TO SEE HOW DATA IS COMING IN FROM DATABASE
+//     if (!user[0]) {
+//       db.add_user_by_authid(profile.id, profile.displayName)
+//         .then(response => {
+//           return done(null, response[0]);
+//           // ALSO CHECK THE RESPONSE
+//         })
+//         .catch(err => console.log(err));
+//     } else {
+//       return done(null, user);
+//     }
+//   });
+// });
+
+// passport.deserializeUser((obj, done) => {
+//   done(null, obj);
+// });
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// passport.use(strategy);

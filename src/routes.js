@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import KidRegistration from "./components/Registration/KidRegistration";
-import AdultRegistration from "./components/Registration/AdultRegistration";
+import KidRegistration from "./components/KidLeague/KidRegistration";
+import AdultRegistration from "./components/AdultLeague/AdultRegistration";
 
 export default (
   <Switch>
