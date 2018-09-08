@@ -1,5 +1,5 @@
 import React from "react";
-import "./Nav.css";
+import "../Home/Home.css";
 import { Link } from "react-router-dom";
 
 export default function Nav() {
@@ -7,10 +7,7 @@ export default function Nav() {
     <header className="header">
       <nav className="navbar">
         <div className="icon">
-          <img
-            alt=""
-            src="https://previews.123rf.com/images/avectors/avectors1804/avectors180400295/99974759-basketball-logo-vector-icon-isolated-on-transparent-background-vector-outline-sport-emblem-for-baske.jpg"
-          />
+          <img alt="" src="" />
         </div>
         <div className="linkscontainer">
           <ul className="navlinks">

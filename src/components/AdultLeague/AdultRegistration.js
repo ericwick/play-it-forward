@@ -49,7 +49,6 @@ class AdultRegistration extends Component {
   }
 
   render() {
-    console.log(this.props);
     const {
       updateAdultUsername,
       updateAdultPassword,

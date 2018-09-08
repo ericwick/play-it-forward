@@ -49,7 +49,6 @@ class KidRegistration extends Component {
   }
 
   render() {
-    console.log(this.props);
     const {
       updateKidUsername,
       updateKidPassword,
