@@ -2,8 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const { json } = require("body-parser");
 const massive = require("massive");
-const { getLeagues, getTeams } = require("./get_controller");
 
+const { getKidsLeagues, getKidsTeams } = require("./get_controller");
 const { newAdult, newKid } = require("./registration_controller");
 
 const app = express();
@@ -15,8 +15,8 @@ massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
   .catch(err => console.log("ERROR", err));
 
-app.get("/leagues", getLeagues);
-app.get("/leagues/teams", getTeams);
+app.get("/kidsleagues", getKidsLeagues);
+app.get("/kidsleagues/teams", getKidsTeams);
 
 app.post("/adultregistration", newAdult);
 app.post("/kidregistration", newKid);

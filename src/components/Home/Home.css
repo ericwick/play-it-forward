@@ -1,4 +1,4 @@
-.buttons {
+/* .buttons {
   display: flex;
 }
 
@@ -57,7 +57,7 @@ h1 {
   margin-right: 12%;
 }
 
-li {
+.links {
   position: absolute;
   font-size: 20px;
   color: white;
@@ -105,4 +105,4 @@ li:hover {
     height: 80px;
     width: 100%;
   }
-}
+} */

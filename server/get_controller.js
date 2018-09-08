@@ -1,13 +1,13 @@
 module.exports = {
-  getLeagues: (req, res, next) => {
+  getKidsLeagues: (req, res, next) => {
     const db = req.app.get("db");
-    db.get_leagues()
+    db.get_kidsleagues()
       .then(response => res.status(200).json(response))
       .catch(err => console.log("no leagues", err));
   },
-  getTeams: (req, res, next) => {
+  getKidsTeams: (req, res, next) => {
     const db = req.app.get("db");
-    db.get_teams()
+    db.get_kidsteams()
       .then(response => res.status(200).json(response))
       .catch(err => console.log("no squad", err));
   }

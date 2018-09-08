@@ -1,8 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import KidRegistration from "./components/KidLeague/KidRegistration";
-import AdultRegistration from "./components/AdultLeague/AdultRegistration";
+import KidRegistration from "./components/Kids/KidRegistration";
+import AdultRegistration from "./components/Adults/AdultRegistration";
+import KidLeagues from "./components/Kids/KidLeagues";
 
 export default (
   <Switch>
@@ -12,8 +13,8 @@ export default (
     {/* <Route path="/login" /> */}
     <Route path="/kidregister" component={KidRegistration} />
     <Route path="/adultregister" component={AdultRegistration} />
+    <Route path="/kidleagues" component={KidLeagues} />
     {/* <Route path="/adultleagues" /> */}
-    {/* <Route path="/kidleagues" /> */}
     {/* <Route path="/adultleagues/teams" /> */}
     {/* <Route path="/adultleagues/teams/team" /> */}
     {/* <Route path="/adultleagues/teams/team/player" /> */}

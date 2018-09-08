@@ -5,17 +5,23 @@ module.exports = {
       adultusername,
       adultpassword,
       player_name,
-      sports,
       team_name,
-      location
+      sport_type,
+      league_name,
+      gender,
+      age,
+      hometown
     } = req.body;
     db.new_adult(
       adultusername,
       adultpassword,
       player_name,
-      sports,
       team_name,
-      location
+      sport_type,
+      league_name,
+      gender,
+      age,
+      hometown
     )
       .then(() => {
         res.status(200);
@@ -28,17 +34,23 @@ module.exports = {
       kidusername,
       kidpassword,
       player_name,
-      sports,
       team_name,
-      location
+      sport_type,
+      league_name,
+      gender,
+      age,
+      hometown
     } = req.body;
     db.new_kid(
       kidusername,
       kidpassword,
       player_name,
-      sports,
       team_name,
-      location
+      sport_type,
+      league_name,
+      gender,
+      age,
+      hometown
     )
       .then(() => {
         res.status(200);

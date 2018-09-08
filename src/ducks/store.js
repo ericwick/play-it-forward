@@ -1,9 +1,15 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import promiseMiddleware from "redux-promise-middleware";
 import registration_reducer from "./registration_reducer";
+import get_reducer from "./get_reducer";
+
+const combinedReducers = combineReducers({
+  registration_reducer,
+  get_reducer
+});
 
 const store = createStore(
-  registration_reducer,
+  combinedReducers,
   applyMiddleware(promiseMiddleware())
 );
 

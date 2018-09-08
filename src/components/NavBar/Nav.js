@@ -12,21 +12,20 @@ export default function Nav() {
         <div className="linkscontainer">
           <ul className="navlinks">
             <Link to="/">
-              <li>HOME</li>
+              <li className="links">HOME</li>
             </Link>
             <Link to="/about">
-              <li>ABOUT</li>
+              <li className="links">ABOUT</li>
             </Link>
             <Link to="/donate">
-              <li>DONATE</li>
+              <li className="links">DONATE</li>
             </Link>
             <Link to="/login">
-              <li>LOGIN</li>
+              <li className="links">LOGIN</li>
             </Link>
             <Link to="/register">
-              <li>REGISTER</li>
+              <li className="links">REGISTER</li>
             </Link>
-            <button className="toggle-button">&#9776;</button>
           </ul>
         </div>
       </nav>

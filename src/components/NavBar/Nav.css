@@ -1,4 +1,4 @@
-.navlinks {
+/* .navlinks {
   list-style: none;
   display: flex;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -8,7 +8,7 @@
   color: white;
 }
 
-.li {
+.links {
   padding: 8px;
   text-decoration: none;
   font-size: 12px;
@@ -51,4 +51,4 @@
     height: 80px;
     width: 100%;
   }
-}
+} */
