@@ -203,3 +203,9 @@
 
 -- COLUMNS IN TEAM TABLES
 -- team_name, league_name, sport_type, players, gender_type, location, age_range, record
+
+
+-- ************ JOINS THE USERS TABLE WITH THE PLAYERS TABLE ************
+-- SELECT p.player_name, p.team_name, p.sport_type, p.league_name
+-- FROM players p
+-- JOIN users u ON p.player_name = u.username

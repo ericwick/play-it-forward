@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Nav from "../NavBar/Nav";
-import AdultButton from "../Adults/AdultButton";
-import KidButton from "../Kids/KidButton";
+// import AdultButton from "../Adults/AdultButton";
+// import KidButton from "../Kids/KidButton";
 
 class Home extends Component {
   constructor() {
@@ -19,8 +19,8 @@ class Home extends Component {
         </div>
 
         <div className="buttons">
-          <KidButton />
-          <AdultButton />
+          {/* <KidButton />
+          <AdultButton /> */}
         </div>
       </div>
     );

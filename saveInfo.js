@@ -78,3 +78,7 @@
 // app.use(passport.session());
 
 // passport.use(strategy);
+
+// OLD GET USER SCHEMA
+// SELECT username FROM users
+// WHERE auth_id = $1;

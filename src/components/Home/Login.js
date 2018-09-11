@@ -1,31 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import Nav from "../NavBar/Nav";
-import {
-  updateAdultUsername,
-  updateAdultPassword,
-  updateKidUsername,
-  updateKidPassword
-} from "../../ducks/registration_reducer";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.adultLogin = this.adultLogin.bind(this);
-    this.kidLogin = this.kidLogin.bind(this);
+    this.login = this.login.bind(this);
   }
 
-  adultLogin() {
-    axios.get("/adultlogin").then(response => {
-      return response.data;
-    });
-  }
-
-  kidLogin() {
-    const { username, password } = this.state;
-    axios.post("/loginkid", { username, password }).then(response => {
+  login() {
+    axios.get("/login").then(response => {
       return response.data;
     });
   }
@@ -43,7 +29,7 @@ class Login extends Component {
           <Nav />
         </div>
         <div>
-          <h3>ADULT LOGIN</h3>
+          <h3>LOGIN</h3>
           <h5>New Users: Create new username and password to get started!</h5>
           <input
             onChange={e => this.handleChange(e)}
@@ -55,36 +41,23 @@ class Login extends Component {
             placeholder="Password"
             name="password"
           />
-          <a href="http://localhost:3001/adultlogin">LOGIN</a>
-        </div>
-        <div>
-          <h3>KIDS' LOGIN</h3>
-          <h5>New Users: Create new username and password to get started!</h5>
-          <input
-            onChange={e => this.handleChange(e)}
-            placeholder="Username"
-            name="username"
-          />
-          <input
-            onChange={e => this.handleChange(e)}
-            placeholder="Password"
-            name="password"
-          />
-          <a href="http://localhost:3001/kidlogin">LOGIN</a>
+          <a href="http://localhost:3001/login">LOGIN</a>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ ...state.registration_reducer });
+export default Login;
 
-export default connect(
-  mapStateToProps,
-  {
-    updateAdultUsername,
-    updateAdultPassword,
-    updateKidUsername,
-    updateKidPassword
-  }
-)(Login);
+// const mapStateToProps = state => ({ ...state.registration_reducer });
+
+// export default connect(
+//   mapStateToProps,
+//   {
+//     updateAdultUsername,
+//     updateAdultPassword,
+//     updateKidUsername,
+//     updateKidPassword
+//   }
+// )(Login);

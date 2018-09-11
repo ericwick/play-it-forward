@@ -7,16 +7,14 @@ const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 
 const {
-  getKidsLeague,
-  getAdultLeague,
-  getKidsTeam
+  getLeague,
+  getTeam,
+  getPlayer
 } = require("./controllers/get_controller");
 const {
-  newAdult,
-  newKid,
+  newPlayer,
   logout,
-  adultLogin,
-  kidLogin,
+  login,
   register
 } = require("./controllers/auth.controller");
 
@@ -27,8 +25,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
-    user: ""
+    saveUninitialized: false
   })
 );
 app.use(express.static(`${__dirname}/build`));
@@ -41,7 +38,7 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       scope: "openid email profile",
-      callbackURL: "/login"
+      callbackURL: "/player"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
       return done(null, profile);
@@ -49,39 +46,33 @@ passport.use(
   )
 );
 
-passport.serializeUser((user, done) => {
-  const db = req.app.get("db");
+massive(process.env.CONNECTION_STRING)
+  .then(db => app.set("db", db))
+  .catch(err => console.log("ERROR", err));
 
-  db.get_adultuser(user.id).then(response => {
-    console.log(response);
-    // if (!response[0]) {
-    //   db.new_adult([]);
-    // }
-  });
+passport.serializeUser((user, done) => {
+  const db = app.get("db");
+  console.log(user);
+  db.get_player(user.id)
+    .then(response => {
+      if (!response[0]) {
+        db.new_user([user.displayName, user.id]);
+      } else {
+        return done(null, response[0]);
+      }
+    })
+    .catch(err => console.log(err));
 });
 
 passport.deserializeUser((obj, done) => {
   done(null, obj);
 });
 
-massive(process.env.CONNECTION_STRING)
-  .then(db => app.set("db", db))
-  .catch(err => console.log("ERROR", err));
-
 app.get(
-  "/adultlogin",
+  "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/adultleagues",
-    failureRedirect: "http://localhost:3001/#/login"
-    // connection: "google-oauth2"
-  })
-);
-app.get(
-  "/kidlogin",
-  passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/kidsleagues",
-    failureRedirect: "http://localhost:3000/#/login"
-    // connection: "google-oauth2"
+    successRedirect: "http://localhost:3001/player",
+    failureRedirect: "http://localhost:3000/#/ "
   })
 );
 
@@ -93,14 +84,12 @@ function authenticated(req, res, next) {
   }
 }
 
-app.get("/kidsleagues", authenticated, getKidsLeague);
-app.get("/adultleagues", authenticated, getAdultLeague);
+app.get("/player", getPlayer);
+app.get("/leagues", authenticated, getLeague);
 
-app.post("/adultregistration", newAdult);
-app.post("/kidregistration", newKid);
-app.post("/loginadult", adultLogin);
-app.post("/loginkid", kidLogin);
-app.post("/register", register);
+app.post("/registration", newPlayer);
+app.post("/login", login);
+// app.post("/register", register);
 
 const port = 3001;
 app.listen(port, () => {
