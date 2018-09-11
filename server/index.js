@@ -7,9 +7,9 @@ const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 
 const {
-  getKidsLeagues,
-  getAdultLeagues,
-  getKidsTeams
+  getKidsLeague,
+  getAdultLeague,
+  getKidsTeam
 } = require("./controllers/get_controller");
 const {
   newAdult,
@@ -40,10 +40,10 @@ passport.use(
       domain: process.env.DOMAIN,
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "/login",
-      scope: "openid email profile"
+      scope: "openid email profile",
+      callbackURL: "/login"
     },
-    function(accessToken, refreshToken, extraParams, profile, done) {
+    (accessToken, refreshToken, extraParams, profile, done) => {
       return done(null, profile);
     }
   )
@@ -69,19 +69,19 @@ massive(process.env.CONNECTION_STRING)
   .catch(err => console.log("ERROR", err));
 
 app.get(
-  "/api/adultlogin",
+  "/adultlogin",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/",
-    failureRedirect: "http://localhost:3000/#/login",
-    connection: "google-oauth2"
+    successRedirect: "http://localhost:3000/#/adultleagues",
+    failureRedirect: "http://localhost:3001/#/login"
+    // connection: "google-oauth2"
   })
 );
 app.get(
-  "/api/kidlogin",
+  "/kidlogin",
   passport.authenticate("auth0", {
-    successRedirect: "/api/kidsleagues",
-    failureRedirect: "/login",
-    connection: "google-oauth2"
+    successRedirect: "http://localhost:3000/#/kidsleagues",
+    failureRedirect: "http://localhost:3000/#/login"
+    // connection: "google-oauth2"
   })
 );
 
@@ -93,15 +93,14 @@ function authenticated(req, res, next) {
   }
 }
 
-app.get("/api/kidsleagues", authenticated, getKidsLeagues);
-app.get("/api/adultleagues", authenticated, getAdultLeagues);
-// app.get("/kidsleagues/teams", getKidsTeams);
+app.get("/kidsleagues", authenticated, getKidsLeague);
+app.get("/adultleagues", authenticated, getAdultLeague);
 
-app.post("/api/adultregistration", newAdult);
+app.post("/adultregistration", newAdult);
 app.post("/kidregistration", newKid);
-app.post("/api/loginadult", adultLogin);
-app.post("/api/loginkid", kidLogin);
-app.post("./api/register", register);
+app.post("/loginadult", adultLogin);
+app.post("/loginkid", kidLogin);
+app.post("/register", register);
 
 const port = 3001;
 app.listen(port, () => {

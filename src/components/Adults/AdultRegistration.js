@@ -5,8 +5,6 @@ import Nav from "../NavBar/Nav";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  // updateAdultUsername,
-  // updateAdultPassword,
   updatePlayerName,
   updateSports,
   updateTeamName,
@@ -27,8 +25,6 @@ class AdultRegistration extends Component {
   submitRegistration() {
     console.log(this.props);
     let {
-      // adultusername,
-      // adultpassword,
       player_name,
       sports,
       team_name,
@@ -40,8 +36,6 @@ class AdultRegistration extends Component {
     } = this.props;
     axios
       .post("/api/adultregistration", {
-        // adultusername,
-        // adultpassword,
         player_name,
         sports,
         team_name,
@@ -54,8 +48,6 @@ class AdultRegistration extends Component {
       .then(response => {
         console.log(response);
         this.setState({
-          // adultusername: response.data,
-          // adultpassword: response.data,
           player_name: response.data,
           sports: response.data,
           team_name: response.data,
@@ -72,8 +64,6 @@ class AdultRegistration extends Component {
   render() {
     console.log(this.props);
     const {
-      // updateAdultUsername,
-      // updateAdultPassword,
       updatePlayerName,
       updateSports,
       updateTeamName,
@@ -92,10 +82,6 @@ class AdultRegistration extends Component {
 
         <div>
           <h2>ADULT REGISTRATION</h2>
-          {/* <p>USERNAME</p>
-          <input onChange={e => updateAdultUsername(e.target.value)} />
-          <p>PASSWORD</p>
-          <input onChange={e => updateAdultPassword(e.target.value)} /> */}
           <p>FULL NAME</p>
           <input onChange={e => updatePlayerName(e.target.value)} />
           <p>SPORTS</p>
@@ -131,8 +117,6 @@ const mapStateToProps = state => ({ ...state.registration_reducer });
 export default connect(
   mapStateToProps,
   {
-    // updateAdultUsername,
-    // updateAdultPassword,
     updatePlayerName,
     updateSports,
     updateTeamName,

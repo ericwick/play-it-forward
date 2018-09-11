@@ -1,17 +1,19 @@
 module.exports = {
-  getKidsLeagues: (req, res, next) => {
+  getKidsLeague: (req, res, next) => {
     const db = req.app.get("db");
-    db.get_kidsleague()
+    const { kidusername } = req.body;
+    db.get_kidsleague([kidusername])
       .then(league => res.status(200).json(league))
       .catch(err => console.log("no league", err));
   },
-  getAdultLeagues: (req, res, next) => {
+  getAdultLeague: (req, res, next) => {
     const db = req.app.get("db");
-    db.get_adultleague()
+    const { adultusername } = req.body;
+    db.get_adultleague([adultusername])
       .then(league => res.status(200).send(league))
       .catch(err => console.log("no league", err));
   },
-  getKidsTeams: (req, res, next) => {
+  getKidsTeam: (req, res, next) => {
     const db = req.app.get("db");
     db.get_kidsteam()
       .then(response => res.status(200).json(response))
