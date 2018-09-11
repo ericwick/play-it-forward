@@ -38,7 +38,7 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       scope: "openid email profile",
-      callbackURL: "/player"
+      callbackURL: "/login"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
       return done(null, profile);
@@ -52,7 +52,6 @@ massive(process.env.CONNECTION_STRING)
 
 passport.serializeUser((user, done) => {
   const db = app.get("db");
-  console.log(user);
   db.get_player(user.id)
     .then(response => {
       if (!response[0]) {
@@ -71,7 +70,7 @@ passport.deserializeUser((obj, done) => {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3001/player",
+    successRedirect: "http://localhost:3000/#/player",
     failureRedirect: "http://localhost:3000/#/ "
   })
 );

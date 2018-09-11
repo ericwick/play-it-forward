@@ -14,9 +14,11 @@ module.exports = {
   },
   getPlayer: (req, res, next) => {
     const db = req.app.get("db");
-    console.log(req.body);
-    db.get_player(req.body.id)
-      .then(player => res.status(200).json(player))
+    db.get_player()
+      .then(player => {
+        console.log(player[0]);
+        res.status(200).json(player[0]);
+      })
       .catch(err => console.log("no player", err));
   }
 };
