@@ -6,7 +6,7 @@ export default function KidButton() {
   return (
     <HashRouter>
       <div className="buttondiv">
-        <Link to="/kidregister">
+        <Link to="/login">
           <button className="kidbutton">KIDS' LEAGUES</button>
         </Link>
       </div>

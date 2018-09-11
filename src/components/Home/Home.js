@@ -15,11 +15,7 @@ class Home extends Component {
       <div>
         <Nav />
         <div className="title">
-          <div className="video-background">
-            <div className="video-foreground">
-              <h1>PLAY IT FORWARD</h1>
-            </div>
-          </div>
+          <h1>PLAY IT FORWARD</h1>
         </div>
 
         <div className="buttons">

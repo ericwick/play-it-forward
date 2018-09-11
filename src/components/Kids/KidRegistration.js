@@ -5,8 +5,8 @@ import Nav from "../NavBar/Nav";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  updateKidUsername,
-  updateKidPassword,
+  // updateKidUsername,
+  // updateKidPassword,
   updatePlayerName,
   updateSports,
   updateTeamName,
@@ -26,8 +26,8 @@ class KidRegistration extends Component {
 
   submitRegistration() {
     let {
-      kidusername,
-      kidpassword,
+      // kidusername,
+      // kidpassword,
       player_name,
       sports,
       team_name,
@@ -39,8 +39,8 @@ class KidRegistration extends Component {
     } = this.props;
     axios
       .post("/kidregistration", {
-        kidusername,
-        kidpassword,
+        // kidusername,
+        // kidpassword,
         player_name,
         sports,
         team_name,
@@ -52,8 +52,8 @@ class KidRegistration extends Component {
       })
       .then(response => {
         this.setState({
-          kidusername: response.data,
-          kidpassword: response.data,
+          // kidusername: response.data,
+          // kidpassword: response.data,
           player_name: response.data,
           sports: response.data,
           team_name: response.data,
@@ -68,8 +68,8 @@ class KidRegistration extends Component {
 
   render() {
     const {
-      updateKidUsername,
-      updateKidPassword,
+      // updateKidUsername,
+      // updateKidPassword,
       updatePlayerName,
       updateSports,
       updateTeamName,
@@ -86,10 +86,10 @@ class KidRegistration extends Component {
         </div>
         <div className="form">
           <h2>KIDS' REGISTRATION</h2>
-          <p>USERNAME</p>
+          {/* <p>USERNAME</p>
           <input onChange={e => updateKidUsername(e.target.value)} />
           <p>PASSWORD</p>
-          <input onChange={e => updateKidPassword(e.target.value)} />
+          <input onChange={e => updateKidPassword(e.target.value)} /> */}
           <p>FULL NAME</p>
           <input onChange={e => updatePlayerName(e.target.value)} />
           <p>SPORTS</p>
@@ -115,25 +115,13 @@ class KidRegistration extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    kidusername: state.kidusername,
-    kidpassword: state.kidpassword,
-    player_name: state.player_name,
-    sports: state.sports,
-    team_name: state.team_name,
-    location: state.location,
-    gender: state.gender,
-    age: state.age,
-    hometown: state.hometown
-  };
-}
+const mapStateToProps = state => ({ ...state.registration_reducer });
 
 export default connect(
   mapStateToProps,
   {
-    updateKidUsername,
-    updateKidPassword,
+    // updateKidUsername,
+    // updateKidPassword,
     updatePlayerName,
     updateSports,
     updateTeamName,

@@ -6,7 +6,7 @@ export default function AdultButton() {
   return (
     <HashRouter>
       <div className="buttondiv">
-        <Link to="/adultregister">
+        <Link to="/login">
           <button className="adultbutton">ADULT LEAGUES</button>
         </Link>
       </div>

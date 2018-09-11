@@ -15,8 +15,7 @@ class KidLeagues extends Component {
   }
 
   componentDidMount() {
-    axios.get("/kidsleagues").then(response => {
-      console.log(response.data);
+    axios.get("/api/kidsleagues").then(response => {
       this.setState({
         leagues: response.data
       });
