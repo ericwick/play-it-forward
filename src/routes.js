@@ -5,13 +5,15 @@ import Registration from "./components/Registration/Registration";
 import Login from "./components/Home/Login";
 import League from "./components/Leagues/League";
 import Player from "./components/PlayerProfiles/Player";
+import Team from "./components/Teams/Team";
 
 export default (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/login" component={Login} />
     <Route path="/registration" component={Registration} />
-    <Route path="/leagues" component={League} />
+    <Route path="/league" component={League} />
     <Route path="/player" component={Player} />
+    <Route path="/team" component={Team} />
   </Switch>
 );

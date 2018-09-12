@@ -23,7 +23,7 @@ export default function Nav() {
             <Link to="/login">
               <li className="links">LOGIN</li>
             </Link>
-            <Link to="/login">
+            <Link to="/registration">
               <li className="links">REGISTER</li>
             </Link>
           </ul>

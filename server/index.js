@@ -84,11 +84,11 @@ function authenticated(req, res, next) {
 }
 
 app.get("/player", getPlayer);
-app.get("/leagues", authenticated, getLeague);
+app.get("/league", getLeague);
+app.get("/team", getTeam);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);
-// app.post("/register", register);
 
 const port = 3001;
 app.listen(port, () => {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Nav from "../NavBar/Nav";
+import { Link } from "react-router-dom";
 
 class Player extends Component {
   constructor() {
@@ -29,9 +30,13 @@ class Player extends Component {
       return (
         <div key={i}>
           <div>
-            <h2>{e.player_name}</h2>
-            <h5>TEAM: {e.team_name}</h5>
-            <h5>LEAGUE: {e.league_name}</h5>
+            <h1>{e.player_name}</h1>
+            <Link to="/team">
+              <h3>TEAM: {e.team_name}</h3>
+            </Link>
+            <Link to="/league">
+              <h4>LEAGUE: {e.league_name}</h4>
+            </Link>
           </div>
           <div>
             <p>
@@ -48,7 +53,7 @@ class Player extends Component {
     return (
       <div>
         <Nav />
-        <h4>PLAYER PROFILE</h4>
+        <h2>PLAYER PROFILE</h2>
         <div>{playerInfo}</div>
       </div>
     );

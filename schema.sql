@@ -209,3 +209,8 @@
 -- SELECT p.player_name, p.team_name, p.sport_type, p.league_name
 -- FROM players p
 -- JOIN users u ON p.player_name = u.username
+
+-- ****** JOINS PLAYERS TABLE WITH LEAGUES TABLE *********
+-- SELECT p.player_name, p.team_name, l.league_name, l.teams, l.sport_type, l.age_range, l.gender, l.location  
+-- FROM leagues l
+-- JOIN players p ON p.league_name = l.league_name;
