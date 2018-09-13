@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import "./Home.css";
 import Nav from "../NavBar/Nav";
 import Footer from "../Footer/Footer";
 
-class Home extends Component {
+class Monetary extends Component {
   constructor() {
     super();
     this.state = {};
@@ -12,11 +11,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Nav />
-        <div className="title">
-          <h1>PLAY IT FORWARD</h1>
+        <div>
+          <Nav />
         </div>
-
+        <h1>DONATION</h1>
         <div>
           <Footer />
         </div>
@@ -25,4 +23,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Monetary;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { connect } from "react-redux";
 import Nav from "../NavBar/Nav";
+import Footer from "../Footer/Footer";
 
 class Login extends Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class Login extends Component {
           <Nav />
         </div>
         <div>
-          <h3>LOGIN</h3>
-          <h5>New Users: Create new username and password to get started!</h5>
+          <h1>LOGIN</h1>
+          {/* <h5>New Users: Create new username and password to get started!</h5>
           <input
             onChange={e => this.handleChange(e)}
             placeholder="Username"
@@ -40,8 +40,11 @@ class Login extends Component {
             onChange={e => this.handleChange(e)}
             placeholder="Password"
             name="password"
-          />
+          /> */}
           <a href="http://localhost:3001/login">LOGIN</a>
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     );

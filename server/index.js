@@ -9,7 +9,8 @@ const Auth0Strategy = require("passport-auth0");
 const {
   // getLeague,
   // getTeam,
-  getPlayer
+  getPlayer,
+  loggedIn
 } = require("./controllers/get_controller");
 const {
   newPlayer,
@@ -25,10 +26,13 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1223334444
+    }
   })
 );
-app.use(express.static(`${__dirname}/build`));
+// app.use(express.static(`${__dirname}/build`));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(
@@ -83,9 +87,9 @@ function authenticated(req, res, next) {
   }
 }
 
+app.get("/user", loggedIn);
 app.get("/player", getPlayer);
-// app.get("/league", getLeague);
-// app.get("/team", getTeam);
+app.get("/logout", logout);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);

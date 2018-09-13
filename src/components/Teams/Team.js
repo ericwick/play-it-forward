@@ -1,58 +1,68 @@
-// import React, { Component } from "react";
-// import axios from "axios";
-// import Nav from "../NavBar/Nav";
-// import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import Nav from "../NavBar/Nav";
+import Footer from "../Footer/Footer";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { updateSportsInfo } from "../../ducks/get_reducer";
 
-// class Team extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       teamInfo: []
-//     };
-//   }
+class Team extends Component {
+  constructor() {
+    super();
+    this.state = {
+      teamInfo: []
+    };
+  }
 
-//   componentDidMount() {
-//     axios.get("/team").then(response => {
-//       console.log(response);
-//       this.setState({
-//         teamInfo: response.data[0]
-//       });
-//     });
-//   }
+  componentDidMount() {
+    this.props.updateSportsInfo();
+  }
 
-//   render() {
-//     let arr = [];
-//     arr.push(this.state.teamInfo);
+  render() {
+    let { sportsInfo } = this.props;
+    let arr = [];
+    arr.push(sportsInfo);
 
-//     console.log(arr);
-//     let squad = arr.map((e, i) => {
-//       return (
-//         <div key={i}>
-//           <div>
-//             <h1>{e.team_name}</h1>
-//             <Link to="/player">
-//               <h3>{e.player_name}</h3>
-//             </Link>
-//           </div>
-//           <div>
-//             <p>Sport: {e.sport_type}</p>
-//             <p>Record: {e.record}</p>
-//             <p>Age Range: {e.age_range}</p>
-//             <p>Gender: {e.gender_type}</p>
-//             <p>Location: {e.location}</p>
-//           </div>
-//         </div>
-//       );
-//     });
+    let squad = arr.map((e, i) => {
+      return (
+        <div key={i}>
+          <div>
+            <h1>{e.team_name}</h1>
+            <Link to="/league">
+              <h2>League: {e.league_name}</h2>
+            </Link>
+            <Link to="/player">
+              <h3>{e.player_name}</h3>
+            </Link>
+          </div>
+          <div>
+            <p>Sport: {e.sport_type}</p>
+            <p>Record: {e.record}</p>
+            <p>Age Range: {e.age_range}</p>
+            <p>Gender: {e.gender_type}</p>
+            <p>Location: {e.location}</p>
+          </div>
+        </div>
+      );
+    });
 
-//     return (
-//       <div>
-//         <Nav />
-//         <h3>TEAM</h3>
-//         <div>{squad}</div>
-//       </div>
-//     );
-//   }
-// }
+    return (
+      <div>
+        <div>
+          <Nav />
+        </div>
+        <h3>TEAM</h3>
+        <div>{squad}</div>
+        <div>
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+}
 
-// export default Team;
+const mapStateToProps = state => ({ ...state.getReducer });
+
+export default connect(
+  mapStateToProps,
+  { updateSportsInfo }
+)(Team);

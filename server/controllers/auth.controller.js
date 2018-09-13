@@ -13,18 +13,6 @@ module.exports = {
       })
       .catch(err => console.log(err));
   },
-  // register: (req, res, next) => {
-  //   const db = req.app.get("db");
-  //   const { username, password } = req.body;
-
-  //   db.new_adult([username, password]).then(response =>
-  //     res.status(200).json(response)
-  //   );
-  // },
-  logout: (req, res, next) => {
-    res.session.destroy();
-    res.status(200).json(req.session);
-  },
   newPlayer: (req, res) => {
     const db = req.app.get("db");
     const {
@@ -55,7 +43,7 @@ module.exports = {
   },
   logout: (req, res) => {
     req.session.destroy(() => {
-      res.redirect("http://localhost:3001/");
+      res.redirect("http://localhost:3000/");
     });
   }
 };
