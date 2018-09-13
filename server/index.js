@@ -10,7 +10,8 @@ const {
   // getLeague,
   // getTeam,
   getPlayer,
-  loggedIn
+  loggedIn,
+  roster
 } = require("./controllers/get_controller");
 const {
   newPlayer,
@@ -18,6 +19,7 @@ const {
   login,
   register
 } = require("./controllers/auth.controller");
+const { addImage } = require("./controllers/edit_controller");
 
 const app = express();
 
@@ -90,9 +92,11 @@ function authenticated(req, res, next) {
 app.get("/user", loggedIn);
 app.get("/player", getPlayer);
 app.get("/logout", logout);
+app.get("/roster", roster);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);
+app.post("/postimage", addImage);
 
 const port = 3001;
 app.listen(port, () => {

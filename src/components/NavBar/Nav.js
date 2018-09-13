@@ -18,7 +18,6 @@ class Nav extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <header className="header">
         <nav className="navbar">

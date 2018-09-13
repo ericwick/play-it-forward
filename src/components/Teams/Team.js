@@ -3,7 +3,7 @@ import Nav from "../NavBar/Nav";
 import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { updateSportsInfo } from "../../ducks/get_reducer";
+import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
 
 class Team extends Component {
   constructor() {
@@ -15,12 +15,36 @@ class Team extends Component {
 
   componentDidMount() {
     this.props.updateSportsInfo();
+    this.props.updateTeam();
   }
 
   render() {
-    let { sportsInfo } = this.props;
+    let { sportsInfo, team } = this.props;
+
     let arr = [];
     arr.push(sportsInfo);
+
+    let roster = team.map((e, i) => {
+      return (
+        <div key={i}>
+          <div style={{ border: "1px, black, solid" }}>
+            <h5>{e.player_name}</h5>
+            <h6>{e.position}</h6>
+            <p>
+              {e.hometown}
+              <br />
+              {e.team_name}
+              <br />
+              {e.age}
+              <br />
+              {e.league_name}
+              <br />
+              {e.sport}
+            </p>
+          </div>
+        </div>
+      );
+    });
 
     let squad = arr.map((e, i) => {
       return (
@@ -34,6 +58,7 @@ class Team extends Component {
               <h3>{e.player_name}</h3>
             </Link>
           </div>
+          <div>Roster: {roster}</div>
           <div>
             <p>Sport: {e.sport_type}</p>
             <p>Record: {e.record}</p>
@@ -52,6 +77,7 @@ class Team extends Component {
         </div>
         <h3>TEAM</h3>
         <div>{squad}</div>
+        {/* <div>{roster}</div> */}
         <div>
           <Footer />
         </div>
@@ -64,5 +90,5 @@ const mapStateToProps = state => ({ ...state.getReducer });
 
 export default connect(
   mapStateToProps,
-  { updateSportsInfo }
+  { updateSportsInfo, updateTeam }
 )(Team);
