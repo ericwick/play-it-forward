@@ -7,8 +7,8 @@ const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 
 const {
-  getLeague,
-  getTeam,
+  // getLeague,
+  // getTeam,
   getPlayer
 } = require("./controllers/get_controller");
 const {
@@ -84,8 +84,8 @@ function authenticated(req, res, next) {
 }
 
 app.get("/player", getPlayer);
-app.get("/league", getLeague);
-app.get("/team", getTeam);
+// app.get("/league", getLeague);
+// app.get("/team", getTeam);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);
