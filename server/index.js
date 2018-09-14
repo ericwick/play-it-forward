@@ -7,11 +7,10 @@ const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 
 const {
-  // getLeague,
-  // getTeam,
   getPlayer,
   loggedIn,
-  roster
+  roster,
+  getLeague
 } = require("./controllers/get_controller");
 const {
   newPlayer,
@@ -93,6 +92,7 @@ app.get("/user", loggedIn);
 app.get("/player", getPlayer);
 app.get("/logout", logout);
 app.get("/roster", roster);
+app.get("/league", getLeague);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);

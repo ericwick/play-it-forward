@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { updateSportsInfo } from "../../ducks/get_reducer";
+import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
 import Nav from "../NavBar/Nav";
 import Footer from "../Footer/Footer";
 
@@ -13,12 +13,22 @@ class League extends Component {
 
   componentDidMount() {
     this.props.updateSportsInfo();
+    this.props.updateLeague();
   }
 
   render() {
-    let { sportsInfo } = this.props;
+    let { sportsInfo, leagues } = this.props;
     let arr = [];
     arr.push(sportsInfo);
+
+    let division = leagues.map((e, i) => {
+      return (
+        <div key={i}>
+          {e.team_name}
+          {e.record}
+        </div>
+      );
+    });
 
     let league = arr.map((e, i) => {
       return (
@@ -40,7 +50,7 @@ class League extends Component {
             <br />
             <ul>
               Teams: {e.teams}
-              <li>{e.team_name}</li>
+              <li>{division}</li>
             </ul>
             Age Range: {e.age_range}
             <br />
@@ -70,5 +80,8 @@ const mapStateToProps = state => ({ ...state.getReducer });
 
 export default connect(
   mapStateToProps,
-  { updateSportsInfo }
+  {
+    updateSportsInfo,
+    updateLeague
+  }
 )(League);

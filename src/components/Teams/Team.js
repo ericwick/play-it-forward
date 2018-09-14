@@ -24,6 +24,8 @@ class Team extends Component {
     let arr = [];
     arr.push(sportsInfo);
 
+    console.log(team);
+
     let roster = team.map((e, i) => {
       return (
         <div key={i}>

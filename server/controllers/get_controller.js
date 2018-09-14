@@ -1,6 +1,7 @@
 module.exports = {
   getPlayer: (req, res, next) => {
     const db = req.app.get("db");
+    console.log(req.user, "USEROBJ");
     db.get_player(req.user.auth_id)
       .then(player => {
         return res.status(200).send(player[0]);
@@ -16,10 +17,17 @@ module.exports = {
   },
   roster: (req, res, next) => {
     const db = req.app.get("db");
-    db.get_roster()
+    db.get_roster(req.user.team_name)
       .then(roster => {
-        console.log("ROSTER", roster);
         return res.status(200).json(roster);
+      })
+      .catch(err => console.log("no roster", err));
+  },
+  getLeague: (req, res, next) => {
+    const db = req.app.get("db");
+    db.get_roster(req.user.league_name)
+      .then(league => {
+        return res.status(200).json(league);
       })
       .catch(err => console.log("no roster", err));
   }
