@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
-import Nav from "../NavBar/Nav";
-import Footer from "../Footer/Footer";
+// import Nav from "../NavBar/Nav";
+// import Footer from "../Footer/Footer";
 
 class League extends Component {
   constructor() {
@@ -20,6 +20,8 @@ class League extends Component {
     let { sportsInfo, leagues } = this.props;
     let arr = [];
     arr.push(sportsInfo);
+
+    console.log(leagues);
 
     let division = leagues.map((e, i) => {
       return (
@@ -63,14 +65,14 @@ class League extends Component {
     });
     return (
       <div>
-        <div>
+        {/* <div>
           <Nav />
-        </div>
+        </div> */}
         <h4>LEAGUE NAME</h4>
         <div>{league}</div>
-        <div>
+        {/* <div>
           <Footer />
-        </div>
+        </div> */}
       </div>
     );
   }

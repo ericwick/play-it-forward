@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Nav from "../NavBar/Nav";
-import Footer from "../Footer/Footer";
+import "../Home/Login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -24,28 +23,12 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <Nav />
-        </div>
-        <div>
-          <h1>LOGIN</h1>
-          {/* <h5>New Users: Create new username and password to get started!</h5>
-          <input
-            onChange={e => this.handleChange(e)}
-            placeholder="Username"
-            name="username"
-          />
-          <input
-            onChange={e => this.handleChange(e)}
-            placeholder="Password"
-            name="password"
-          /> */}
-          <a href="http://localhost:3001/login">LOGIN</a>
-        </div>
-        <div>
-          <Footer />
-        </div>
+      <div className="login">
+        <p id="loginlink">
+          <a href="http://localhost:3001/login" className="link">
+            <h1 className="titlelogin">LOGIN</h1>
+          </a>
+        </p>
       </div>
     );
   }

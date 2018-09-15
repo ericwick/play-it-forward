@@ -18,7 +18,7 @@ const {
   login,
   register
 } = require("./controllers/auth.controller");
-const { addImage } = require("./controllers/edit_controller");
+const { updateInfo } = require("./controllers/edit_controller");
 
 const app = express();
 
@@ -96,7 +96,8 @@ app.get("/league", getLeague);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);
-app.post("/postimage", addImage);
+
+app.put("/playerInfo/:id", updateInfo);
 
 const port = 3001;
 app.listen(port, () => {

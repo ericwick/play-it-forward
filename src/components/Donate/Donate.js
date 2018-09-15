@@ -1,9 +1,6 @@
 import React, { Component } from "react";
+import "../Donate/Donate.css";
 import { Link } from "react-router-dom";
-import Nav from "../NavBar/Nav";
-import Footer from "../Footer/Footer";
-// import Monetary from "../Donate/Monetary";
-// import Physical from "../Donate/Physical";
 
 class Donate extends Component {
   constructor() {
@@ -12,23 +9,20 @@ class Donate extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
-          <Nav />
-        </div>
-        <h1>DONATE</h1>
+      <div className="donate">
+        <h1 className="donation" id="homedonate">
+          DONATE
+        </h1>
+
+        <br />
 
         <Link to="/monetary">
-          <button>Money Donation</button>
+          <button className="money">Money Donation</button>
         </Link>
 
         <Link to="/physical">
-          <button>Physical Donation</button>
+          <button className="physical">Physical Donation</button>
         </Link>
-
-        <div>
-          <Footer />
-        </div>
       </div>
     );
   }

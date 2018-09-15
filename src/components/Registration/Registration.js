@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import "./Registration.css";
 import axios from "axios";
-import Nav from "../NavBar/Nav";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -76,10 +75,6 @@ class Registration extends Component {
 
     return (
       <div>
-        <div>
-          <Nav />
-        </div>
-
         <div>
           <h2>ADULT REGISTRATION</h2>
           <p>FULL NAME</p>

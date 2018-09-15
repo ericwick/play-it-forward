@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  position: relative;
+  font-family: "Quattrocento Sans", sans-serif;
 }
 
 /* @keyframes App-logo-spin {

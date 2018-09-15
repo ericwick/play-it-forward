@@ -1,0 +1,14 @@
+.about {
+  text-align: center;
+}
+
+#abouttitle {
+  display: block;
+  margin: auto;
+  width: 30%;
+  color: black;
+}
+
+p {
+  margin: 0 10% 5% 10%;
+}

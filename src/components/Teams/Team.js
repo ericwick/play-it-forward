@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Nav from "../NavBar/Nav";
-import Footer from "../Footer/Footer";
+// import Nav from "../NavBar/Nav";
+// import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
@@ -8,9 +8,7 @@ import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
 class Team extends Component {
   constructor() {
     super();
-    this.state = {
-      teamInfo: []
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -74,15 +72,14 @@ class Team extends Component {
 
     return (
       <div>
-        <div>
+        {/* <div>
           <Nav />
-        </div>
+        </div> */}
         <h3>TEAM</h3>
         <div>{squad}</div>
-        {/* <div>{roster}</div> */}
-        <div>
+        {/* <div>
           <Footer />
-        </div>
+        </div> */}
       </div>
     );
   }

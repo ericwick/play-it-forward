@@ -1,0 +1,29 @@
+.login {
+  text-align: center;
+}
+
+.titlelogin {
+  display: block;
+  margin: auto;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  width: 30%;
+  font-size: 100px;
+}
+
+#loginlink {
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.link {
+  color: black;
+  cursor: pointer;
+}
+
+.titlelogin:hover {
+  color: slategray;
+}

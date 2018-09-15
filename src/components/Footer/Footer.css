@@ -1,0 +1,23 @@
+.footer {
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  padding-bottom: 3vh;
+  margin-top: 2vh;
+  width: 100%;
+  background-color: wheat;
+  color: chocolate;
+  display: flex;
+}
+
+.pif {
+  padding: 2em;
+}
+
+.account {
+  padding: 2em;
+}
+
+.contact {
+  padding: 2em;
+}

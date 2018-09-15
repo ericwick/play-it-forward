@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../Footer/Footer.css";
 import { Link } from "react-router-dom";
 
 class Footer extends Component {
@@ -9,8 +10,8 @@ class Footer extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="footer">
+        <div className="pif">
           <h5>PLAY IT FORWARD</h5>
           <Link to="/">Home</Link>
           <br />
@@ -22,7 +23,7 @@ class Footer extends Component {
           <br />
           <Link to="/registration">Register</Link>
         </div>
-        <div>
+        <div className="account">
           <h5>YOUR ACCOUNT</h5>
           <Link to="/player">Profile</Link>
           <br />
@@ -36,7 +37,7 @@ class Footer extends Component {
           <br />
           <Link to="/">Help</Link>
         </div>
-        <div>
+        <div className="contact">
           <h5>CONTACT</h5>
           <Link to="/">Volunteer</Link>
           <br />

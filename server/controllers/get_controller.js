@@ -1,7 +1,7 @@
 module.exports = {
   getPlayer: (req, res, next) => {
     const db = req.app.get("db");
-    console.log(req.user, "USEROBJ");
+    // console.log(req.user, "USEROBJ");
     db.get_player(req.user.auth_id)
       .then(player => {
         return res.status(200).send(player[0]);
@@ -25,7 +25,7 @@ module.exports = {
   },
   getLeague: (req, res, next) => {
     const db = req.app.get("db");
-    db.get_roster(req.user.league_name)
+    db.get_league(req.user.league_name)
       .then(league => {
         return res.status(200).json(league);
       })

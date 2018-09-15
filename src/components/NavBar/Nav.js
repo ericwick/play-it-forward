@@ -21,49 +21,48 @@ class Nav extends Component {
     return (
       <header className="header">
         <nav className="navbar">
-          <div className="icon">
-            <img alt="" src="" />
-          </div>
+          <h4>PiF</h4>
+
           <div className="linkscontainer">
             {this.props.sportsInfo && this.props.sportsInfo.auth_id ? (
               <ul className="navlinks">
-                <Link to="/">
+                <Link to="/" className="link">
                   <li className="links">HOME</li>
                 </Link>
-                <Link to="/about">
+                <Link to="/about" className="link">
                   <li className="links">ABOUT</li>
                 </Link>
-                <Link to="/donate">
+                <Link to="/donate" className="link">
                   <li className="links">DONATE</li>
                 </Link>
-                <Link to="/player">
+                <Link to="/player" className="link">
                   <li className="links">PROFILE</li>
                 </Link>
-                <Link to="/team">
+                <Link to="/team" className="link">
                   <li className="links">TEAM</li>
                 </Link>
-                <Link to="/league">
+                <Link to="/league" className="link">
                   <li className="links">LEAGUE</li>
                 </Link>
-                <Link to="/logout">
+                <Link to="/logout" className="link">
                   <li className="links">LOGOUT</li>
                 </Link>
               </ul>
             ) : (
               <ul className="navlinks">
-                <Link to="/">
+                <Link to="/" className="link">
                   <li className="links">HOME</li>
                 </Link>
-                <Link to="/about">
+                <Link to="/about" className="link">
                   <li className="links">ABOUT</li>
                 </Link>
-                <Link to="/donate">
+                <Link to="/donate" className="link">
                   <li className="links">DONATE</li>
                 </Link>
-                <Link to="/login">
+                <Link to="/login" className="link">
                   <li className="links">LOGIN</li>
                 </Link>
-                <Link to="/registration">
+                <Link to="/registration" className="link">
                   <li className="links">REGISTER</li>
                 </Link>
               </ul>

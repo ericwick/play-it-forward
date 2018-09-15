@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Nav from "../NavBar/Nav";
-import Footer from "../Footer/Footer";
+import "../Donate/Donate.css";
 
 class Monetary extends Component {
   constructor() {
@@ -10,14 +9,8 @@ class Monetary extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <Nav />
-        </div>
-        <h1>DONATION</h1>
-        <div>
-          <Footer />
-        </div>
+      <div className="donate">
+        <h1 className="donation">DONATION</h1>
       </div>
     );
   }
