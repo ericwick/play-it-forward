@@ -1,23 +1,16 @@
-UPDATE players
-SET player_name = $2
-WHERE player_name = $1
+UPDATE players AS p
+SET 
+player_name = $2,
+hometown = $3,
+sport_type = $4,
+age = $5,
+position = $6
+FROM users AS u
+WHERE u.username = p.player_name 
+AND u.auth_id = $1;
 
-UPDATE players 
-SET sport_type = $4
-WHERE player_name = $1
+UPDATE users AS u
+SET username = p.player_name
+FROM players AS p
+WHERE u.auth_id = $1
 
-UPDATE players 
-SET position = $6
-WHERE player_name = $1
-
--- -- UPDATE players 
--- -- SET gender = $5
--- -- WHERE player_name = $1
-
-UPDATE players 
-SET age = $5
-WHERE player_name = $1
-
-UPDATE players 
-SET hometown = $3
-WHERE player_name = $1

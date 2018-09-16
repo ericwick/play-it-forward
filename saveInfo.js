@@ -82,3 +82,65 @@
 // OLD GET USER SCHEMA
 // SELECT username FROM users
 // WHERE auth_id = $1;
+
+/* <Edit
+  updateInfo={this.updateInfo}
+  sportsInfo={sportsInfo}
+  showEdit={this.state.showEdit}
+  toggleEdit={() => {
+    this.setState({ showEdit: !this.state.showEdit });
+  }}
+  /> */
+
+// handleToggle() {
+//   this.setState({
+//     showEdit: !this.state.showEdit
+//   });
+// }
+
+// handleChange(e) {
+//   this.setState({
+//     [e.target.name]: e.target.value
+//   });
+// }
+
+// onSave() {
+//   this.setState({
+//     showEdit: false
+//   });
+// }
+
+// renderEditBox() {
+//   if (this.state.showEdit === "false") {
+//     return (
+//       <div>
+//         <button onClick={this.handleToggle}>Edit</button>
+//       </div>
+//     );
+//   } else {
+//     return (
+//       <div>
+//         <p>
+//           <input onChange={this.handleChange} value={this.state.inputText} />
+//           <button onClick={this.onSave}>Save</button>
+//         </p>
+//       </div>
+//     );
+//   }
+// }
+
+// renderButton() {
+//   if (this.state.showEdit === false) {
+//     return (
+//       <div>
+//         <button onClick={this.handleToggle}>Edit</button>
+//       </div>
+//     );
+//   } else {
+//     return (
+
+//         <button onClick={this.onSave}>Save</button>
+//       </div>
+//     );
+//   }
+// }

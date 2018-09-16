@@ -1,88 +1,133 @@
 import React, { Component } from "react";
-// import axios from "axios";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class Edit extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.handleChange = this.handleChange.bind(this);
-    this.onSaveChanges = this.onSaveChanges.bind(this);
+    this.state = {
+      editMode: false
+    };
+    this.showEdit = this.showEdit.bind(this);
+    this.hideEdit = this.hideEdit.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateAge = this.updateAge.bind(this);
+    this.updatePosition = this.updatePosition.bind(this);
+    this.updateHometown = this.updateHometown.bind(this);
+    this.updateSports = this.updateSports.bind(this);
+    this.updateInfo = this.updateInfo.bind(this);
   }
 
-  handleChange(e) {
+  updateName(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      player_name: e.target.value
+    });
+  }
+  updateHometown(e) {
+    this.setState({
+      hometown: e.target.value
+    });
+  }
+  updateAge(e) {
+    this.setState({
+      age: e.target.value
+    });
+  }
+  updatePosition(e) {
+    this.setState({
+      position: e.target.value
+    });
+  }
+  updateSports(e) {
+    this.setState({
+      sport_type: e.target.value
     });
   }
 
-  onSaveChanges(id, body) {
-    this.props.updateInfo();
+  updateInfo(auth_id, { player_name, hometown, position, age, sport_type }) {
+    axios
+      .put(`/playerInfo/${auth_id}`, {
+        player_name,
+        hometown,
+        position,
+        age,
+        sport_type
+      })
+      .then(response => {
+        this.setState({
+          player_name: response.data,
+          hometown: response.data,
+          position: response.data,
+          age: response.data,
+          sport_type: response.data
+        });
+      })
+      .catch(err => console.log(err, "post err (PLAYER 48)"));
+    this.hideEdit();
+  }
+
+  showEdit() {
+    this.setState({ editMode: true });
+  }
+
+  hideEdit() {
+    this.setState({ editMode: false });
   }
 
   render() {
-    let {
-      player_name,
-      position,
-      age,
-      hometown,
-      sport_type
-    } = this.props.sportsInfo;
-    let { sportsInfo } = this.props;
+    let { showEdit } = this.props;
 
     return (
       <div>
-        <button onClick={this.props.toggleEdit}>Edit Profile</button>
+        <button onClick={showEdit}>Edit Profile</button>
 
-        {this.props.showEdit && sportsInfo ? (
-          <div>
-            <form>
-              <input
-                type="text"
-                name={player_name}
-                placeholder="Player Name"
-                onChange={e => this.handleChange(e)}
-              />
+        {/* {showEdit ? ( */}
+        <div>
+          <form>
+            <input
+              // name={player_name}
+              placeholder="Player Name"
+              onChange={e => this.updateName(e)}
+            />
 
-              <input
-                type="text"
-                name={hometown}
-                placeholder="Hometown"
-                onChange={e => this.handleChange(e)}
-              />
-              <input
-                type="text"
-                name={sport_type}
-                placeholder="Sports"
-                onChange={e => this.handleChange(e)}
-              />
-              <input
-                type="text"
-                name={age}
-                placeholder="Age"
-                onChange={e => this.handleChange(e)}
-              />
-              <input
-                type="text"
-                name={position}
-                placeholder="Position"
-                onChange={e => this.handleChange(e)}
-              />
+            <input
+              // name={hometown}
+              placeholder="Hometown"
+              onChange={e => this.updateHometown(e)}
+            />
+            <input
+              // name={sport_type}
+              placeholder="Sports"
+              onChange={e => this.updateSports(e)}
+            />
+            <input
+              // name={age}
+              placeholder="Age"
+              onChange={e => this.updateAge(e)}
+            />
+            <input
+              // name={position}
+              placeholder="Position"
+              onChange={e => this.updatePosition(e)}
+            />
 
-              <Link to="/player">
-                <button
-                  onClick={
-                    this.onSaveChanges(sportsInfo.player_name, sportsInfo)
-                    // {this.props.toggleEdit()}
-                  }
-                >
-                  Save Changes
-                </button>
-              </Link>
-            </form>
-          </div>
-        ) : null}
+            <button onClick={() => this.updateInfo()}>Save Changes</button>
+          </form>
+        </div>
+        {/* ) : null} */}
       </div>
     );
   }
 }
+
+// const mapStateToProps = state => ({ ...state.getReducer });
+
+// export default connect(
+//   mapStateToProps,
+//   {
+//     updatePlayerName,
+//     updateSports,
+//     updatePosition,
+//     updateAge,
+//     updateHometown
+//   }
+// )(Edit);

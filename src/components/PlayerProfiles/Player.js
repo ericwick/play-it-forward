@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
-// import Nav from "../NavBar/Nav";
-// import Footer from "../Footer/Footer";
-// import Edit from "./Edit";
+// import axios from "axios";
+import Edit from "./Edit";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateSportsInfo } from "../../ducks/get_reducer";
@@ -11,7 +9,7 @@ class Player extends Component {
   constructor() {
     super();
     this.state = {
-      // showEdit: false
+      editMode: false
     };
   }
 
@@ -19,17 +17,9 @@ class Player extends Component {
     this.props.updateSportsInfo();
   }
 
-  updateInfo(id, sportsInfo) {
-    axios.put(`/playerInfo/${id}`, { sportsInfo }).then(response => {
-      console.log(response);
-      this.setState({
-        sportsInfo: response.data
-      });
-    });
-  }
-
   render() {
     let { sportsInfo } = this.props;
+
     let arr = [];
     arr.push(sportsInfo);
 
@@ -55,6 +45,9 @@ class Player extends Component {
             <br />
             Age: {e.age}
           </p>
+          <div>
+            <Edit />
+          </div>
         </div>
       );
     });
@@ -74,65 +67,3 @@ export default connect(
   mapStateToProps,
   { updateSportsInfo }
 )(Player);
-
-/* <Edit
-  updateInfo={this.updateInfo}
-  sportsInfo={sportsInfo}
-  showEdit={this.state.showEdit}
-  toggleEdit={() => {
-    this.setState({ showEdit: !this.state.showEdit });
-  }}
-  /> */
-
-// handleToggle() {
-//   this.setState({
-//     showEdit: !this.state.showEdit
-//   });
-// }
-
-// handleChange(e) {
-//   this.setState({
-//     [e.target.name]: e.target.value
-//   });
-// }
-
-// onSave() {
-//   this.setState({
-//     showEdit: false
-//   });
-// }
-
-// renderEditBox() {
-//   if (this.state.showEdit === "false") {
-//     return (
-//       <div>
-//         <button onClick={this.handleToggle}>Edit</button>
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div>
-//         <p>
-//           <input onChange={this.handleChange} value={this.state.inputText} />
-//           <button onClick={this.onSave}>Save</button>
-//         </p>
-//       </div>
-//     );
-//   }
-// }
-
-// renderButton() {
-//   if (this.state.showEdit === false) {
-//     return (
-//       <div>
-//         <button onClick={this.handleToggle}>Edit</button>
-//       </div>
-//     );
-//   } else {
-//     return (
-
-//         <button onClick={this.onSave}>Save</button>
-//       </div>
-//     );
-//   }
-// }
