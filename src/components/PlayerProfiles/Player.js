@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import "./Player.css";
 import Edit from "./Edit";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -25,25 +25,25 @@ class Player extends Component {
 
     let player = arr.map((e, i) => {
       return (
-        <div key={i} className="playerCard">
+        <div key={i}>
           <h1 id="playerName">{e.player_name}</h1>
           {this.renderEditBox}
           <div className="teamLeague">
-            <Link to="/team">
-              <h3 className="team">Team: {e.team_name}</h3>
+            <Link to="/team" className="link">
+              <h3 className="team">TEAM: {e.team_name}</h3>
             </Link>
-            <Link to="/league">
-              <h3 className="league">League: {e.league_name}</h3>
+            <Link to="/league" className="link">
+              <h3 className="league">LEAGUE: {e.league_name}</h3>
             </Link>
           </div>
           <p className="info">
-            Hometown: {e.hometown}
+            HOMETOWN: {e.hometown}
             <br />
-            Sport: {e.sport_type}
+            SPORT: {e.sport_type}
             <br />
-            Position: {e.position}
+            POSITION: {e.position}
             <br />
-            Age: {e.age}
+            AGE: {e.age}
           </p>
           <div>
             <Edit />
@@ -54,8 +54,7 @@ class Player extends Component {
 
     return (
       <div>
-        <h2>PLAYER PROFILE</h2>
-        <div>{player}</div>
+        <div className="playerCard">{player}</div>
       </div>
     );
   }

@@ -1,0 +1,61 @@
+.teampage {
+  display: inline;
+}
+
+.centerpage {
+  margin: 1em;
+  align-content: center;
+}
+
+.rightpage {
+  float: right;
+  font-size: 2em;
+  padding: 5% 15% 5% 15%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+}
+
+.roster {
+  margin: 2%;
+}
+
+.leftpage {
+  float: left;
+  margin-left: 12%;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.teamtitle {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.playerName {
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.position {
+  font-size: 0.2em;
+  text-align: center;
+}
+
+.playerInfo {
+  font-size: 0.1em;
+  text-align: center;
+}
+
+.playerCard {
+  position: relative;
+  display: flex;
+  border: solid 1px black;
+  padding: 3px;
+  margin: 2%;
+}
+
+.playercontent {
+  text-align: center;
+}

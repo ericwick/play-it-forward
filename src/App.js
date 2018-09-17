@@ -5,6 +5,11 @@ import "./App.css";
 import route from "./routes";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <div className="App">

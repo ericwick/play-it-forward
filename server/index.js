@@ -19,6 +19,7 @@ const {
   register
 } = require("./controllers/auth.controller");
 const { updateInfo, deleteInfo } = require("./controllers/edit_controller");
+const { chatMessage } = require("./controllers/chat_controller");
 
 const app = express();
 
@@ -96,6 +97,7 @@ app.get("/league", getLeague);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);
+app.post("/team/chat", chatMessage);
 
 app.put("/playerInfo/:id", updateInfo);
 

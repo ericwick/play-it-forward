@@ -12,16 +12,15 @@
     "passport": "^0.4.0",
     "passport-auth0": "^1.0.0",
     "react": "^16.5.0",
+    "react-chat-widget": "^2.1.4-1",
     "react-dom": "^16.5.0",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "react-youtube": "^7.6.0",
     "redux": "^4.0.0",
     "redux-promise-middleware": "^5.1.1",
-    "session": "^0.1.0",
-    "video-react": "^0.13.0"
+    "session": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

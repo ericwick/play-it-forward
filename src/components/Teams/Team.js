@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import Nav from "../NavBar/Nav";
-// import Footer from "../Footer/Footer";
+import Chat from "../Teams/Chat";
+import "./Team.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
@@ -18,7 +18,6 @@ class Team extends Component {
 
   render() {
     let { sportsInfo, team } = this.props;
-
     let arr = [];
     arr.push(sportsInfo);
 
@@ -26,20 +25,15 @@ class Team extends Component {
 
     let roster = team.map((e, i) => {
       return (
-        <div key={i}>
-          <div style={{ border: "1px, black, solid" }}>
-            <h5>{e.player_name}</h5>
-            <h6>{e.position}</h6>
-            <p>
+        <div key={i} className="playerCard">
+          <div className="playercontent">
+            <h5 className="playerName">{e.player_name}</h5>
+            <h6 className="position">{e.position}</h6>
+            <p className="playerInfo">
               {e.hometown}
               <br />
-              {e.team_name}
+              AGE: {e.age}
               <br />
-              {e.age}
-              <br />
-              {e.league_name}
-              <br />
-              {e.sport}
             </p>
           </div>
         </div>
@@ -48,18 +42,19 @@ class Team extends Component {
 
     let squad = arr.map((e, i) => {
       return (
-        <div key={i}>
-          <div>
-            <h1>{e.team_name}</h1>
-            <Link to="/league">
-              <h2>League: {e.league_name}</h2>
-            </Link>
-            <Link to="/player">
+        <div key={i} className="teampage">
+          <div className="centerpage">
+            <h1 className="teamtitle">{e.team_name}</h1>
+
+            <Link to="/player" className="link">
               <h3>{e.player_name}</h3>
             </Link>
           </div>
-          <div>Roster: {roster}</div>
-          <div>
+          <div className="rightpage">{roster}</div>
+          <div className="leftpage">
+            <Link to="/league" className="link">
+              <p>League: {e.league_name}</p>
+            </Link>
             <p>Sport: {e.sport_type}</p>
             <p>Record: {e.record}</p>
             <p>Age Range: {e.age_range}</p>
@@ -72,14 +67,10 @@ class Team extends Component {
 
     return (
       <div>
-        {/* <div>
-          <Nav />
-        </div> */}
-        <h3>TEAM</h3>
         <div>{squad}</div>
-        {/* <div>
-          <Footer />
-        </div> */}
+        <div>
+          <Chat />
+        </div>
       </div>
     );
   }
