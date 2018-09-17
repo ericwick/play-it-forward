@@ -18,7 +18,7 @@ const {
   login,
   register
 } = require("./controllers/auth.controller");
-const { updateInfo } = require("./controllers/edit_controller");
+const { updateInfo, deleteInfo } = require("./controllers/edit_controller");
 
 const app = express();
 
@@ -98,6 +98,8 @@ app.post("/registration", newPlayer);
 app.post("/login", login);
 
 app.put("/playerInfo/:id", updateInfo);
+
+app.delete("/playerInfo/:id", deleteInfo);
 
 const port = 3001;
 app.listen(port, () => {

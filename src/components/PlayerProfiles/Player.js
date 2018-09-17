@@ -25,18 +25,18 @@ class Player extends Component {
 
     let player = arr.map((e, i) => {
       return (
-        <div key={i}>
-          <h1>{e.player_name}</h1>
+        <div key={i} className="playerCard">
+          <h1 id="playerName">{e.player_name}</h1>
           {this.renderEditBox}
-          <div>
+          <div className="teamLeague">
             <Link to="/team">
-              <h3>Team: {e.team_name}</h3>
+              <h3 className="team">Team: {e.team_name}</h3>
             </Link>
             <Link to="/league">
-              <h3>League: {e.league_name}</h3>
+              <h3 className="league">League: {e.league_name}</h3>
             </Link>
           </div>
-          <p>
+          <p className="info">
             Hometown: {e.hometown}
             <br />
             Sport: {e.sport_type}
