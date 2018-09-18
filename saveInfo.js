@@ -144,3 +144,45 @@
 //     );
 //   }
 // }
+
+// doPayment(amount, tokenId, accessToken) {
+//   const body = {
+//     amount: amount,
+//     tokenId: tokenId
+//   };
+//   const headers = {
+//     "Content-Type": "application/json"
+//   };
+//   return axios
+//     .post("/donate/monetary", body, { headers })
+//     .then(({ data }) => {
+//       return data;
+//     })
+//     .catch(error => {
+//       return Promise.reject("Error in making payment", error);
+//     });
+// }
+
+// requestPayment() {
+//   this.setState({ isPaymentPending: true });
+//   return stripe
+//     .paymentRequestWithCardForm()
+//     .then(stripeTokenInfo => {
+//       return this.doPayment(100, stripeTokenInfo.tokenId);
+//       console.log("Token created", { stripeTokenInfo });
+//     })
+//     .then(() => {
+//       console.log("Payment Success!");
+//     })
+//     .catch(error => {
+//       console.log("Payment Failed", { error });
+//     })
+//     .finally(() => {
+//       this.setState({
+//         isPaymentPending: false
+//       });
+//     })
+//     .catch(error => {
+//       console.log("Payment failed", { error });
+//     });
+// }

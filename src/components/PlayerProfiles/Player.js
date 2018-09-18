@@ -27,7 +27,6 @@ class Player extends Component {
       return (
         <div key={i}>
           <h1 id="playerName">{e.player_name}</h1>
-          {this.renderEditBox}
           <div className="teamLeague">
             <Link to="/team" className="link">
               <h3 className="team">TEAM: {e.team_name}</h3>
@@ -54,7 +53,7 @@ class Player extends Component {
 
     return (
       <div>
-        <div className="playerCard">{player}</div>
+        <div id="playerCard">{player}</div>
       </div>
     );
   }

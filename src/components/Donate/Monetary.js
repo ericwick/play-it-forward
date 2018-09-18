@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Donate/Donate.css";
+// import Checkout from "../Donate/Checkout";
 
 class Monetary extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class Monetary extends Component {
   render() {
     return (
       <div className="donate">
-        <h1 className="donation">DONATION</h1>
+        <h1>DONATE</h1>
       </div>
     );
   }

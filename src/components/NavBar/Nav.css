@@ -3,6 +3,19 @@
   top: 0;
   position: fixed;
   background-color: transparent;
+  -webkit-transition: height 90px;
+  -moz-transition: height 90px;
+  transition: height 90px;
+}
+
+.header.shrink {
+  background-color: slategray;
+}
+
+.header.navbar {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .navlinks {

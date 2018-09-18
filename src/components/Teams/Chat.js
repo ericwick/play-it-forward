@@ -10,7 +10,7 @@ export default class Chat extends Component {
   }
 
   componentDidMount() {
-    addResponseMessage(`Raider's Group Chat!`);
+    addResponseMessage(`${this.props.teamName} Group Chat!`);
   }
 
   async handleNewUserMessage(newMessage) {
@@ -25,8 +25,8 @@ export default class Chat extends Component {
       <div>
         <Widget
           handleNewUserMessage={JSON.stringify(this.handleNewUserMessage)}
-          title="title"
-          subtitle="subtitle"
+          title={this.props.teamName}
+          subtitle="Team Chat"
         />
       </div>
     );

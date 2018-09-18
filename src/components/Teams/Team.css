@@ -1,18 +1,14 @@
 .teampage {
+  text-align: center;
   display: inline;
-}
-
-.centerpage {
-  margin: 1em;
-  align-content: center;
 }
 
 .rightpage {
   float: right;
   font-size: 2em;
-  padding: 5% 15% 5% 15%;
+  padding: 2% 8% 2% 2%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
 }
 
 .roster {
@@ -21,14 +17,15 @@
 
 .leftpage {
   float: left;
-  margin-left: 12%;
+  padding: 2% 2% 2% 8%;
 }
 
 .link {
   text-decoration: none;
 }
 
-.teamtitle {
+#teamtitle {
+  text-align: center;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -50,9 +47,8 @@
 
 .playerCard {
   position: relative;
-  display: flex;
   border: solid 1px black;
-  padding: 3px;
+  padding: 3px 2px 12px 2px;
   margin: 2%;
 }
 

@@ -43,13 +43,11 @@ class Team extends Component {
     let squad = arr.map((e, i) => {
       return (
         <div key={i} className="teampage">
-          <div className="centerpage">
-            <h1 className="teamtitle">{e.team_name}</h1>
+          <h1 id="teamtitle">{e.team_name}</h1>
 
-            <Link to="/player" className="link">
+          {/* <Link to="/player" className="link">
               <h3>{e.player_name}</h3>
-            </Link>
-          </div>
+            </Link> */}
           <div className="rightpage">{roster}</div>
           <div className="leftpage">
             <Link to="/league" className="link">
@@ -69,7 +67,7 @@ class Team extends Component {
       <div>
         <div>{squad}</div>
         <div>
-          <Chat />
+          <Chat teamName={sportsInfo.team_name} />
         </div>
       </div>
     );
