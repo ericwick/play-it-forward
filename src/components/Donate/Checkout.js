@@ -1,75 +1,44 @@
-import React, { Component } from "react";
-import { injectStripe, CardElement } from "react-stripe-elements";
+import React from "react";
 import axios from "axios";
+import StripeCheckout from "react-stripe-checkout";
 
-class Checkout extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      complete: false,
-      amount: 0,
-      firstName: "",
-      lastName: "",
-      email: ""
-    };
-    this.submit = this.submit.bind(this);
-  }
+const CURRENCY = "USD";
 
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
+const amount = this.props;
 
-  async submit(e) {
-    let { token } = await this.props.stripe.createToken({ name: "Name" });
-    let response = await axios.post("/charge", {
-      method: "POST",
-      headers: { "Content-Type": "text/plain" },
-      body: token.id,
-      amount: this.state.amount,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email
-    });
-    if (response.ok) {
-      this.setState({ complete: true });
-    }
-  }
+const fromUSDToCent = amount => amount * 100;
 
-  render() {
-    if (this.state.complete) {
-      return <h1>Purchase Complete</h1>;
-    }
+const successfulPayment = data => {
+  alert("Payment Successful");
+};
 
-    return (
-      <div>
-        <p>Would you like to complete the purchase?</p>
-        <input
-          name={this.state.amount}
-          onChange={e => this.handleChange(e)}
-          placeholder="Amount"
-        />
-        <input
-          name={this.state.firstName}
-          onChange={e => this.handleChange(e)}
-          placeholder="First Name"
-        />
-        <input
-          name={this.state.lastName}
-          onChange={e => this.handleChange(e)}
-          placeholder="Last Name"
-        />
-        <input
-          name={this.state.email}
-          onChange={e => this.handleChange(e)}
-          placeholder="Email"
-        />
-        <CardElement />
-        <button onClick={this.submit}>Send</button>
-      </div>
-    );
-  }
-}
+const errorPayment = data => {
+  alert("Payment Error");
+};
 
-export default injectStripe(Checkout);
+const onToken = (amount, description) => token => {
+  axios
+    .post("/donate/checkout", {
+      description,
+      source: token.id,
+      currency: CURRENCY,
+      amount: fromUSDToCent(amount)
+    })
+    .then(successfulPayment)
+    .catch(errorPayment);
+};
+
+const Checkout = ({ name, description, amount }) => {
+  return (
+    <StripeCheckout
+      name={name}
+      description={description}
+      amount={fromUSDToCent(amount)}
+      token={onToken(amount, description)}
+      currency={CURRENCY}
+      stripeKey={"pk_test_0CtxRdTpX9QoCHJQHrvNpSIX"}
+    />
+  );
+};
+
+export default Checkout;

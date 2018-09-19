@@ -20,6 +20,8 @@ const {
 } = require("./controllers/auth.controller");
 const { updateInfo, deleteInfo } = require("./controllers/edit_controller");
 const { chatMessage } = require("./controllers/chat_controller");
+const { checkout } = require("./controllers/stripe_controller");
+const { paymentDonation } = require("./controllers/donate_controller");
 
 const app = express();
 
@@ -98,6 +100,7 @@ app.get("/league", getLeague);
 app.post("/registration", newPlayer);
 app.post("/login", login);
 app.post("/team/chat", chatMessage);
+app.post("/donate/payment", paymentDonation);
 
 app.put("/playerInfo/:id", updateInfo);
 

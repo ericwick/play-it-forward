@@ -1,27 +1,30 @@
-// module.exports = {
-//   payment: (req, res, next) => {
-//     return stripe.charges
-//       .create({
-//         amount: req.body.amount,
-//         currency: "usd",
-//         source: req.body.tokenId,
-//         description: "Test payment"
-//       })
-//       .then(response => res.status(200).json(response));
-//   },
-//   createCharge: async (req, res, next) => {
-//     console.log(req.body, "REQ BODY");
-//     try {
-//       let { status } = await stripe.charges.create({
-//         amount: 2000,
-//         currency: "usd",
-//         description: "An example charge",
-//         source: req.body
-//       });
-//       console.log(status, "STATUS");
-//       res.status(200).json({ status });
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   }
-// };
+require("dotenv").config();
+const stripeCheckout = require("stripe");
+const stripe = stripeCheckout(process.env.STRIPE_SECRET);
+
+const postStripeCharge = res => (stripeRes, stripeErr) => {
+  if (stripeErr) {
+    res.status(500).json({ error: stripeErr });
+  } else {
+    res.status(200).json({ success: stripeRes });
+  }
+};
+const payment = app => {
+  app.get("/", (req, res) => {
+    res.send({
+      message: "Hello Stripe checkout server!",
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  app.post("/donate/checkout", (req, res) => {
+    console.log(req.body);
+    stripe.charges.create(req.body, postStripeCharge(res));
+  });
+
+  return app;
+};
+
+module.exports = {
+  checkout: app => payment(app)
+};

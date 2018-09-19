@@ -1,15 +1,32 @@
 .footer {
-  /* position: fixed; */
   left: 0;
   bottom: 0;
   padding-bottom: 3vh;
   margin-top: 2vh;
   width: 100%;
-  background-color: wheat;
-  color: chocolate;
-  display: flex;
+  background-image: linear-gradient(
+    to left,
+    #8a8989,
+    #9c9b9a,
+    #aeadac,
+    #c0bfbe,
+    #d3d2d1
+  );
+  color: #fa4100;
 }
 
+.link {
+  text-decoration: none;
+}
+
+link:hover {
+  text-decoration: none;
+}
+
+.columns {
+  display: flex;
+  text-align: center;
+}
 .pif {
   padding: 2em;
 }

@@ -17,11 +17,13 @@ class Donate extends Component {
         <br />
 
         <Link to="/monetary">
-          <button className="money">Money Donation</button>
+          <button className="money">Help Fund the Youth Leagues</button>
         </Link>
 
         <Link to="/physical">
-          <button className="physical">Physical Donation</button>
+          <button className="physical">
+            Help provide the Youth Leagues with necessary equipment
+          </button>
         </Link>
       </div>
     );

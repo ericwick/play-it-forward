@@ -18,76 +18,63 @@ class Nav extends Component {
   }
 
   render() {
+    window.scroll(function() {
+      if (this.scrollTop() > 1) {
+        "header".addClass("sticky");
+      } else {
+        "header".removeClass("sticky");
+      }
+    });
     return (
       <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav className="navbar navbar-default navbar-fixed-top">
           <div class="navbar-header">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                <h4>PiF</h4>
-              </a>
-
-              <button
-                type="button"
-                class="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#navbar"
-                aria-expanded="false"
-                aria-controls="navbar"
-              >
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar" />
-                <span class="icon-bar" />
-                <span class="icon-bar" />
-              </button>
-            </div>
-          </div>
-
-          <div id="navbar" class="navbar-collapse collapse navbar-right">
-            <div className="container">
-              {this.props.sportsInfo && this.props.sportsInfo.auth_id ? (
-                <ul className="nav navbar-nav">
-                  <Link to="/" className="link">
-                    <li className="links">HOME</li>
-                  </Link>
-                  <Link to="/about" className="link">
-                    <li className="links">ABOUT</li>
-                  </Link>
-                  <Link to="/donate" className="link">
-                    <li className="links">DONATE</li>
-                  </Link>
-                  <Link to="/player" className="link">
-                    <li className="links">PROFILE</li>
-                  </Link>
-                  <Link to="/team" className="link">
-                    <li className="links">TEAM</li>
-                  </Link>
-                  <Link to="/league" className="link">
-                    <li className="links">LEAGUE</li>
-                  </Link>
-                  <Link to="/logout" className="link">
-                    <li className="links">LOGOUT</li>
-                  </Link>
-                </ul>
-              ) : (
-                <ul className="nav navbar-nav">
-                  <Link to="/" className="link">
-                    <li className="links">HOME</li>
-                  </Link>
-                  <Link to="/about" className="link">
-                    <li className="links">ABOUT</li>
-                  </Link>
-                  <Link to="/donate" className="link">
-                    <li className="links">DONATE</li>
-                  </Link>
-                  <Link to="/login" className="link">
-                    <li className="links">LOGIN</li>
-                  </Link>
-                  <Link to="/registration" className="link">
-                    <li className="links">REGISTER</li>
-                  </Link>
-                </ul>
-              )}
+            <div id="navbar" className="navbar-collapse collapse navbar-right">
+              <div className="container">
+                {this.props.sportsInfo && this.props.sportsInfo.auth_id ? (
+                  <ul className="nav navbar-nav">
+                    <Link to="/" className="link">
+                      <li className="links">HOME</li>
+                    </Link>
+                    <Link to="/about" className="link">
+                      <li className="links">ABOUT</li>
+                    </Link>
+                    <Link to="/donate" className="link">
+                      <li className="links">DONATE</li>
+                    </Link>
+                    <Link to="/player" className="link">
+                      <li className="links">PROFILE</li>
+                    </Link>
+                    <Link to="/team" className="link">
+                      <li className="links">TEAM</li>
+                    </Link>
+                    <Link to="/league" className="link">
+                      <li className="links">LEAGUE</li>
+                    </Link>
+                    <Link to="/logout" className="link">
+                      <li className="links">LOGOUT</li>
+                    </Link>
+                  </ul>
+                ) : (
+                  <ul className="nav navbar-nav">
+                    <Link to="/" className="link">
+                      <li className="links">HOME</li>
+                    </Link>
+                    <Link to="/about" className="link">
+                      <li className="links">ABOUT</li>
+                    </Link>
+                    <Link to="/donate" className="link">
+                      <li className="links">DONATE</li>
+                    </Link>
+                    <Link to="/login" className="link">
+                      <li className="links">LOGIN</li>
+                    </Link>
+                    <Link to="/registration" className="link">
+                      <li className="links">REGISTER</li>
+                    </Link>
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
         </nav>
