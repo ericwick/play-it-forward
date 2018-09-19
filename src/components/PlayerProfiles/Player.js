@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Player.css";
 import Edit from "./Edit";
+import Registration from "../Registration/Registration";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateSportsInfo } from "../../ducks/get_reducer";
@@ -19,7 +20,7 @@ class Player extends Component {
 
   render() {
     let { sportsInfo } = this.props;
-
+    console.log(sportsInfo);
     let arr = [];
     arr.push(sportsInfo);
 
@@ -53,7 +54,11 @@ class Player extends Component {
 
     return (
       <div>
-        <div id="playerCard">{player}</div>
+        {this.props.sportsInfo.hometown ? (
+          <div id="playerCard">{player}</div>
+        ) : (
+          <Registration />
+        )}
       </div>
     );
   }

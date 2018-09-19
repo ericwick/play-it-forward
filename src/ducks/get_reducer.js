@@ -34,7 +34,6 @@ export default function getReducer(state = initialState, action) {
         ...state,
         leagues: action.payload.data
       };
-
     default:
       return state;
   }

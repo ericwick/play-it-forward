@@ -4,7 +4,7 @@ import StripeCheckout from "react-stripe-checkout";
 
 const CURRENCY = "USD";
 
-const amount = this.props;
+// const amount = this.props;
 
 const fromUSDToCent = amount => amount * 100;
 

@@ -10,20 +10,18 @@ const {
   getPlayer,
   loggedIn,
   roster,
-  getLeague
+  getLeague,
+  getTeams
 } = require("./controllers/get_controller");
-const {
-  newPlayer,
-  logout,
-  login,
-  register
-} = require("./controllers/auth.controller");
+const { checkout } = require("./controllers/stripe_controller");
+const { newPlayer, logout, login } = require("./controllers/auth.controller");
 const { updateInfo, deleteInfo } = require("./controllers/edit_controller");
 const { chatMessage } = require("./controllers/chat_controller");
 const { checkout } = require("./controllers/stripe_controller");
 const { paymentDonation } = require("./controllers/donate_controller");
 
 const app = express();
+checkout(app);
 
 app.use(json());
 app.use(
@@ -83,19 +81,12 @@ app.get(
   })
 );
 
-function authenticated(req, res, next) {
-  if (req.user) {
-    next();
-  } else {
-    res.sendStatus(401);
-  }
-}
-
 app.get("/user", loggedIn);
 app.get("/player", getPlayer);
 app.get("/logout", logout);
 app.get("/roster", roster);
 app.get("/league", getLeague);
+app.get("/teams", getTeams);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);

@@ -25,6 +25,7 @@ class Nav extends Component {
         "header".removeClass("sticky");
       }
     });
+
     return (
       <header>
         <nav className="navbar navbar-default navbar-fixed-top">

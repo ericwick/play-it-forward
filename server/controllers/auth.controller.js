@@ -20,7 +20,6 @@ module.exports = {
       team_name,
       sport_type,
       position,
-      league_name,
       gender,
       age,
       hometown
@@ -31,7 +30,6 @@ module.exports = {
       team_name,
       sport_type,
       position,
-      league_name,
       gender,
       age,
       hometown

@@ -30,5 +30,14 @@ module.exports = {
         return res.status(200).json(league);
       })
       .catch(err => console.log("no roster", err));
+  },
+  getTeams: (req, res, next) => {
+    const db = req.app.get("db");
+    db.get_teams()
+      .then(response => {
+        console.log(response);
+        res.status(200).json(response);
+      })
+      .catch(err => console.log("no teams", err));
   }
 };

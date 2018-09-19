@@ -18,8 +18,8 @@ const payment = app => {
   });
 
   app.post("/donate/checkout", (req, res) => {
-    console.log(req.body);
     stripe.charges.create(req.body, postStripeCharge(res));
+    console.log(res);
   });
 
   return app;
