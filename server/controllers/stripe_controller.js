@@ -9,17 +9,10 @@ const postStripeCharge = res => (stripeRes, stripeErr) => {
     res.status(200).json({ success: stripeRes });
   }
 };
-const payment = app => {
-  app.get("/", (req, res) => {
-    res.send({
-      message: "Hello Stripe checkout server!",
-      timestamp: new Date().toISOString()
-    });
-  });
 
+const payment = app => {
   app.post("/donate/checkout", (req, res) => {
     stripe.charges.create(req.body, postStripeCharge(res));
-    console.log(res);
   });
 
   return app;

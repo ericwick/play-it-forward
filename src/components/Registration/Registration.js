@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./Registration.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -65,7 +64,6 @@ class Registration extends Component {
     console.log(this.props.teams);
     const {
       updatePlayerName,
-      updateTeamName,
       updateSports,
       updatePosition,
       updateGender,

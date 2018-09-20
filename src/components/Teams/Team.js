@@ -20,7 +20,7 @@ class Team extends Component {
     let { sportsInfo, team } = this.props;
     let arr = [];
     arr.push(sportsInfo);
-
+    console.log(sportsInfo);
     console.log(team);
 
     let roster = team.map((e, i) => {
@@ -44,10 +44,9 @@ class Team extends Component {
       return (
         <div key={i} className="teampage">
           <h1 id="teamtitle">{e.team_name}</h1>
-
-          {/* <Link to="/player" className="link">
-              <h3>{e.player_name}</h3>
-            </Link> */}
+          <h2 id="donations">
+            {e.team_name}' Total Donations: ${e.donations}
+          </h2>
           <div className="rightpage">{roster}</div>
           <div className="leftpage">
             <Link to="/league" className="link">

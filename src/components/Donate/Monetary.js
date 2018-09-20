@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../Donate/Donate.css";
-import Payment from "./Payment";
+import "./Monetary.css";
+import Checkout from "./Checkout";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Monetary extends Component {
   constructor() {
@@ -37,7 +37,7 @@ class Monetary extends Component {
       state
     } = this.state;
     axios
-      .post("/donate/payment", {
+      .post("/donate/paymentInfo", {
         firstName,
         lastName,
         amount,
@@ -51,50 +51,55 @@ class Monetary extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="donate">
-        <h1>DONATE</h1>
-        <input
-          name={this.state.firstName}
-          onChange={e => this.handleChange(e)}
-          placeholder="First Name"
-        />
-        <input
-          name={this.state.lastName}
-          onChange={e => this.handleChange(e)}
-          placeholder="Last Name"
-        />
-        <input
-          name={this.state.email}
-          onChange={e => this.handleChange(e)}
-          placeholder="Email"
-        />
-        <input
-          name={this.state.teamName}
-          onChange={e => this.handleChange(e)}
-          placeholder="Team Name"
-        />
-        <input
-          name={this.state.city}
-          onChange={e => this.handleChange(e)}
-          placeholder="City"
-        />
-        <input
-          name={this.state.state}
-          onChange={e => this.handleChange(e)}
-          placeholder="State"
-        />
-        <input
-          name={this.state.amount}
-          onChange={e => this.handleChange(e)}
-          placeholder="Amount"
-        />
-
-        {/* PUT THIS IN ANOTHER COMPONENT (LIKE A WIZARD) AND HAVE THE NEXT BUTTON PUSH THE USERS DATA TO POSTGRES */}
-        <Link to="/checkout">
-          <button onSubmit={() => this.onSubmit()}>Proceed to Payment</button>
-        </Link>
-        <Payment amount={this.state.amount} />
+        <h1 id="monetary">DONATE</h1>
+        <br />
+        <div className="form">
+          <input
+            name="firstName"
+            onChange={e => this.handleChange(e)}
+            placeholder="First Name"
+          />
+          <input
+            name="lastName"
+            onChange={e => this.handleChange(e)}
+            placeholder="Last Name"
+          />
+          <input
+            name="email"
+            onChange={e => this.handleChange(e)}
+            placeholder="Email"
+          />
+          <input
+            name="teamName"
+            onChange={e => this.handleChange(e)}
+            placeholder="Team Name"
+          />
+          <input
+            name="city"
+            onChange={e => this.handleChange(e)}
+            placeholder="City"
+          />
+          <input
+            name="state"
+            onChange={e => this.handleChange(e)}
+            placeholder="State"
+          />
+          <input
+            name="amount"
+            onChange={e => this.handleChange(e)}
+            placeholder="Amount"
+          />
+          <div onClick={() => this.onSubmit()} className="checkout">
+            <Checkout
+              name={"Thank you for your donation!"}
+              description={"description"}
+              amount={this.state.amount}
+            />
+          </div>
+        </div>
       </div>
     );
   }

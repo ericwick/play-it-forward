@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
+require("dotenv").config();
 
 const CURRENCY = "USD";
-
-// const amount = this.props;
 
 const fromUSDToCent = amount => amount * 100;
 
@@ -36,7 +35,7 @@ const Checkout = ({ name, description, amount }) => {
       amount={fromUSDToCent(amount)}
       token={onToken(amount, description)}
       currency={CURRENCY}
-      stripeKey={"pk_test_0CtxRdTpX9QoCHJQHrvNpSIX"}
+      stripeKey="pk_test_0CtxRdTpX9QoCHJQHrvNpSIX"
     />
   );
 };

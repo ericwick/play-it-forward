@@ -17,11 +17,9 @@ const { checkout } = require("./controllers/stripe_controller");
 const { newPlayer, logout, login } = require("./controllers/auth.controller");
 const { updateInfo, deleteInfo } = require("./controllers/edit_controller");
 const { chatMessage } = require("./controllers/chat_controller");
-const { checkout } = require("./controllers/stripe_controller");
 const { paymentDonation } = require("./controllers/donate_controller");
 
 const app = express();
-checkout(app);
 
 app.use(json());
 app.use(
@@ -55,6 +53,8 @@ passport.use(
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set("db", db))
   .catch(err => console.log("ERROR", err));
+
+checkout(app);
 
 passport.serializeUser((user, done) => {
   const db = app.get("db");
@@ -91,7 +91,7 @@ app.get("/teams", getTeams);
 app.post("/registration", newPlayer);
 app.post("/login", login);
 app.post("/team/chat", chatMessage);
-app.post("/donate/payment", paymentDonation);
+app.post("/donate/paymentInfo", paymentDonation);
 
 app.put("/playerInfo/:id", updateInfo);
 

@@ -1,7 +1,6 @@
 module.exports = {
   getPlayer: (req, res, next) => {
     const db = req.app.get("db");
-    // console.log(req.user, "USEROBJ");
     db.get_player(req.user.auth_id)
       .then(player => {
         return res.status(200).send(player[0]);

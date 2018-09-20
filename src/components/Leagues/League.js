@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
-// import Nav from "../NavBar/Nav";
-// import Footer from "../Footer/Footer";
 
 class League extends Component {
   constructor() {
@@ -21,13 +19,22 @@ class League extends Component {
     let arr = [];
     arr.push(sportsInfo);
 
+    console.log(sportsInfo);
+
     console.log(leagues);
+
+    leagues.sort(function(a, b) {
+      return a.wins - b.wins;
+    });
+
+    leagues.reverse();
 
     let division = leagues.map((e, i) => {
       return (
         <div key={i}>
           {e.team_name}
-          {e.record}
+          <br />
+          {e.wins}-{e.loses}-{e.ties}
         </div>
       );
     });
@@ -50,10 +57,10 @@ class League extends Component {
           <div>
             Sport: {e.sport_type}
             <br />
-            <ul>
-              Teams: {e.teams}
+            <ol>
+              Standings
               <li>{division}</li>
-            </ul>
+            </ol>
             Age Range: {e.age_range}
             <br />
             Gender: {e.gender}
@@ -65,14 +72,8 @@ class League extends Component {
     });
     return (
       <div>
-        {/* <div>
-          <Nav />
-        </div> */}
         <h4>LEAGUE NAME</h4>
         <div>{league}</div>
-        {/* <div>
-          <Footer />
-        </div> */}
       </div>
     );
   }

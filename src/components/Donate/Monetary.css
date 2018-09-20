@@ -1,0 +1,19 @@
+.donate {
+  display: inline-block;
+  text-align: center;
+}
+
+.form {
+  display: flex-wrap;
+  margin: 10%;
+}
+
+#monetary {
+  padding: 0;
+  margin: 25% 25% 5% 25%;
+  line-height: 0;
+}
+
+.checkout {
+  margin: 5%;
+}
