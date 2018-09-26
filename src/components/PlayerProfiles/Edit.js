@@ -48,13 +48,19 @@ class Edit extends Component {
     });
   }
 
-  updateInfo(id, body) {
+  updateInfo(id, body, profileImg) {
     axios
       .put(`/playerInfo/${id}`, { body })
       .then(response => {
         console.log(response);
       })
       .catch(err => console.log(err, "post err (PLAYER 48)"));
+    axios
+      .post("/player/upload", profileImg)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.log(err));
     window.location.reload(false);
     this.showEdit();
   }
@@ -81,12 +87,18 @@ class Edit extends Component {
 
         {this.state.editMode === true ? (
           <div>
+            Image Preview
+            <img src={this.props.profileImg} alt="" />
+            <input
+              name={this.props.profileImg}
+              placeholder="Profile Pic URL"
+              onChange={e => this.props.updateProfilePic(e)}
+            />
             <input
               name={sportsInfo.player_name}
               placeholder="Player Name"
               onChange={e => this.updateName(e)}
             />
-
             <input
               name={sportsInfo.hometown}
               placeholder="Hometown"
@@ -107,7 +119,6 @@ class Edit extends Component {
               placeholder="Position"
               onChange={e => this.updatePosition(e)}
             />
-
             <button
               onClick={() =>
                 this.updateInfo(sportsInfo.auth_id, {
@@ -121,7 +132,6 @@ class Edit extends Component {
             >
               Save Changes
             </button>
-
             <div>
               <Link to="/">
                 <button onClick={() => this.deleteProfile(sportsInfo.auth_id)}>

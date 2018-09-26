@@ -14,10 +14,15 @@ const {
   getTeams
 } = require("./controllers/get_controller");
 const { checkout } = require("./controllers/stripe_controller");
-const { newPlayer, logout, login } = require("./controllers/auth.controller");
+const { newPlayer, logout, login } = require("./controllers/auth_controller");
 const { updateInfo, deleteInfo } = require("./controllers/edit_controller");
 const { chatMessage } = require("./controllers/chat_controller");
 const { paymentDonation } = require("./controllers/donate_controller");
+const {
+  registerUser,
+  schedulePractice
+} = require("./controllers/mailer_controller");
+const { profilePic } = require("./controllers/image_controller");
 
 const app = express();
 
@@ -92,6 +97,9 @@ app.post("/registration", newPlayer);
 app.post("/login", login);
 app.post("/team/chat", chatMessage);
 app.post("/donate/paymentInfo", paymentDonation);
+app.post("/registration/email", registerUser);
+app.post("/team/practice", schedulePractice);
+app.post("/player/upload", profilePic);
 
 app.put("/playerInfo/:id", updateInfo);
 

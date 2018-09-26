@@ -1,47 +1,79 @@
-.teampage {
-  text-align: center;
-  display: inline;
-}
-
-.rightpage {
-  float: right;
-  font-size: 2em;
-  padding: 2% 8% 2% 2%;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(150px, 1fr));
-}
-
-.roster {
-  margin: 2%;
-}
-
-.leftpage {
-  float: left;
-  padding: 2% 2% 2% 8%;
-}
-
-.link {
-  text-decoration: none;
+#teampagediv {
+  margin: 0;
+  height: 100%;
+  padding-bottom: 20vh;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
 }
 
 #teamtitle {
-  text-align: center;
   margin-bottom: 0;
   margin-top: 0;
+  color: black;
+}
+.squaddiv {
+  width: 100%;
+  margin: 10% 0 10% 0;
+}
+
+#teamtitle {
+  margin: 0 5% 10% 5%;
+  font-size: 12em;
+}
+
+.schedulepracticediv {
+  margin-top: 20vh;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.teampage {
+  text-align: center;
+  /* display: flex; */
+  /* flex-direction: row-reverse; */
+}
+
+.teampageinfo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#donations {
+  margin: 10%;
+}
+
+.rostertitle {
+  margin-top: 8%;
+  font-size: 6em;
+}
+
+.rosterdisplay {
+  width: 100%;
+  margin: 3%;
+  font-size: 3em;
+  padding: 2% 8% 2% 2%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+}
+
+.teampagelink {
+  text-decoration: none;
 }
 
 .playerName {
-  font-size: 0.5em;
+  font-size: 0.8em;
   text-align: center;
 }
 
 .position {
-  font-size: 0.2em;
+  font-size: 0.55em;
   text-align: center;
 }
 
 .playerInfo {
-  font-size: 0.1em;
+  font-size: 0.4em;
   text-align: center;
 }
 
@@ -49,7 +81,7 @@
   position: relative;
   border: solid 1px black;
   padding: 3px 2px 12px 2px;
-  margin: 2%;
+  margin: 5%;
 }
 
 .playercontent {

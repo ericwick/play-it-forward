@@ -1,29 +1,67 @@
-/* FIND OUT WHY THIS DIV ENCOMPASSES THE NAV BAR */
-
-.teamLeague {
-  display: inline;
+/* entire page div in the return */
+#playerprofilepage {
+  margin: 0;
+  padding: 0 0 3% 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
+.playerspacer {
+  margin-top: 5%;
+  /* margin-bottom: 5%; */
+}
+
+/* card map that has the Player Name and TEAM/LEAGUE links */
+#profilecard {
+  margin: 4% 2% 4% 2%;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  justify-content: space-between;
+  text-align: center;
+  padding: 4% 1% 4% 1%;
+}
+.playerpagelink {
+  text-decoration: none;
+  padding: 1%;
+}
 .team {
-  font-size: 3em;
-  text-decoration: none;
-  margin: 0;
+  font-size: 2.5em;
 }
-
 .league {
-  font-size: 2.7em;
-  text-decoration: none;
-  margin: 0;
+  font-size: 2.5em;
+}
+#playerName {
+  font-size: 5em;
+  padding: 2.35% 0 0 1%;
+}
+.teamleaguelinks {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  padding-right: 11%;
 }
 
-.link {
-  text-decoration: none;
+/* player information below their name and links */
+.playerprofileinfo {
+  margin: 4% 2% 4% 2%;
+  padding: 2% 1% 4% 1%;
+  background: white;
+}
+#profilepic {
+  height: 25em;
+  width: 25em;
+  top: 33%;
+  left: 37%;
+  position: absolute;
+  border-radius: 50%;
+  border: 7px solid #fa4100;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
 }
 
 #playerName {
-  margin-bottom: 0;
-}
-
-.info {
-  margin-bottom: 4em;
+  color: black;
+  margin: 0;
 }

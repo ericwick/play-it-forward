@@ -9,7 +9,7 @@ class Donate extends Component {
   }
   render() {
     return (
-      <div className="donate">
+      <div className="donatepage">
         <h1 className="donation" id="homedonate">
           DONATE
         </h1>

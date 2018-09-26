@@ -1,8 +1,7 @@
-.footer {
+#footer {
   left: 0;
   bottom: 0;
   padding-bottom: 3vh;
-  margin-top: 2vh;
   width: 100%;
   background-image: linear-gradient(
     to left,

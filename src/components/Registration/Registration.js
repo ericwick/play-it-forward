@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Registration.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -10,7 +11,8 @@ import {
   updateGender,
   updateAge,
   updateHometown,
-  updateTeams
+  updateTeams,
+  updateEmail
 } from "../../ducks/registration_reducer";
 
 class Registration extends Component {
@@ -33,7 +35,8 @@ class Registration extends Component {
       position,
       gender,
       age,
-      hometown
+      hometown,
+      email
     } = this.props;
     axios
       .post("/registration", {
@@ -43,7 +46,8 @@ class Registration extends Component {
         position,
         gender,
         age,
-        hometown
+        hometown,
+        email
       })
       .then(response => {
         console.log(response);
@@ -54,8 +58,15 @@ class Registration extends Component {
           position: response.data,
           gender: response.data,
           age: response.data,
-          hometown: response.data
+          hometown: response.data,
+          email: response.data
         });
+      })
+      .catch(err => console.log(err));
+    axios
+      .post("/registration/email", { email })
+      .then(response => {
+        console.log(response);
       })
       .catch(err => console.log(err));
   }
@@ -68,18 +79,19 @@ class Registration extends Component {
       updatePosition,
       updateGender,
       updateAge,
-      updateHometown
+      updateHometown,
+      updateEmail,
+      updateTeamName
     } = this.props;
 
-    let teamOptions = this.props.teams.map((e, i) => {
+    let teamOptions = this.props.teams.map((e, i, arr) => {
       if (this.props.age >= 18 && e.age_range === "18+") {
         return (
-          <select key={i}>
-            <option>
-              {e.team_name}
-              {e.sport_type}
-            </option>
-          </select>
+          <div key={i}>
+            {e.team_name}
+            ...
+            {e.sport_type}
+          </div>
         );
       } else if (
         this.props.age < 18 &&
@@ -87,25 +99,23 @@ class Registration extends Component {
         e.age_range === "14-17"
       ) {
         return (
-          <select key={i}>
-            <option>
-              {e.team_name}
-              {e.sport_type}
-            </option>
-          </select>
+          <div key={i}>
+            {e.team_name}
+            ...
+            {e.sport_type}
+          </div>
         );
       } else if (
         this.props.age < 14 &&
         this.props.age >= 11 &&
-        e.age_range === "11-13"
+        e.age_range === "13-14"
       ) {
         return (
-          <select key={i}>
-            <option value={e.team_name}>
-              {e.team_name}
-              {e.sport_type}
-            </option>
-          </select>
+          <div key={i}>
+            {e.team_name}
+            ...
+            {e.sport_type}
+          </div>
         );
       } else if (
         this.props.age < 11 &&
@@ -113,12 +123,11 @@ class Registration extends Component {
         e.age_range === "9-10"
       ) {
         return (
-          <select key={i}>
-            <option value={e.team_name}>
-              {e.team_name}
-              {e.sport_type}
-            </option>
-          </select>
+          <div key={i}>
+            {e.team_name}
+            ...
+            {e.sport_type}
+          </div>
         );
       } else if (
         this.props.age < 9 &&
@@ -126,12 +135,11 @@ class Registration extends Component {
         e.age_range === "7-8"
       ) {
         return (
-          <select key={i}>
-            <option value={e.team_name}>
-              {e.team_name}
-              {e.sport_type}
-            </option>
-          </select>
+          <div key={i}>
+            {e.team_name}
+            ...
+            {e.sport_type}
+          </div>
         );
       } else if (
         this.props.age < 7 &&
@@ -139,36 +147,27 @@ class Registration extends Component {
         e.age_range === "5-6"
       ) {
         return (
-          <select key={i}>
-            <option value={e.team_name}>
-              {e.team_name}
-              {e.sport_type}
-            </option>
-          </select>
-        );
-      } else {
-        return (
-          <select value="N/A" selected>
-            <option>--Team Name--</option>
-          </select>
+          <div key={i}>
+            {e.team_name}
+            ...
+            {e.sport_type}
+          </div>
         );
       }
     });
 
-    console.log(teamOptions);
-
     return (
-      <div>
+      <div className="registrationpage">
         <div>
-          <h2>REGISTRATION</h2>
+          <h2 id="registrationtitle">REGISTRATION</h2>
           <p>FULL NAME</p>
           <input onChange={e => updatePlayerName(e.target.value)} required />
           <br />
+          <p>EMAIL</p>
+          <input onChange={e => updateEmail(e.target.value)} required />
+          <br />
           <p>HOMETOWN</p>
           <input onChange={e => updateHometown(e.target.value)} required />
-          <br />
-          <p>SPORTS</p>
-          <input onChange={e => updateSports(e.target.value)} required />
           <br />
           <p>POSITION</p>
           <input onChange={e => updatePosition(e.target.value)} />
@@ -181,13 +180,12 @@ class Registration extends Component {
           <br />
           <p>TEAM NAME</p>
           {teamOptions}
-          {/* <input
-            type="select"
-            onChange={e => updateTeamName(e.target.value)}
-            selectBoxOptions={teamOptions}
-          /> */}
+          <input onChange={e => updateTeamName(e.target.value)} required />
+          <p>SPORTS</p>
+          <input onChange={e => updateSports(e.target.value)} required />
           <br />
-          <Link to="/login">
+          <br />
+          <Link to="/login" className="registrationlink">
             <button onClick={() => this.submitRegistration()}>Submit</button>
           </Link>
         </div>
@@ -208,6 +206,7 @@ export default connect(
     updateGender,
     updateAge,
     updateHometown,
-    updateTeams
+    updateTeams,
+    updateEmail
   }
 )(Registration);

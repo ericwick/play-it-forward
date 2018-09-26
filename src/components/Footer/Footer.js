@@ -10,7 +10,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="footer">
+      <div id="footer">
         <div className="columns">
           <div className="pif">
             <h5>PLAY IT FORWARD</h5>

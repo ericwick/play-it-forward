@@ -1,5 +1,12 @@
 .App {
   text-align: center;
-  position: relative;
   font-family: "Quattrocento Sans", sans-serif;
+  min-height: 100vh;
+}
+
+body {
+  /* background: url("https://st2.depositphotos.com/1866209/11917/v/950/depositphotos_119175712-stock-illustration-black-and-white-sport-fitness.jpg"); */
+  background: lightgrey;
+  background-size: 100% 220vh;
+  z-index: -9999;
 }

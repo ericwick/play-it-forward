@@ -23,10 +23,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login">
+      <div className="loginpage">
         <p id="loginlink">
           <a href="http://localhost:3001/login" className="link">
-            <h1 className="titlelogin">LOGIN</h1>
+            <h1 id="titlelogin">LOGIN</h1>
           </a>
         </p>
       </div>

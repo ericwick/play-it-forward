@@ -22,7 +22,8 @@ module.exports = {
       position,
       gender,
       age,
-      hometown
+      hometown,
+      email
     } = req.body;
     console.log(req.body);
     db.new_player([
@@ -32,7 +33,8 @@ module.exports = {
       position,
       gender,
       age,
-      hometown
+      hometown,
+      email
     ])
       .then(() => {
         res.status(200);

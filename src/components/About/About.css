@@ -1,14 +1,28 @@
-.about {
+.aboutpage {
   text-align: center;
+  margin: 0 5%;
+  background: white;
+  position: relative;
+  height: 100%;
+  padding: 25vh;
+}
+
+.registrationlink {
+  color: black;
+  cursor: pointer;
 }
 
 #abouttitle {
-  display: block;
-  margin: auto;
-  width: 30%;
   color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 4em;
+  margin: 5%;
 }
 
-p {
-  margin: 0 10% 5% 10%;
+/* #titlelogin:hover {
+  color: slategray;
 }
+
+#loginlink {
+  margin: 0;
+} */

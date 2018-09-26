@@ -1,0 +1,18 @@
+.leaguepagediv {
+  margin: 0 5%;
+  background: white;
+  padding-top: 15vh;
+  padding-bottom: 80vh;
+}
+
+#backtoprofile {
+  float: left;
+  margin-top: 2em;
+  margin-left: 2em;
+}
+
+#backtoteam {
+  float: right;
+  margin-top: 2em;
+  margin-right: 2em;
+}

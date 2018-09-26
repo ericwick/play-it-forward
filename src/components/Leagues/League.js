@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./League.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
@@ -31,7 +32,7 @@ class League extends Component {
 
     let division = leagues.map((e, i) => {
       return (
-        <div key={i}>
+        <div key={i} id="leaguerankings">
           {e.team_name}
           <br />
           {e.wins}-{e.loses}-{e.ties}
@@ -42,17 +43,16 @@ class League extends Component {
     let league = arr.map((e, i) => {
       return (
         <div key={i}>
-          <div>
-            <h1>{e.league_name}</h1>
-          </div>
-
           <Link to="/player">
-            <h6>Back to Profile Page</h6>
+            <h6 id="backtoprofile">Back to Profile Page</h6>
           </Link>
 
           <Link to="/team">
-            <h6>Back to Team Page</h6>
+            <h6 id="backtoteam">Back to Team Page</h6>
           </Link>
+          <div>
+            <h1>{e.league_name}</h1>
+          </div>
 
           <div>
             Sport: {e.sport_type}
@@ -71,8 +71,7 @@ class League extends Component {
       );
     });
     return (
-      <div>
-        <h4>LEAGUE NAME</h4>
+      <div className="leaguepagediv">
         <div>{league}</div>
       </div>
     );
