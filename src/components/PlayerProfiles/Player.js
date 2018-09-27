@@ -1,26 +1,30 @@
 import React, { Component } from "react";
 import "./Player.css";
 import Edit from "./Edit";
+import axios from "axios";
 import Registration from "../Registration/Registration";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateSportsInfo } from "../../ducks/get_reducer";
 import "./Carousel.css";
 import { Carousel } from "react-responsive-carousel";
-import firebase from "firebase";
 
 class Player extends Component {
   constructor() {
     super();
     this.state = {
       editMode: false,
-      profileImg: ""
+      profileImg: []
     };
     this.updateProfilePic = this.updateProfilePic.bind(this);
   }
 
   componentDidMount() {
     this.props.updateSportsInfo();
+    axios.get("/profile/images").then(response => {
+      console.log(response, "pictures response");
+      this.setState({ profileImg: response.data });
+    });
   }
 
   updateProfilePic(e) {
@@ -30,14 +34,25 @@ class Player extends Component {
   }
 
   render() {
+    let profilePic = this.state.profileImg.map((e, i, arr) => {
+      return <img src={e.avatar} alt="" className="profilepicture" />;
+    });
+
+    let coverPhotos = this.state.profileImg.map((e, i, arr) => {
+      if (e.image !== null) {
+        return <img src={e.image} alt="" />;
+      }
+    });
+
+    console.log(coverPhotos);
+
     let { sportsInfo } = this.props;
-    console.log(sportsInfo);
     let arr = [];
     arr.push(sportsInfo);
 
     let player = arr.map((e, i) => {
       return (
-        <div className="playerspacer">
+        <div className="playerspacer" key={i}>
           <div key={i} id="profilecard">
             <h1 id="playerName">{e.player_name}</h1>
             <div className="teamleaguelinks">
@@ -72,29 +87,12 @@ class Player extends Component {
 
     return (
       <div id="playerprofilepage">
-        {this.props.sportsInfo.hometown ? (
+        {this.props.sportsInfo.auth_id ? (
           <div id="playerCard">
             <Carousel>
-              <div>
-                <img
-                  src="https://media.gettyimages.com/photos/mariano-rivera-of-the-new-york-yankees-walks-out-of-the-bullpen-the-picture-id463129333"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src="https://cdn-s3.si.com/s3fs-public/images/3-chuck-bednarik-1960-fs.jpg"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src="http://i.timeinc.net/time/newsfiles/sports/lead.jpg"
-                  alt=""
-                />
-              </div>
+              <div>{coverPhotos}</div>
             </Carousel>
-            <img src={this.state.profileImg} id="profilepic" alt="" />
+            {profilePic}
             {player}
           </div>
         ) : (

@@ -1,9 +1,7 @@
 module.exports = {
   login: (req, res, next) => {
-    console.log(req.body);
     const db = req.app.get("db");
     const { username, password } = req.body;
-
     db.get_user([username, password])
       .then(user => {
         console.log(req.session);

@@ -185,7 +185,7 @@ class Registration extends Component {
           <input onChange={e => updateSports(e.target.value)} required />
           <br />
           <br />
-          <Link to="/login" className="registrationlink">
+          <Link to="/player" className="registrationlink">
             <button onClick={() => this.submitRegistration()}>Submit</button>
           </Link>
         </div>

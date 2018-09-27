@@ -2,7 +2,6 @@
   margin: 0;
   height: 100%;
   padding-bottom: 20vh;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
 }
@@ -30,8 +29,6 @@
 
 .teampage {
   text-align: center;
-  /* display: flex; */
-  /* flex-direction: row-reverse; */
 }
 
 .teampageinfo {
@@ -62,28 +59,76 @@
   text-decoration: none;
 }
 
-.playerName {
+/* PLAYER CARDS ON TEAM PAGE */
+.playerNametitle {
   font-size: 0.8em;
   text-align: center;
+  padding-top: 2%;
 }
 
-.position {
+.positionh6 {
   font-size: 0.55em;
   text-align: center;
+  /* padding: 45%; */
 }
 
-.playerInfo {
+.playerInfooncard {
   font-size: 0.4em;
   text-align: center;
 }
 
-.playerCard {
+.playerCarddiv {
   position: relative;
   border: solid 1px black;
-  padding: 3px 2px 12px 2px;
-  margin: 5%;
+  padding: 8% 1% 9% 1%;
+  margin: 12%;
+  height: 37.25vh;
+  width: 19.9vw;
+  border: 0.1px solid black;
+  border-top-right-radius: 4%;
+  border-top-left-radius: 4%;
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
+  background-image: url("./5f1fe324.png");
+}
+.playerCardinnerdiv {
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-content: center;
+  margin: 1% auto 4% 0.2%;
+  height: 36.6vh;
+  width: 19.31vw;
+  border: 0.1px solid black;
+  border-top-right-radius: 4%;
+  border-top-left-radius: 4%;
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
+  -webkit-box-shadow: inset 0px 0px 300px 71px rgba(174, 174, 173, 1);
+  -moz-box-shadow: inset 0px 0px 300px 71px rgba(174, 174, 173, 1);
+  box-shadow: inset 0px 0px 300px 71px rgba(174, 174, 173, 1);
 }
 
-.playercontent {
+.playercardpicture {
+  height: 25vh;
+  width: 16vw;
+  padding: auto;
+  margin: 4.8% auto auto auto;
+}
+
+.playercontentdiv {
   text-align: center;
+  position: relative;
+  border: solid 1px black;
+  padding: 8% 1% 9% 1%;
+  margin: 12%;
+  height: 37vh;
+  width: 20vw;
+  border: 1px solid black;
+  border-top-right-radius: 4%;
+  border-top-left-radius: 4%;
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
+  background-image: url("./5f1fe324.png");
 }

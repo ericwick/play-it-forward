@@ -1,0 +1,79 @@
+.editprofilediv {
+  height: 110vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid black;
+  border-top-right-radius: 5em;
+  border-top-left-radius: 5em;
+  border-bottom-left-radius: 5em;
+  border-bottom-right-radius: 5em;
+  z-index: 100000;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  bottom: 50%;
+  background: white;
+  padding: 5%;
+  -webkit-box-shadow: 27px 23px 86px 36px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: 27px 23px 86px 36px rgba(0, 0, 0, 0.73);
+  box-shadow: 27px 23px 86px 36px rgba(0, 0, 0, 0.73);
+  -webkit-box-shadow: inset -3px -3px 255px 15px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: inset -3px -3px 255px 15px rgba(0, 0, 0, 0.73);
+  box-shadow: inset -3px -3px 255px 15px rgba(0, 0, 0, 0.73);
+}
+
+#editprofiledivtitle {
+  font-size: 10em;
+}
+
+.imagespreviewdiv {
+  margin: 3%;
+}
+
+.uploadprofilepic {
+  font-size: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.fileuploader {
+  margin: 0 22% 1% 22%;
+}
+
+.savechangesbutton {
+  height: 5em;
+  width: 20em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
+  margin: 3% 38.5% 4% 38.5%;
+  /* padding: 5%; */
+  -webkit-box-shadow: inset -146px -172px 300px -121px rgba(34, 167, 240, 1);
+  -moz-box-shadow: inset -146px -172px 300px -121px rgba(34, 167, 240, 1);
+  box-shadow: inset -146px -172px 300px -121px rgba(34, 167, 240, 1);
+}
+
+.editinput {
+  margin: auto;
+  width: 30em;
+}
+
+.deleteprofile {
+  height: 2.5em;
+  width: 10em;
+  margin-top: 6%;
+  border: 2px #fa4100 solid;
+  border-radius: 4%;
+  background-color: #fa3000;
+  color: black;
+}
+
+.avatarpreview {
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+}

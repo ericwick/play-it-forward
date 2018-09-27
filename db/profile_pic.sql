@@ -1,2 +1,2 @@
-INSERT INTO players (profile_pic)
-VALUES ($1);
+INSERT INTO images (user_id, avatar)
+VALUES ($1, $2);

@@ -22,7 +22,11 @@ const {
   registerUser,
   schedulePractice
 } = require("./controllers/mailer_controller");
-const { profilePic } = require("./controllers/image_controller");
+const {
+  profilePic,
+  coverPhotos,
+  getPictures
+} = require("./controllers/image_controller");
 
 const app = express();
 
@@ -92,6 +96,7 @@ app.get("/logout", logout);
 app.get("/roster", roster);
 app.get("/league", getLeague);
 app.get("/teams", getTeams);
+app.get("/profile/images", getPictures);
 
 app.post("/registration", newPlayer);
 app.post("/login", login);
@@ -99,7 +104,8 @@ app.post("/team/chat", chatMessage);
 app.post("/donate/paymentInfo", paymentDonation);
 app.post("/registration/email", registerUser);
 app.post("/team/practice", schedulePractice);
-app.post("/player/upload", profilePic);
+app.post("/player/upload/:id", coverPhotos);
+app.post("/player/uploadprofilepic/:id", profilePic);
 
 app.put("/playerInfo/:id", updateInfo);
 

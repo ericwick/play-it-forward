@@ -13,7 +13,8 @@ class Team extends Component {
     this.state = {
       togglePractice: false,
       teamEmails: "",
-      emails: ""
+      emails: "",
+      cardflip: false
     };
     this.schedulePractice = this.schedulePractice.bind(this);
     this.showPractice = this.showPractice.bind(this);
@@ -52,25 +53,42 @@ class Team extends Component {
     console.log(this.state.emails);
   }
 
+  handleCardFlip() {
+    this.setState({
+      cardflip: !this.state.cardflip
+    });
+  }
+
   render() {
     let { sportsInfo, team } = this.props;
     let arr = [];
     arr.push(sportsInfo);
-    console.log(this.state.teamEmails);
-
+    let { cardflip } = this.state;
+    console.log(sportsInfo, "SPORTSINFO");
+    console.log(team, "TEAM");
     let roster = team.map((e, i) => {
-      return (
-        <div key={i} className="playerCard">
-          <div className="playercontent">
-            <h5 className="playerName">{e.player_name}</h5>
-            <h6 className="position">{e.position}</h6>
-            <p className="playerInfo">
-              {e.hometown}
-              <br />
-              AGE: {e.age}
-              <br />
-            </p>
+      return !cardflip ? (
+        <div
+          key={i}
+          className="playerCarddiv"
+          onClick={i => this.handleCardFlip(i)}
+        >
+          <div className="playerCardinnerdiv">
+            <img src={e.profile_pic} alt="" className="playercardpicture" />
+            <h5 className="playerNametitle">{e.player_name}</h5>
+            <h6 className="positionh6">{e.position}</h6>
           </div>
+        </div>
+      ) : (
+        <div className="playercontentdiv" onClick={() => this.handleCardFlip()}>
+          <p className="playerInfooncard">
+            HOMETOWN: {e.hometown}
+            <br />
+            AGE: {e.age}
+            <br />
+            STATS:
+            <span>Tackles: 70</span>
+          </p>
         </div>
       );
     });

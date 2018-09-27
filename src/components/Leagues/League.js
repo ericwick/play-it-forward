@@ -32,10 +32,14 @@ class League extends Component {
 
     let division = leagues.map((e, i) => {
       return (
-        <div key={i} id="leaguerankings">
-          {e.team_name}
-          <br />
-          {e.wins}-{e.loses}-{e.ties}
+        <div key={i}>
+          <ol id="leaguerankings">
+            <li>
+              {e.team_name}
+              <br />
+              {e.wins}-{e.loses}-{e.ties}
+            </li>
+          </ol>
         </div>
       );
     });
@@ -57,10 +61,17 @@ class League extends Component {
           <div>
             Sport: {e.sport_type}
             <br />
-            <ol>
+            <div className="recordstandings">
               Standings
-              <li>{division}</li>
-            </ol>
+              {division}
+              <ol className="donationstandings">
+                <li>
+                  {e.team_name}
+                  ...
+                  {e.donations}
+                </li>
+              </ol>
+            </div>
             Age Range: {e.age_range}
             <br />
             Gender: {e.gender}

@@ -1,4 +1,6 @@
 .leaguepagediv {
+  display: flex;
+  justify-content: center;
   margin: 0 5%;
   background: white;
   padding-top: 15vh;
@@ -15,4 +17,20 @@
   float: right;
   margin-top: 2em;
   margin-right: 2em;
+}
+
+#leaguerankings {
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.recordstandings {
+  display: flex;
+}
+
+.donationstandings {
+  display: flex;
+  flex-direction: column;
+  float: right;
 }
