@@ -25,7 +25,7 @@ class Login extends Component {
     return (
       <div className="loginpage">
         <p id="loginlink">
-          <a href="http://localhost:3001/login" className="link">
+          <a href={process.env.REACT_APP_LOGIN} className="link">
             <h1 id="titlelogin">LOGIN</h1>
           </a>
         </p>

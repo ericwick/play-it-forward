@@ -41,7 +41,7 @@ app.use(
     }
   })
 );
-// app.use(express.static(`${__dirname}/build`));
+app.use(express.static(`${__dirname}/../build`));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(
@@ -85,8 +85,8 @@ passport.deserializeUser((obj, done) => {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/player",
-    failureRedirect: "http://localhost:3000/#/ "
+    successRedirect: process.env.REACT_APP_SUCCESSREDIRECT,
+    failureRedirect: process.env.REACT_APP_FAILUREREDIRECT
   })
 );
 
