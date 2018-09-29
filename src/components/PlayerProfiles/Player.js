@@ -38,24 +38,38 @@ class Player extends Component {
     let profilePic =
       profileImg.length > 0 ? profileImg[profileImg.length - 1] : null;
 
-    console.log(profileImg);
-
     let coverPhoto1 =
       profileImg.length > 0 ? profileImg[profileImg.length - 1] : null;
-    let coverPhoto2 =
-      profileImg.length > 0 && profileImg.length - 1 !== coverPhoto1
-        ? profileImg[profileImg.length - 1]
-        : null;
-    let coverPhoto3 =
-      profileImg.length > 0 &&
-      profileImg.length - 1 !== coverPhoto2 &&
-      profileImg.length - 1 !== coverPhoto3
-        ? profileImg[profileImg.length - 1]
-        : null;
 
+    function secondPic() {
+      let coverPhoto2 = [];
+      let second =
+        profileImg.length > 0 &&
+        profileImg[profileImg.length - 1] !== coverPhoto1
+          ? profileImg.image[profileImg.length - 1]
+          : null;
+      if (second === coverPhoto1) {
+        let photo2 =
+          profileImg.length > 0 ? profileImg[profileImg.length - 2] : null;
+        coverPhoto2 = photo2;
+        console.log(coverPhoto2);
+      }
+      return coverPhoto2;
+    }
+
+    let coverPhoto2 = secondPic();
+
+    // let coverPhoto3 =
+    //   profileImg.length > 0 &&
+    //   profileImg.image.length - 1 !== coverPhoto2 &&
+    //   profileImg.image.length - 1 !== coverPhoto3
+    //     ? profileImg.image[profileImg.length - 1]
+    //     : null;
+
+    console.log(profileImg);
     console.log(coverPhoto1);
     console.log(coverPhoto2);
-    console.log(coverPhoto3);
+    // console.log(coverPhoto3);
 
     // let coverPhotos = this.state.profileImg.map((e, i, arr) => {
     //   if (e.image !== null) {
@@ -128,14 +142,12 @@ class Player extends Component {
           <div id="playerCard">
             <Carousel>
               <div>
-                <img alt="" src={coverPhoto1} />
+                <img alt="" src={!coverPhoto1 ? null : coverPhoto1.image} />
               </div>
               <div>
-                <img alt="" src={coverPhoto2} />
+                <img alt="" src={!coverPhoto2 ? null : coverPhoto2.image} />
               </div>
-              <div>
-                <img alt="" src={coverPhoto2} />
-              </div>
+              <div>{/* <img alt="" src={coverPhoto2} /> */}</div>
             </Carousel>
             {player}
           </div>
