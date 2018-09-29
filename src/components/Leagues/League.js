@@ -18,21 +18,19 @@ class League extends Component {
   render() {
     let { sportsInfo, leagues } = this.props;
     let arr = [];
+    let standingsarr = [];
+    let donationsarr = [];
     arr.push(sportsInfo);
+    standingsarr.push(leagues);
+    donationsarr.push(leagues);
 
-    console.log(sportsInfo);
-
-    console.log(leagues);
-
-    leagues.sort(function(a, b) {
-      return a.wins - b.wins;
-    });
-
-    leagues.reverse();
-
-    let division = leagues.map((e, i) => {
+    console.log(standingsarr[0]);
+    let division = standingsarr[0].map((e, i) => {
+      standingsarr[0].sort(function(a, b) {
+        return a.wins - b.wins;
+      });
       return (
-        <div key={i}>
+        <div key={i} className="divisionrankingsdiv">
           <ol id="leaguerankings">
             <li>
               {e.team_name}
@@ -44,9 +42,27 @@ class League extends Component {
       );
     });
 
+    console.log(donationsarr[0]);
+    let donations = donationsarr[0].map((e, i) => {
+      donationsarr[0].sort(function(a, b) {
+        return a.donations - b.donations;
+      });
+      return (
+        <div kay={i} className="donationstandingsdiv">
+          <ol>
+            <li>
+              {e.team_name}
+              <br />
+              {e.donations}
+            </li>
+          </ol>
+        </div>
+      );
+    });
+
     let league = arr.map((e, i) => {
       return (
-        <div key={i}>
+        <div key={i} className="leaguemapdiv">
           <Link to="/player">
             <h6 id="backtoprofile">Back to Profile Page</h6>
           </Link>
@@ -55,37 +71,32 @@ class League extends Component {
             <h6 id="backtoteam">Back to Team Page</h6>
           </Link>
           <div>
-            <h1>{e.league_name}</h1>
+            <h1 id="leaguetitle">{e.league_name}</h1>
           </div>
 
           <div>
-            Sport: {e.sport_type}
-            <br />
             <div className="recordstandings">
               Standings
               {division}
-              <ol className="donationstandings">
-                <li>
-                  {e.team_name}
-                  ...
-                  {e.donations}
-                </li>
-              </ol>
             </div>
-            Age Range: {e.age_range}
-            <br />
-            Gender: {e.gender}
-            <br />
-            Location: {e.location}
+            <div className="donationstandings">
+              Team Donations Standings
+              {donations}
+            </div>
+            <div className="leagueinfodiv">
+              Sport: {e.sport_type}
+              <br />
+              Age Range: {e.age_range}
+              <br />
+              Gender: {e.gender}
+              <br />
+              Location: {e.location}
+            </div>
           </div>
         </div>
       );
     });
-    return (
-      <div className="leaguepagediv">
-        <div>{league}</div>
-      </div>
-    );
+    return <div className="leaguepagediv">{league}</div>;
   }
 }
 

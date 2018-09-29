@@ -3,6 +3,8 @@
   margin: 0 5%;
   background: white;
   position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 25vh;
 }
@@ -14,15 +16,7 @@
 
 #abouttitle {
   color: black;
-  font-family: "Permanent Marker", cursive;
-  font-size: 4em;
-  margin: 5%;
+  font-family: "Graduate", cursive;
+  font-size: 8em;
+  margin: 5% auto 1% auto;
 }
-
-/* #titlelogin:hover {
-  color: slategray;
-}
-
-#loginlink {
-  margin: 0;
-} */

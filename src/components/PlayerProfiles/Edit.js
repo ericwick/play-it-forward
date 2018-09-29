@@ -123,7 +123,9 @@ class Edit extends Component {
     console.log(this.state);
     return (
       <div>
-        <button onClick={() => this.showEdit()}>Edit Profile</button>
+        <button onClick={() => this.showEdit()} className="editprofilebutton">
+          Edit Profile
+        </button>
 
         {this.state.editMode === true ? (
           <div className="editprofilediv">

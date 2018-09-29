@@ -1,5 +1,5 @@
 .editprofilediv {
-  height: 110vh;
+  height: 130vh;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   position: absolute;
   left: 10%;
   right: 10%;
-  top: 50%;
+  top: 40%;
   bottom: 50%;
   background: white;
   padding: 5%;
@@ -26,7 +26,11 @@
 }
 
 #editprofiledivtitle {
-  font-size: 10em;
+  font-size: 6em;
+}
+
+.editprofilebutton {
+  margin: 5%;
 }
 
 .imagespreviewdiv {
@@ -34,13 +38,13 @@
 }
 
 .uploadprofilepic {
-  font-size: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
+  font-size: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .fileuploader {
-  margin: 0 22% 1% 22%;
+  margin: 0 17% 1% 17%;
 }
 
 .savechangesbutton {
@@ -50,7 +54,7 @@
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
   border-top-left-radius: 1em;
-  margin: 3% 38.5% 4% 38.5%;
+  margin: 5% 40% 4% 35%;
   /* padding: 5%; */
   -webkit-box-shadow: inset -146px -172px 300px -121px rgba(34, 167, 240, 1);
   -moz-box-shadow: inset -146px -172px 300px -121px rgba(34, 167, 240, 1);
@@ -66,8 +70,12 @@
   height: 2.5em;
   width: 10em;
   margin-top: 6%;
+  font-size: 0.9em;
   border: 2px #fa4100 solid;
-  border-radius: 4%;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top-left-radius: 0.5em;
   background-color: #fa3000;
   color: black;
 }
@@ -76,4 +84,5 @@
   height: 15em;
   width: 15em;
   border-radius: 50%;
+  /* transform: rotate(90deg); */
 }

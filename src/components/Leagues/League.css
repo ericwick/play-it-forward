@@ -7,6 +7,16 @@
   padding-bottom: 80vh;
 }
 
+.leaguemapdiv {
+  width: 100%;
+}
+
+#leaguetitle {
+  color: black;
+  font-size: 9em;
+  margin: 2em auto 1em auto;
+}
+
 #backtoprofile {
   float: left;
   margin-top: 2em;
@@ -22,15 +32,30 @@
 #leaguerankings {
   float: left;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+}
+
+.divisionrankingsdiv {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .recordstandings {
   display: flex;
+  flex-direction: column;
+  float: left;
+  margin-left: 10%;
 }
 
-.donationstandings {
+.donationstandingsdiv {
+  display: flex;
+  flex-direction: column-reverse;
+  float: right;
+  margin-right: 10%;
+}
+
+.leagueinfodiv {
   display: flex;
   flex-direction: column;
-  float: right;
+  align-content: center;
 }

@@ -14,6 +14,7 @@ import {
   updateTeams,
   updateEmail
 } from "../../ducks/registration_reducer";
+import Social from "../Home/Social";
 
 class Registration extends Component {
   constructor() {
@@ -85,12 +86,17 @@ class Registration extends Component {
     } = this.props;
 
     let teamOptions = this.props.teams.map((e, i, arr) => {
+      if (e.sport === null) {
+        e.sport = "football";
+      }
       if (this.props.age >= 18 && e.age_range === "18+") {
         return (
-          <div key={i}>
-            {e.team_name}
-            ...
-            {e.sport_type}
+          <div key={i} className="teamoptions">
+            <h6>Team Name:</h6>
+            <br />
+            <p className="teamnameregister">{e.team_name}</p>
+            <h6>Sport:</h6>
+            <p className="teamsportregister">{e.sport_type}</p>
           </div>
         );
       } else if (
@@ -100,9 +106,11 @@ class Registration extends Component {
       ) {
         return (
           <div key={i}>
-            {e.team_name}
-            ...
-            {e.sport_type}
+            <h6>Team Name:</h6>
+            <br />
+            <p className="teamnameregister">{e.team_name}</p>
+            <h6>Sport:</h6>
+            <p className="teamsportregister">{e.sport_type}</p>
           </div>
         );
       } else if (
@@ -112,8 +120,10 @@ class Registration extends Component {
       ) {
         return (
           <div key={i}>
+            <h6>Team Name:</h6>
+            <br />
             {e.team_name}
-            ...
+            <h6>Sport:</h6>
             {e.sport_type}
           </div>
         );
@@ -124,8 +134,10 @@ class Registration extends Component {
       ) {
         return (
           <div key={i}>
+            <h6>Team Name:</h6>
+            <br />
             {e.team_name}
-            ...
+            <h6>Sport:</h6>
             {e.sport_type}
           </div>
         );
@@ -136,8 +148,10 @@ class Registration extends Component {
       ) {
         return (
           <div key={i}>
+            <h6>Team Name:</h6>
+            <br />
             {e.team_name}
-            ...
+            <h6>Sport:</h6>
             {e.sport_type}
           </div>
         );
@@ -148,8 +162,10 @@ class Registration extends Component {
       ) {
         return (
           <div key={i}>
+            <h6>Team Name:</h6>
+            <br />
             {e.team_name}
-            ...
+            <h6>Sport:</h6>
             {e.sport_type}
           </div>
         );
@@ -158,35 +174,74 @@ class Registration extends Component {
 
     return (
       <div className="registrationpage">
+        <Social />
         <div>
           <h2 id="registrationtitle">REGISTRATION</h2>
-          <p>FULL NAME</p>
-          <input onChange={e => updatePlayerName(e.target.value)} required />
+          <p className="formitem">FULL NAME</p>
+          <input
+            onChange={e => updatePlayerName(e.target.value)}
+            required
+            className="registrationsignuplink"
+          />
           <br />
-          <p>EMAIL</p>
-          <input onChange={e => updateEmail(e.target.value)} required />
+          <p className="formitem">EMAIL</p>
+          <input
+            onChange={e => updateEmail(e.target.value)}
+            required
+            className="registrationsignuplink"
+          />
           <br />
-          <p>HOMETOWN</p>
-          <input onChange={e => updateHometown(e.target.value)} required />
+          <p className="formitem">HOMETOWN</p>
+          <input
+            onChange={e => updateHometown(e.target.value)}
+            required
+            className="registrationsignuplink"
+          />
           <br />
-          <p>POSITION</p>
-          <input onChange={e => updatePosition(e.target.value)} />
+          <p className="formitem">POSITION</p>
+          <input
+            onChange={e => updatePosition(e.target.value)}
+            className="registrationsignuplink"
+          />
           <br />
-          <p>GENDER</p>
-          <input onChange={e => updateGender(e.target.value)} required />
+          <p className="formitem">GENDER</p>
+          <input
+            onChange={e => updateGender(e.target.value)}
+            required
+            className="registrationsignuplink"
+          />
           <br />
-          <p>AGE</p>
-          <input onChange={e => updateAge(e.target.value)} required />
+          <p className="formitem">AGE</p>
+          <input
+            onChange={e => updateAge(e.target.value)}
+            required
+            className="registrationsignuplink"
+          />
           <br />
-          <p>TEAM NAME</p>
-          {teamOptions}
-          <input onChange={e => updateTeamName(e.target.value)} required />
-          <p>SPORTS</p>
-          <input onChange={e => updateSports(e.target.value)} required />
+          <div className="availableteamoptions">{teamOptions}</div>
+          <p className="formitem">TEAM NAME</p>
+          <input
+            onChange={e => updateTeamName(e.target.value)}
+            required
+            placeholder="Select team from list above"
+            className="registrationsignuplink"
+          />
+          <p className="formitem">SPORT</p>
+          <input
+            onChange={e => updateSports(e.target.value)}
+            required
+            placeholder="Input Sport with Chosen Team name"
+            className="registrationsignuplink"
+          />
           <br />
           <br />
-          <Link to="/player" className="registrationlink">
-            <button onClick={() => this.submitRegistration()}>Submit</button>
+          <Link to="/player">
+            <button
+              onClick={() => this.submitRegistration()}
+              className="registrationlink"
+            >
+              Submit
+            </button>
           </Link>
         </div>
       </div>

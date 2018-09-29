@@ -26,7 +26,7 @@ class Login extends Component {
       <div className="loginpage">
         <p id="loginlink">
           <a href={process.env.REACT_APP_LOGIN} className="link">
-            <h1 id="titlelogin">LOGIN</h1>
+            <button id="titlelogin">PLAY NOW</button>
           </a>
         </p>
       </div>

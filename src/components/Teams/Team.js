@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
 import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
+import Roster from "./Roster";
 
 class Team extends Component {
   constructor() {
@@ -13,8 +14,7 @@ class Team extends Component {
     this.state = {
       togglePractice: false,
       teamEmails: "",
-      emails: "",
-      cardflip: false
+      emails: ""
     };
     this.schedulePractice = this.schedulePractice.bind(this);
     this.showPractice = this.showPractice.bind(this);
@@ -23,7 +23,6 @@ class Team extends Component {
 
   componentDidMount() {
     this.props.updateSportsInfo();
-    this.props.updateTeam();
   }
 
   schedulePractice() {
@@ -34,6 +33,7 @@ class Team extends Component {
         console.log(response);
       })
       .catch(err => console.log(err));
+    this.showPractice();
   }
 
   showPractice() {
@@ -53,45 +53,12 @@ class Team extends Component {
     console.log(this.state.emails);
   }
 
-  handleCardFlip() {
-    this.setState({
-      cardflip: !this.state.cardflip
-    });
-  }
-
   render() {
-    let { sportsInfo, team } = this.props;
+    let { sportsInfo } = this.props;
     let arr = [];
     arr.push(sportsInfo);
-    let { cardflip } = this.state;
+
     console.log(sportsInfo, "SPORTSINFO");
-    console.log(team, "TEAM");
-    let roster = team.map((e, i) => {
-      return !cardflip ? (
-        <div
-          key={i}
-          className="playerCarddiv"
-          onClick={i => this.handleCardFlip(i)}
-        >
-          <div className="playerCardinnerdiv">
-            <img src={e.profile_pic} alt="" className="playercardpicture" />
-            <h5 className="playerNametitle">{e.player_name}</h5>
-            <h6 className="positionh6">{e.position}</h6>
-          </div>
-        </div>
-      ) : (
-        <div className="playercontentdiv" onClick={() => this.handleCardFlip()}>
-          <p className="playerInfooncard">
-            HOMETOWN: {e.hometown}
-            <br />
-            AGE: {e.age}
-            <br />
-            STATS:
-            <span>Tackles: 70</span>
-          </p>
-        </div>
-      );
-    });
 
     let squad = arr.map((e, i) => {
       return (
@@ -114,7 +81,8 @@ class Team extends Component {
             <p>Gender: {e.gender_type}</p>
             <p>Location: {e.location}</p>
             <div className="rostertitle">ROSTER</div>
-            <div className="rosterdisplay">{roster}</div>
+            <hr className="linebreak" />
+            <Roster />
           </div>
         </div>
       );
@@ -144,17 +112,27 @@ class Team extends Component {
         <div className="chaticon">
           <Chat teamName={sportsInfo.team_name} />
         </div>
+        <hr className="linebreak" />
         {this.state.togglePractice ? (
           <div className="schedulepracticediv">
             <input placeholder="Date and Time" />
             <textarea
-              rows="10"
-              columns="5"
+              rows="3"
+              columns="2"
               defaultValue={teamEmail}
               onChange={e => this.getEmails(e.target.value)}
-              // do i really need the onChange... ?
+              className="emailsofroster"
             />
-            <button onClick={() => this.schedulePractice()}>
+            <textarea
+              row="10"
+              columns="4"
+              defaultValue=""
+              className="messagetoteam"
+            />
+            <button
+              onClick={() => this.schedulePractice()}
+              className="sendpracticeschedule"
+            >
               Schedule Practice For {sportsInfo.team_name}
             </button>
           </div>

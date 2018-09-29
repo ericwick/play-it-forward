@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import Login from "./Login";
+import Social from "./Social";
 
 class Home extends Component {
   constructor() {
@@ -13,8 +15,10 @@ class Home extends Component {
       <div>
         <div id="title">
           <h1>PLAY IT FORWARD</h1>
+          <Login />
+          <Social />
         </div>
-        <div className="belowthetitlescreen">
+        {/* <div className="belowthetitlescreen">
           <div className="getstarted">
             <h2 className="started">GET STARTED!</h2>
             <Link to="/login" className="homelink">
@@ -24,7 +28,7 @@ class Home extends Component {
               <button className="registerhomebutton">REGISTER</button>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

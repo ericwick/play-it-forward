@@ -1,9 +1,6 @@
 .loginpage {
   text-align: center;
-  margin: 0 5%;
-  background: white;
   position: relative;
-  height: 100%;
 }
 
 .link {
@@ -12,7 +9,16 @@
 }
 
 #titlelogin {
-  color: black;
+  color: white;
+  margin-top: 15%;
+  height: 12vh;
+  width: 30vw;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 3em;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 3em;
+  background: #fa4100;
+  border: none;
 }
 
 #titlelogin:hover {

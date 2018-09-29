@@ -90,9 +90,9 @@ class Nav extends Component {
                 <Link to="/donate" className="navlink">
                   <li className="navigationlinks">DONATE</li>
                 </Link>
-                <Link to="/login" className="navlink">
+                <a href={process.env.REACT_APP_LOGIN}>
                   <li className="navigationlinks">LOGIN</li>
-                </Link>
+                </a>
                 <Link to="/registration" className="navlink">
                   <li className="navigationlinks">REGISTER</li>
                 </Link>

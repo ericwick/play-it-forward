@@ -4,19 +4,31 @@
   background: white;
   position: relative;
   height: 100%;
-  padding: 25vh;
+  padding-top: 25vh;
+  padding-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .registrationlink {
-  color: black;
+  font-size: 2em;
+  background-color: #fa4100;
   cursor: pointer;
+  margin: 5%;
+  height: 10vh;
+  width: 30vw;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 #registrationtitle {
   color: black;
-  font-family: "Permanent Marker", cursive;
-  font-size: 4em;
-  margin: 5%;
+  font-family: "Graduate", cursive;
+  font-size: 5em;
+  margin: 5% auto 3% auto;
 }
 
 #titlelogin:hover {
@@ -25,4 +37,46 @@
 
 #loginlink {
   margin: 0;
+}
+
+.formitem {
+  margin: 4% 0 0 0;
+}
+
+.teamoptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  float: center;
+  margin-top: 4%;
+  margin-bottom: 1%;
+}
+
+.teamnameregister {
+  font-size: 1.55em;
+  padding-right: 3.5%;
+  padding-left: 1%;
+}
+
+.teamsportregister {
+  font-size: 1.38em;
+  padding-left: 1%;
+}
+
+.registrationsignuplink {
+  width: 25vw;
+  align-content: center;
+}
+
+.availableteamoptions {
+  margin: 2% 0 0 25%;
+  height: auto;
+  width: 45vw;
+  background: slategray;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 3em;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 3em;
+  display: flex;
+  flex-direction: column;
 }

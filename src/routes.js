@@ -15,7 +15,7 @@ import Edit from "./components/PlayerProfiles/Edit";
 export default (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/login" component={Login} />
+    <Route path="/login" component={Home} />
     <Route path="/registration" component={Registration} />
     <Route path="/league" component={League} />
     <Route path="/player" component={Player} />

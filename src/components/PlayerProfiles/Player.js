@@ -22,7 +22,6 @@ class Player extends Component {
   componentDidMount() {
     this.props.updateSportsInfo();
     axios.get("/profile/images").then(response => {
-      console.log(response, "pictures response");
       this.setState({ profileImg: response.data });
     });
   }
@@ -34,17 +33,35 @@ class Player extends Component {
   }
 
   render() {
-    let profilePic = this.state.profileImg.map((e, i, arr) => {
-      return <img src={e.avatar} alt="" className="profilepicture" />;
-    });
+    let { profileImg } = this.state;
 
-    let coverPhotos = this.state.profileImg.map((e, i, arr) => {
-      if (e.image !== null) {
-        return <img src={e.image} alt="" />;
-      }
-    });
+    let profilePic =
+      profileImg.length > 0 ? profileImg[profileImg.length - 1] : null;
 
-    console.log(coverPhotos);
+    console.log(profileImg);
+
+    let coverPhoto1 =
+      profileImg.length > 0 ? profileImg[profileImg.length - 1] : null;
+    let coverPhoto2 =
+      profileImg.length > 0 && profileImg.length - 1 !== coverPhoto1
+        ? profileImg[profileImg.length - 1]
+        : null;
+    let coverPhoto3 =
+      profileImg.length > 0 &&
+      profileImg.length - 1 !== coverPhoto2 &&
+      profileImg.length - 1 !== coverPhoto3
+        ? profileImg[profileImg.length - 1]
+        : null;
+
+    console.log(coverPhoto1);
+    console.log(coverPhoto2);
+    console.log(coverPhoto3);
+
+    // let coverPhotos = this.state.profileImg.map((e, i, arr) => {
+    //   if (e.image !== null) {
+    //     return <img src={e.image} alt="" className="coverphotoimg" />;
+    //   }
+    // });
 
     let { sportsInfo } = this.props;
     let arr = [];
@@ -55,6 +72,13 @@ class Player extends Component {
         <div className="playerspacer" key={i}>
           <div key={i} id="profilecard">
             <h1 id="playerName">{e.player_name}</h1>
+            <div className="picturedivonprofile">
+              <img
+                alt=""
+                src={!profilePic ? null : profilePic.avatar}
+                className="profilepicture"
+              />
+            </div>
             <div className="teamleaguelinks">
               <Link to="/team" className="playerpagelink">
                 <h3 className="team">TEAM: {e.team_name}</h3>
@@ -75,6 +99,19 @@ class Player extends Component {
               AGE: {e.age}
             </p>
           </div>
+          <div className="aboutplayer">
+            <h3>About {e.player_name}</h3>
+            <p>
+              {/* {e.about} */}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
           <div>
             <Edit
               updateProfilePic={this.updateProfilePic}
@@ -90,9 +127,16 @@ class Player extends Component {
         {this.props.sportsInfo.auth_id ? (
           <div id="playerCard">
             <Carousel>
-              <div>{coverPhotos}</div>
+              <div>
+                <img alt="" src={coverPhoto1} />
+              </div>
+              <div>
+                <img alt="" src={coverPhoto2} />
+              </div>
+              <div>
+                <img alt="" src={coverPhoto2} />
+              </div>
             </Carousel>
-            {profilePic}
             {player}
           </div>
         ) : (
