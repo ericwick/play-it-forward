@@ -1,12 +1,9 @@
 .aboutpage {
   text-align: center;
-  margin: 0 5%;
-  background: white;
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 25vh;
 }
 
 .registrationlink {
@@ -15,8 +12,42 @@
 }
 
 #abouttitle {
-  color: black;
+  color: white;
   font-family: "Graduate", cursive;
-  font-size: 8em;
-  margin: 5% auto 1% auto;
+  font-size: 10em;
+  margin: 20% 34%;
+  position: absolute;
+}
+
+.aboutpagepicturediv {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.aboutpagepic {
+  height: 80vh;
+  width: 100%;
+}
+
+.aboutpageinformation {
+  display: flex;
+  flex-direction: row;
+}
+
+.aboutplayitforward {
+  /* float: left; */
+  background: white;
+  border: 3px black solid;
+  margin: 2% 2% 2% 2%;
+  padding: 2%;
+}
+
+#averageincomefaq {
+  /* float: right; */
+  width: auto;
+  height: auto;
+  background: white;
+  border: 3px black solid;
+  margin: 2% 2% 2% 2%;
+  padding: 2% 2% 0 2%;
 }

@@ -175,64 +175,92 @@ class Registration extends Component {
     return (
       <div className="registrationpage">
         <Social />
+        <img
+          alt=""
+          src="https://buffaloriverworks.com/wp-content/uploads/2013/08/KickballPortfolioHeader.png"
+        />
         <div>
           <h2 id="registrationtitle">REGISTRATION</h2>
-          <p className="formitem">FULL NAME</p>
-          <input
-            onChange={e => updatePlayerName(e.target.value)}
-            required
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            FULL NAME
+            <br />
+            <input
+              onChange={e => updatePlayerName(e.target.value)}
+              required
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
-          <p className="formitem">EMAIL</p>
-          <input
-            onChange={e => updateEmail(e.target.value)}
-            required
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            EMAIL
+            <br />
+            <input
+              onChange={e => updateEmail(e.target.value)}
+              required
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
-          <p className="formitem">HOMETOWN</p>
-          <input
-            onChange={e => updateHometown(e.target.value)}
-            required
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            HOMETOWN
+            <br />
+            <input
+              onChange={e => updateHometown(e.target.value)}
+              required
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
-          <p className="formitem">POSITION</p>
-          <input
-            onChange={e => updatePosition(e.target.value)}
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            POSITION
+            <br />
+            <input
+              onChange={e => updatePosition(e.target.value)}
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
-          <p className="formitem">GENDER</p>
-          <input
-            onChange={e => updateGender(e.target.value)}
-            required
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            GENDER
+            <br />
+            <input
+              onChange={e => updateGender(e.target.value)}
+              required
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
-          <p className="formitem">AGE</p>
-          <input
-            onChange={e => updateAge(e.target.value)}
-            required
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            AGE
+            <br />
+            <input
+              onChange={e => updateAge(e.target.value)}
+              required
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
           <div className="availableteamoptions">{teamOptions}</div>
-          <p className="formitem">TEAM NAME</p>
-          <input
-            onChange={e => updateTeamName(e.target.value)}
-            required
-            placeholder="Select team from list above"
-            className="registrationsignuplink"
-          />
-          <p className="formitem">SPORT</p>
-          <input
-            onChange={e => updateSports(e.target.value)}
-            required
-            placeholder="Input Sport with Chosen Team name"
-            className="registrationsignuplink"
-          />
+          <p className="formitem">
+            TEAM NAME
+            <br />
+            <input
+              onChange={e => updateTeamName(e.target.value)}
+              required
+              placeholder="Select team from list above"
+              className="registrationsignuplink"
+            />
+          </p>
+          <p className="formitem">
+            SPORT
+            <br />
+            <input
+              onChange={e => updateSports(e.target.value)}
+              required
+              placeholder="Input Sport with Chosen Team name"
+              className="registrationsignuplink"
+            />
+          </p>
           <br />
           <br />
           <Link to="/player">

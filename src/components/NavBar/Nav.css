@@ -1,15 +1,19 @@
 ul,
-li {
+#navigationlinks {
   list-style: none;
   color: #fa4100;
-  margin-top: 3vh;
+  margin-top: 2.2vh;
   font-size: 1.2em;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  text-decoration: none;
 }
 
+.navlink:hover {
+  text-decoration: none;
+}
 .navheadercontainer {
   height: 16vh;
   width: 100%;
@@ -18,14 +22,39 @@ li {
   z-index: 99;
 }
 
+#navigationlinks:hover {
+  padding-top: 10%;
+  text-decoration: none;
+  border-top: 5px solid white;
+  transition: 0.3s ease-in-out;
+}
+
 .scrolled {
-  height: 16vh;
+  height: 13vh;
   width: 100%;
-  transition: 0.8s ease-in;
-  background-color: slategray;
-  opacity: 0.7;
+  transition: 1s ease-in-out;
+  background-color: rgb(250, 77, 77, 0.75);
   position: fixed;
   z-index: 99;
+  justify-content: space-evenly;
+}
+
+.scrolled #navigationlinks {
+  color: black;
+}
+
+.scrolled #navigationlinks:hover {
+  text-decoration: none;
+  padding-top: 10%;
+  border-top: 5px solid black;
+  transition: 0.3s ease-in-out;
+}
+
+.piflogo {
+  height: 5em;
+  width: 5em;
+  margin: 0 0 2% 4.5%;
+  float: left;
 }
 
 .container {
@@ -35,7 +64,7 @@ li {
 
 @media only screen and (max-width: 940px) {
   ul,
-  li {
+  #navigationlinks {
     list-style: none;
     color: #fa4100;
     display: inline-block;
@@ -47,7 +76,7 @@ li {
 
 @media only screen and (max-width: 775px) {
   ul,
-  li {
+  #navigationlinks {
     list-style: none;
     color: #fa4100;
     display: inline-block;
@@ -59,7 +88,7 @@ li {
 
 @media only screen and (max-width: 605px) {
   ul,
-  li {
+  #navigationlinks {
     list-style: none;
     color: #fa4100;
     display: inline-block;

@@ -21,7 +21,8 @@
   height: 4.5vh;
   width: 3vw;
   border-radius: 50%;
-  background-color: white;
+  /* background: white; */
+  margin-bottom: 3.2em;
 }
 .contacticonimage:hover {
   cursor: pointer;

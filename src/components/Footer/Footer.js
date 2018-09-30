@@ -5,12 +5,21 @@ import { Link } from "react-router-dom";
 class Footer extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      logo:
+        "https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+    };
   }
 
   render() {
     return (
       <div id="footer">
+        <img
+          alt=""
+          src={this.state.logo}
+          className="footerlogo"
+          id="leftlogo"
+        />
         <div className="columns">
           <div className="pif">
             <h5>PLAY IT FORWARD</h5>
@@ -79,6 +88,12 @@ class Footer extends Component {
             </Link>
           </div>
         </div>
+        <img
+          alt=""
+          src={this.state.logo}
+          className="footerlogo"
+          id="rightlogo"
+        />
       </div>
     );
   }

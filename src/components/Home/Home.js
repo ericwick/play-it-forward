@@ -15,20 +15,14 @@ class Home extends Component {
       <div>
         <div id="title">
           <h1>PLAY IT FORWARD</h1>
+          {/* <img
+            alt=""
+            src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+            className="homepagelogo"
+          /> */}
           <Login />
           <Social />
         </div>
-        {/* <div className="belowthetitlescreen">
-          <div className="getstarted">
-            <h2 className="started">GET STARTED!</h2>
-            <Link to="/login" className="homelink">
-              <button className="loginhomebutton">LOGIN</button>
-            </Link>
-            <Link to="/login" className="homelink">
-              <button className="registerhomebutton">REGISTER</button>
-            </Link>
-          </div>
-        </div> */}
       </div>
     );
   }

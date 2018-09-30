@@ -6,11 +6,16 @@
 .link {
   color: black;
   cursor: pointer;
+  text-decoration-line: none;
+}
+
+.link:hover {
+  text-decoration-line: none;
 }
 
 #titlelogin {
   color: white;
-  margin-top: 15%;
+  margin-top: 12%;
   height: 12vh;
   width: 30vw;
   border-bottom-left-radius: 3em;
@@ -19,6 +24,9 @@
   border-top-right-radius: 3em;
   background: #fa4100;
   border: none;
+  -webkit-box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
 }
 
 #titlelogin:hover {

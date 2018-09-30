@@ -1,10 +1,9 @@
 .leaguepagediv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 0 5%;
-  background: white;
-  padding-top: 15vh;
-  padding-bottom: 80vh;
+  margin: 0;
+  padding-bottom: 10vh;
 }
 
 .leaguemapdiv {
@@ -14,7 +13,13 @@
 #leaguetitle {
   color: black;
   font-size: 9em;
-  margin: 2em auto 1em auto;
+  margin: 0.75em auto 1em auto;
+}
+
+.leaguepagepic {
+  width: 100%;
+  height: 75vh;
+  top: 0;
 }
 
 #backtoprofile {
@@ -41,21 +46,65 @@
 }
 
 .recordstandings {
+  background: white;
+  border: black 3px solid;
   display: flex;
   flex-direction: column;
   float: left;
-  margin-left: 10%;
+  margin: 0 5% 0 5%;
+  padding: 2% 10% 2% 7%;
+}
+
+.donationstandings {
+  background: white;
+  border: black 3px solid;
+  display: flex;
+  flex-direction: column;
+  float: right;
+  margin: 0 5% 0 5%;
+  padding: 2%;
+}
+
+.donationstandingstitle {
+  padding: 0 5% 0 5%;
+}
+.recordstandingstitle {
+  padding: 0 5% 0 5%;
+  margin: 0 5% 0 5%;
 }
 
 .donationstandingsdiv {
   display: flex;
   flex-direction: column-reverse;
-  float: right;
-  margin-right: 10%;
+  margin: 0;
 }
 
 .leagueinfodiv {
+  background: white;
   display: flex;
   flex-direction: column;
   align-content: center;
+  padding: 1% 0 1% 0;
+  margin: 10% 10% 0 10%;
+  border: 3px solid black;
+}
+
+.reverseorder {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsdiv {
+  top: 50%;
+  background: white;
+  border: 3px solid black;
+  padding: 2%;
+  margin: 5% 4% 2% 4%;
+}
+
+.leaguenewsdiv {
+  background: white;
+  border: 3px solid black;
+  margin: 2% 8% 2% 8%;
+  padding: 2%;
 }

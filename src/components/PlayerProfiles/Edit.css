@@ -4,11 +4,11 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 1px solid black;
-  border-top-right-radius: 5em;
-  border-top-left-radius: 5em;
-  border-bottom-left-radius: 5em;
-  border-bottom-right-radius: 5em;
+  border: 3px solid black;
+  border-top-right-radius: 0.3em;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
   z-index: 100000;
   position: absolute;
   left: 10%;
@@ -17,12 +17,9 @@
   bottom: 50%;
   background: white;
   padding: 5%;
-  -webkit-box-shadow: 27px 23px 86px 36px rgba(0, 0, 0, 0.73);
-  -moz-box-shadow: 27px 23px 86px 36px rgba(0, 0, 0, 0.73);
-  box-shadow: 27px 23px 86px 36px rgba(0, 0, 0, 0.73);
-  -webkit-box-shadow: inset -3px -3px 255px 15px rgba(0, 0, 0, 0.73);
-  -moz-box-shadow: inset -3px -3px 255px 15px rgba(0, 0, 0, 0.73);
-  box-shadow: inset -3px -3px 255px 15px rgba(0, 0, 0, 0.73);
+  -webkit-box-shadow: inset 0px -1px 91px 9px rgba(0, 0, 0, 1);
+  -moz-box-shadow: inset 0px -1px 91px 9px rgba(0, 0, 0, 1);
+  box-shadow: inset 0px -1px 91px 9px rgba(0, 0, 0, 1);
 }
 
 #editprofiledivtitle {

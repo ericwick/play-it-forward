@@ -67,19 +67,24 @@ class Team extends Component {
             <h1 id="teamtitle">{e.team_name}</h1>
           </div>
           <div className="teampageinfo">
-            <div>
+            <div className="donationsdiv">
               <h2 id="donations">
                 {e.team_name}' Total Donations: ${e.donations}
               </h2>
             </div>
-            <Link to="/league" className="teampagelink">
-              <p>League: {e.league_name}</p>
-            </Link>
-            <p>Sport: {e.sport_type}</p>
-            <p>Record: {e.record}</p>
-            <p>Age Range: {e.age_range}</p>
-            <p>Gender: {e.gender_type}</p>
-            <p>Location: {e.location}</p>
+            <div className="teaminformationdiv">
+              <Link to="/league" className="teampagelink">
+                <p>League: {e.league_name}</p>
+              </Link>
+              <p>Sport: {e.sport_type}</p>
+              <p>
+                Record: {e.wins}-{e.loses}
+                {e.ties !== 0 ? -e.ties : null}
+              </p>
+              <p>Age Range: {e.age_range}</p>
+              <p>Gender: {e.gender_type}</p>
+              <p>Location: {e.location}</p>
+            </div>
             <div className="rostertitle">ROSTER</div>
             <hr className="linebreak" />
             <Roster />
@@ -104,7 +109,7 @@ class Team extends Component {
           <div>
             <img
               alt=""
-              src="https://www.raiders.com.au/siteassets/2017/10/generic.jpg?preset=hero-article-fill"
+              src="https://images.fineartamerica.com/images-medium-large-5/closeup-of-american-football-on-field-danny-hooks.jpg"
             />
           </div>
         </Carousel>
@@ -141,7 +146,7 @@ class Team extends Component {
             onClick={() => this.showPractice()}
             className="schedulepracticediv"
           >
-            Schedule Practice
+            <h4 className="schedulepracticetitle">Schedule Practice</h4>
           </div>
         )}
       </div>

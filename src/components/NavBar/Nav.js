@@ -8,7 +8,10 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      userNav: "navheadercontainer"
+      userNav: "navheadercontainer",
+      logo: false,
+      logoImg:
+        "https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
     };
     this.componentDidMount = this.componentDidMount.bind(this);
     this.fireOnScroll = this.fireOnScroll.bind(this);
@@ -56,47 +59,57 @@ class Nav extends Component {
         <nav className="navbar-entire-navbar">
           <div className="container">
             {this.props.sportsInfo && this.props.sportsInfo.auth_id ? (
-              <ul className="unorderedNavList">
-                <Link to="/" className="navlink">
-                  <li className="navigationlinks">HOME</li>
-                </Link>
-                <Link to="/about" className="navlink">
-                  <li className="navigationlinks">ABOUT</li>
-                </Link>
-                <Link to="/donate" className="navlink">
-                  <li className="navigationlinks">DONATE</li>
-                </Link>
-                <Link to="/player" className="navlink">
-                  <li className="navigationlinks">PROFILE</li>
-                </Link>
-                <Link to="/team" className="navlink">
-                  <li className="navigationlinks">TEAM</li>
-                </Link>
-                <Link to="/league" className="navlink">
-                  <li className="navigationlinks">LEAGUE</li>
-                </Link>
-                <Link to="/logout" className="navlink">
-                  <li className="navigationlinks">LOGOUT</li>
-                </Link>
-              </ul>
+              <div>
+                {this.state.userNav === "scrolled" ? (
+                  <img alt="" src={this.state.logoImg} className="piflogo" />
+                ) : null}
+                <ul className="unorderedNavList">
+                  <Link to="/" className="navlink">
+                    <li id="navigationlinks">HOME</li>
+                  </Link>
+                  <Link to="/about" className="navlink">
+                    <li id="navigationlinks">ABOUT</li>
+                  </Link>
+                  <Link to="/donate" className="navlink">
+                    <li id="navigationlinks">DONATE</li>
+                  </Link>
+                  <Link to="/player" className="navlink">
+                    <li id="navigationlinks">PROFILE</li>
+                  </Link>
+                  <Link to="/team" className="navlink">
+                    <li id="navigationlinks">TEAM</li>
+                  </Link>
+                  <Link to="/league" className="navlink">
+                    <li id="navigationlinks">LEAGUE</li>
+                  </Link>
+                  <Link to="/logout" className="navlink">
+                    <li id="navigationlinks">LOGOUT</li>
+                  </Link>
+                </ul>
+              </div>
             ) : (
-              <ul className="unorderedNavList">
-                <Link to="/" className="navlink">
-                  <li className="navigationlinks">HOME</li>
-                </Link>
-                <Link to="/about" className="navlink">
-                  <li className="navigationlinks">ABOUT</li>
-                </Link>
-                <Link to="/donate" className="navlink">
-                  <li className="navigationlinks">DONATE</li>
-                </Link>
-                <a href={process.env.REACT_APP_LOGIN}>
-                  <li className="navigationlinks">LOGIN</li>
-                </a>
-                <Link to="/registration" className="navlink">
-                  <li className="navigationlinks">REGISTER</li>
-                </Link>
-              </ul>
+              <div>
+                {this.state.userNav === "scrolled" ? (
+                  <img alt="" src={this.state.logoImg} className="piflogo" />
+                ) : null}
+                <ul className="unorderedNavList">
+                  <Link to="/" className="navlink">
+                    <li id="navigationlinks">HOME</li>
+                  </Link>
+                  <Link to="/about" className="navlink">
+                    <li id="navigationlinks">ABOUT</li>
+                  </Link>
+                  <Link to="/donate" className="navlink">
+                    <li id="navigationlinks">DONATE</li>
+                  </Link>
+                  <a href={process.env.REACT_APP_LOGIN} className="navlink">
+                    <li id="navigationlinks">LOGIN</li>
+                  </a>
+                  <Link to="/registration" className="navlink">
+                    <li id="navigationlinks">REGISTER</li>
+                  </Link>
+                </ul>
+              </div>
             )}
           </div>
         </nav>

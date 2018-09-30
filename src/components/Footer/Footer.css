@@ -41,3 +41,18 @@ link:hover {
 .contact {
   padding: 4em;
 }
+
+.footerlogo {
+  height: 10em;
+  width: 10em;
+  margin: 4% 2% 1% 1%;
+}
+
+#rightlogo {
+  margin-left: 10em;
+  /* padding-left: 5%; */
+}
+#leftlogo {
+  margin-right: 10em;
+  /* padding-right: 5%; */
+}
