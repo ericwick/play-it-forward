@@ -17,12 +17,12 @@
   justify-content: center;
 }
 
-.link {
+.footerlink {
   text-decoration: none;
   padding: 1% 0 1% 0;
 }
 
-link:hover {
+.footerlink:hover {
   text-decoration: none;
 }
 

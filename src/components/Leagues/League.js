@@ -24,56 +24,90 @@ class League extends Component {
     standingsarr.push(leagues);
     donationsarr.push(leagues);
 
-    let division = standingsarr[0].map((e, i) => {
-      let sortedarr = standingsarr[0].sort(function(a, b) {
-        return a.wins - b.wins;
-      });
-      for (var i = 0; i < sortedarr.length - 1; i++) {
-        for (var j = 0; j < sortedarr.length - 1; j++) {
-          if (sortedarr[i].wins < sortedarr[j + 1].wins) {
-            return (
-              <div key={i} className="divisionrankingsdiv">
-                {e.team_name}
-                <br />
-                {e.wins}-{e.loses}-{e.ties}
-              </div>
-            );
-          }
-        }
-      }
-    });
-    console.log(division);
+    let leaguestandings = arr => {
+      let sorted = [];
+      let newTeam = [];
+      let sort = arr[0];
 
-    let donations = donationsarr[0].map((e, i) => {
-      let sortedarr = donationsarr[0].sort(function(a, b) {
-        return a.donations - b.donations;
-      });
-      console.log(sortedarr);
-      for (var i = 0; i < sortedarr.length - 1; i++) {
-        for (var j = 0; j < sortedarr.length - 1; j++) {
-          if (sortedarr[i].donations < sortedarr[j + 1].donations) {
-            return (
-              <div kay={i} className="donationstandingsdiv">
-                {e.team_name}
-                <br />
-                {e.donations}
-              </div>
-            );
+      for (var i = 0; i < sort.length; i++) {
+        sorted.push(sort[i].wins);
+        sorted.sort();
+      }
+      for (var i = 0; i < sorted.length; i++) {
+        for (var j = 0; j < sort.length; j++) {
+          if (sort[j].wins === sorted[i]) {
+            newTeam.push(sort[j]);
           }
         }
       }
+      newTeam.reverse();
+      return newTeam;
+    };
+
+    let division = leaguestandings(standingsarr).map((e, i) => {
+      return (
+        <div key={i} className="divisionrankingsdiv">
+          <ol>
+            <li value={i++ + 1}>
+              {e.team_name}
+              <img
+                alt=""
+                src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+                className="nameandwins"
+              />
+              {e.wins}-{e.loses}-{e.ties}
+            </li>
+          </ol>
+        </div>
+      );
+    });
+
+    let leaguedonations = arr => {
+      let sorted = [];
+      let newTeams = [];
+      let sort = arr[0];
+
+      for (var i = 0; i < sort.length; i++) {
+        sorted.push(sort[i].donations);
+        sorted.sort();
+      }
+      for (var i = 0; i < sorted.length; i++) {
+        for (var j = 0; j < sort.length; j++) {
+          if (sort[j].donations === sorted[i]) {
+            newTeams.push(sort[j]);
+          }
+        }
+      }
+
+      newTeams.reverse();
+      return newTeams;
+    };
+    console.log(leaguedonations(donationsarr));
+
+    let donations = leaguedonations(donationsarr).map((e, i) => {
+      return (
+        <div
+          kay={i}
+          // className="donationstandingsdiv"
+        >
+          <ol>
+            <li value={i++ + 1}>
+              {e.team_name}
+              <img
+                alt=""
+                src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+                className="nameandwins"
+              />
+              $ {e.donations}
+            </li>
+          </ol>
+        </div>
+      );
     });
 
     let league = arr.map((e, i) => {
       return (
         <div key={i} className="leaguemapdiv">
-          {/* <Link to="/player">
-            <h6 id="backtoprofile">Back to Profile Page</h6>
-          </Link>
-
-          <Link to="/team">
-            <h6 id="backtoteam">Back to Team Page</h6>
-          </Link> */}
           <img
             alt=""
             src="http://rheacountyfootball.com/wp-content/uploads/2017/06/black-white-stadium-as-Smart-Object-1.jpg"
@@ -85,19 +119,11 @@ class League extends Component {
 
           <div className="recordstandings">
             <p className="recordstandingstitle">Standings</p>
-            <div className="reverseorder">
-              <ol>
-                <li>{division}</li>
-              </ol>
-            </div>
+            <div className="reverseorder">{division}</div>
           </div>
           <div className="donationstandings">
             <p className="donationstandingstitle">Team Donations Standings</p>
-            <div className="reverseorder">
-              <ol>
-                <li>{donations}</li>
-              </ol>
-            </div>
+            <div className="reverseorder">{donations}</div>
           </div>
           <div className="leagueinfodiv">
             <u>Sport:</u> {e.sport_type}
@@ -118,33 +144,53 @@ class League extends Component {
           <div className="newsdiv">
             <h3 className="leaguenews">{sportsInfo.league_name} NEWS</h3>
           </div>
-          <p className="leaguenewsdiv">
-            Your bones don't break, mine do. That's clear. Your cells react to
-            bacteria and viruses differently than mine. You don't get sick, I
-            do. That's also clear. But for some reason, you and I react the
-            exact same way to water. We swallow it too fast, we choke. We get
-            some in our lungs, we drown. However unreal it may seem, we are
-            connected, you and I. We're on the same curve, just on opposite
-            ends.
-          </p>
+          <div className="sortarticles">
+            <p className="leaguenewsdiv">
+              <h2 id="articletitle">Falcon's QB Suffers Collapsed Lung</h2>
+              DALLAS -- Falcons quarterback Benjamin suffered a partially
+              collapsed lung during the Falcons’ 42-34 loss to No. 1 Raiders on
+              Saturday. <br />
+              “He’s in good spirits,” Falcons' coach Kliff Kingsbury said. “I’ve
+              never had a player who’s had it. But he’s doing better and he was
+              up and alert and seemed to be in a good mood.” While the lung
+              could keep him out for the immediate future, those with the team
+              are still hopeful that Benjamin dodged the worst. <br />
+              He did not suffer any broken bones or any other complications
+              around the collapsed lung.
+            </p>
 
-          <p className="leaguenewsdiv">
-            Look, just because I don't be givin' no man a foot massage don't
-            make it right for Marsellus to throw Antwone into a glass
-            motherfuckin' house, fuckin' up the way the nigger talks.
-            Motherfucker do that shit to me, he better paralyze my ass, 'cause
-            I'll kill the motherfucker, know what I'm sayin'?
-          </p>
+            <p className="leaguenewsdiv">
+              <h2 id="articletitle">
+                Eagles Win Big And Show Potential in Big 12
+              </h2>
+              FORT WORTH -- The Eagles have the talent to compete with any team
+              in the Big 12. They proved that in nice performances against the
+              No. 5 Bears, and even against the No. 1 Raiders in a 22-21 loss on
+              two weeks ago. <br />
+              But for the Eagles to take the next step, they simply have to get
+              off to better starts. They went down 14-0 after just one quarter,
+              but Eagle's running back Jay posted 4 touchdowns, 2 in the second
+              quarter alone. It could have easily been more if the Eagles
+              started the game they way they finished en route to a 56-14
+              victory.
+            </p>
 
-          <p className="leaguenewsdiv">
-            Your bones don't break, mine do. That's clear. Your cells react to
-            bacteria and viruses differently than mine. You don't get sick, I
-            do. That's also clear. But for some reason, you and I react the
-            exact same way to water. We swallow it too fast, we choke. We get
-            some in our lungs, we drown. However unreal it may seem, we are
-            connected, you and I. We're on the same curve, just on opposite
-            ends.
-          </p>
+            <p className="leaguenewsdiv">
+              <h2 id="articletitle">
+                Bears: Bad at Football, Great at Donating
+              </h2>
+              IRVING -- The Bears have gotten off to a rough start to the 2018
+              season. They already have a pair of losses on their schedule, and
+              still have games against the Falcons and the Raiders left on the
+              schedule. <br />
+              The Bears, first and foremost, have to get healthy. Shawn and CJ
+              both went out with injuries against the Eagles. Both need to get
+              healthy soon. Luckily, the bye comes at a perfect time. The Bears
+              won’t have to play again until a game against the Falcons on Oct.
+              11. On the bright side, the bears are leading the league donation
+              battle!
+            </p>
+          </div>
         </div>
       </div>
     );

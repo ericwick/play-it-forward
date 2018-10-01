@@ -16,22 +16,23 @@ class Roster extends Component {
     this.props.updateTeam();
   }
 
-  handleCardFlip() {
+  handleCardFlip(id) {
     this.setState({
       cardflip: !this.state.cardflip
     });
   }
 
   render() {
+    console.log(this.props.team);
     let { team } = this.props;
     let { cardflip } = this.state;
 
     let roster = team.map((e, i) => {
       return !cardflip ? (
         <div
-          key={i}
+          key={e.player_id}
           className="playerCarddiv"
-          onClick={i => this.handleCardFlip(i)}
+          onClick={player_id => this.handleCardFlip(e.player_id)}
         >
           <div className="playerCardinnerdiv">
             <img src={e.profile_pic} alt="" className="playercardpicture" />
@@ -40,15 +41,16 @@ class Roster extends Component {
           </div>
         </div>
       ) : (
-        <div className="playercontentdiv" onClick={i => this.handleCardFlip(i)}>
+        <div
+          className="playercontentdiv"
+          onClick={player_id => this.handleCardFlip(e.player_id)}
+        >
           <div className="playerCardbackinnerdiv" />
           <p className="playerInfooncard">
             HOMETOWN: {e.hometown}
             <br />
             AGE: {e.age}
             <br />
-            STATS:
-            <span>Tackles: 70</span>
           </p>
         </div>
       );

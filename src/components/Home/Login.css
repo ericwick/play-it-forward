@@ -7,21 +7,24 @@
   color: black;
   cursor: pointer;
   text-decoration-line: none;
+  text-decoration: none;
 }
 
 .link:hover {
   text-decoration-line: none;
+  text-decoration: none;
 }
 
 #titlelogin {
   color: white;
   margin-top: 12%;
   height: 12vh;
-  width: 30vw;
-  border-bottom-left-radius: 3em;
-  border-bottom-right-radius: 3em;
-  border-top-left-radius: 3em;
-  border-top-right-radius: 3em;
+  width: 37vw;
+  font-size: 2.5em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
   background: #fa4100;
   border: none;
   -webkit-box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
@@ -31,8 +34,10 @@
 
 #titlelogin:hover {
   color: slategray;
+  text-decoration: none;
 }
 
 #loginlink {
   margin: 0;
+  text-decoration: none;
 }

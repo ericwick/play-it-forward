@@ -25,7 +25,7 @@
   color: black;
   font-family: "Graduate", cursive;
   font-size: 5em;
-  margin: 7% auto 7% auto;
+  margin: 7% auto 4% auto;
 }
 
 #titlelogin:hover {
@@ -52,19 +52,20 @@
   flex-direction: row;
   justify-content: center;
   float: center;
-  margin-top: 4%;
-  margin-bottom: 1%;
+  /* margin-top: 4%; */
+  /* margin-bottom: 1%; */
 }
 
 .teamnameregister {
   font-size: 1.55em;
-  padding-right: 3.5%;
+  padding-right: 3%;
   padding-left: 1%;
 }
 
 .teamsportregister {
   font-size: 1.38em;
-  padding-left: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .registrationsignuplink {

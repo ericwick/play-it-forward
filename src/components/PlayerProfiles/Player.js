@@ -19,9 +19,9 @@ class Player extends Component {
     this.updateProfilePic = this.updateProfilePic.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.props.updateSportsInfo();
-    axios.get("/profile/images").then(response => {
+    await axios.get("/profile/images").then(response => {
       this.setState({ profileImg: response.data });
     });
   }
@@ -34,12 +34,37 @@ class Player extends Component {
 
   render() {
     let { profileImg } = this.state;
-
     let profilePic =
       profileImg.length > 0 ? profileImg[profileImg.length - 1] : null;
 
     let coverPic =
       profileImg.length > 0 ? profileImg[profileImg.length - 2] : null;
+
+    let avatarPicture = () => {
+      let avatar2 = !profilePic ? null : profilePic.avatar;
+      let avatar1 = !coverPic ? null : coverPic.avatar;
+      console.log(avatar1);
+      console.log(avatar2);
+
+      if (avatar1 === null) {
+        return avatar2;
+      } else {
+        return avatar1;
+      }
+    };
+
+    let coverPicture = () => {
+      let cover2 = !profilePic ? null : profilePic.image;
+      let cover1 = !coverPic ? null : coverPic.image;
+      console.log(cover1);
+      console.log(cover2);
+
+      if (cover1 === null) {
+        return cover2;
+      } else {
+        return cover1;
+      }
+    };
 
     let { sportsInfo } = this.props;
     let arr = [];
@@ -50,21 +75,20 @@ class Player extends Component {
         <div className="playerspacer" key={i}>
           <div key={i} id="profilecard">
             <div className="picturedivonprofile">
-              <img
-                alt=""
-                src={
-                  !coverPic ? null : coverPic.avatar ? null : profilePic.avatar
-                }
-                className="profilepicture"
-              />
+              <img alt="" src={avatarPicture()} className="profilepicture" />
             </div>
-            <h1 id="playerName">{e.player_name}</h1>
+            <h6 id="playernameonprofile">{e.player_name}</h6>
             <div className="teamleaguelinks">
               <Link to="/team" className="playerpagelink">
-                <h3 className="team">TEAM: {e.team_name}</h3>
+                <h3 className="team">
+                  TEAM: <br /> {e.team_name}
+                </h3>
               </Link>
               <Link to="/league" className="playerpagelink">
-                <h3 className="league">LEAGUE: {e.league_name}</h3>
+                <h3 className="league">
+                  LEAGUE: <br />
+                  {e.league_name}
+                </h3>
               </Link>
             </div>
           </div>
@@ -73,6 +97,7 @@ class Player extends Component {
               alt=""
               src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
               className="playerprofileinfopic"
+              id="playerprofileinfopicleft"
             />
             <p className="info">
               HOMETOWN: {e.hometown}
@@ -87,19 +112,17 @@ class Player extends Component {
               alt=""
               src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
               className="playerprofileinfopic"
+              id="playerprofileinfopicright"
             />
           </div>
           <div className="aboutplayer">
-            <h3>About {e.player_name}</h3>
-            <p>
-              {/* {e.about} */}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <h3 className="aboutplayertitle">About {e.player_name}</h3>
+            <p className="aboutplayersection">
+              {/* {e.about} */}I am a 25 year old, former football player from
+              Savannah, Ga. I graduated from Dartmouth College in 2015 and am an
+              aspiring full-stack developer. I enjoy any and all sports but if I
+              had to chose football, basketball, and golf would have to be my
+              top choices.
             </p>
           </div>
           <div>
@@ -112,32 +135,14 @@ class Player extends Component {
       );
     });
 
-    console.log(profilePic);
-    console.log(coverPic);
-
     return (
       <div id="playerprofilepage">
         {this.props.sportsInfo.auth_id ? (
           <div id="playerCard">
             <Carousel>
               <div>
-                <img
-                  alt=""
-                  src={
-                    !profilePic
-                      ? null
-                      : profilePic.image
-                        ? null
-                        : coverPic.image
-                  }
-                />
+                <img alt="" src={coverPicture()} />
               </div>
-              {/* <div>
-                <img alt="" src={!coverPhoto2 ? null : coverPhoto2.image} />
-              </div>
-              <div>
-                <img alt="" src={coverPhoto2} />
-              </div> */}
             </Carousel>
             {player}
           </div>

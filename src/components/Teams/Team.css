@@ -40,6 +40,7 @@
 
 #donations {
   margin: 10%;
+  font-size: 4em;
 }
 
 .donationsdiv {
@@ -128,7 +129,11 @@
   width: 16vw;
   padding: auto;
   margin: 6% auto auto auto;
-  border: 8px solid slategray;
+  border: 8px solid #fa4100;
+  border-top-right-radius: 4%;
+  border-top-left-radius: 4%;
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
 }
 
 .playercontentdiv {
@@ -148,7 +153,7 @@
 }
 
 .playerCardbackinnerdiv {
-  top: 0;
+  padding-top: 3em;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -207,7 +212,16 @@
   border-top-left-radius: 3em;
   border-bottom-left-radius: 3em;
   border-bottom-right-radius: 3em;
+  -webkit-box-shadow: 20px 20px 104px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 20px 20px 104px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 20px 20px 104px -5px rgba(0, 0, 0, 0.75);
+  border: none;
 }
+.sendpracticeschedule:hover {
+  color: black;
+  cursor: pointer;
+}
+
 .emailsofroster {
   height: 10vh;
   width: 20vw;

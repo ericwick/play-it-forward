@@ -1,54 +1,102 @@
 .donatepage {
   text-align: center;
-  margin: 0 5%;
-  background: white;
   position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  padding: 25vh;
 }
 
-.donation {
-  display: block;
-  margin: auto;
-  right: 0;
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  color: black;
-  width: 50%;
+.donationspagepicture {
+  height: 60vh;
+  width: 100%;
+  z-index: 50;
+  position: relative;
+}
+
+.donatepicandtitle {
+  width: 100%;
 }
 
 #homedonate {
-  width: 30%;
+  color: white;
+  font-family: "Graduate", cursive;
+  font-size: 10em;
+  margin: 20% 34%;
+  position: absolute;
+  z-index: 55;
 }
 
-.money {
-  margin: 0 6% 5% 9%;
-  font-size: 2em;
-  padding: 3em;
-  border-radius: 1em;
+.donatetopiftitle {
+  margin: 5% auto auto auto;
+  font-size: 6em;
 }
 
-.money:hover {
-  background-color: wheat;
+.donationdescription {
+  background: white;
+  display: flex;
+  font-size: 1.2em;
+  line-height: 2.7em;
+  flex-direction: column;
+  align-content: center;
+  padding: 3%;
+  margin: 10% 10% 0 10%;
+  border: 3px solid black;
+  border-radius: 0.3em;
 }
 
-.physical {
-  margin: 0 9% 5% 6%;
-  font-size: 2em;
-  padding: 3em;
-  border-radius: 1em;
+.donationbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-decoration: none;
 }
 
-.physical:hover {
-  background-color: wheat;
+.monetary .monetary:hover .physical .physical:hover {
+  text-decoration: none;
 }
 
-p {
-  font-size: 2em;
+.donatemoneybutton {
+  margin: 10% 2% 10% 2%;
+  font-size: 4em;
+  color: black;
+  height: 50vh;
+  width: 42vw;
+  border-radius: 0.3em;
+  border: 3px solid black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  padding: 30% 9.5%;
 }
 
-h3 {
-  font-size: 3em;
-  margin-bottom: 8%;
+.donatemoneybutton:hover {
+  background: url("http://wolfcreekcompany.com/wp-content/uploads/2017/05/huddle.jpg");
+  background-position: center;
+  color: white;
+  text-decoration: none;
+}
+
+.donatephysicalbutton {
+  margin: 10% 2% 10% 2%;
+  font-size: 4em;
+  color: black;
+  border-radius: 0.3em;
+  height: 50vh;
+  width: 42vw;
+  border: 3px solid black;
+  justify-content: center;
+
+  text-decoration: none;
+  padding: 30% 9.5%;
+}
+
+.donatephysicalbutton:hover {
+  background: url("http://i0.wp.com/www.floridafitnessconcepts.com/wp-content/uploads/2013/12/sports-conditioning.jpg?fit=900%2C587");
+  background-position: center;
+  color: white;
+  text-decoration: none;
+}
+
+.givebackbuttons .givebackbuttons:hover {
+  text-decoration: none;
 }

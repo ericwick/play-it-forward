@@ -133,7 +133,7 @@ class Edit extends Component {
             <div className="imagespreviewdiv">
               <form>
                 <label>
-                  <h5 className="uploadprofilepic">Upload Cover Photos</h5>
+                  <h5 className="uploadprofilepic">Upload Cover Photo</h5>
                   <FileUploader
                     accept="image/*"
                     name="avatar"

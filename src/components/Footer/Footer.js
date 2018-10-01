@@ -14,42 +14,42 @@ class Footer extends Component {
   render() {
     return (
       <div id="footer">
-        <img
+        {/* <img
           alt=""
           src={this.state.logo}
           className="footerlogo"
           id="leftlogo"
-        />
+        /> */}
         <div className="columns">
           <div className="pif">
             <h5>PLAY IT FORWARD</h5>
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Home
             </Link>
             <br />
-            <Link to="/about" className="link">
+            <Link to="/about" className="footerlink">
               About
             </Link>
             <br />
-            <Link to="/donate" className="link">
+            <Link to="/donate" className="footerlink">
               Donate
             </Link>
             <br />
-            <Link to="/login" className="link">
+            <Link to="/login" className="footerlink">
               Login
             </Link>
             <br />
-            <Link to="/registration" className="link">
+            <Link to="/registration" className="footerlink">
               Register
             </Link>
           </div>
           <div className="account">
             <h5>YOUR ACCOUNT</h5>
-            <Link to="/player" className="link">
+            <Link to="/player" className="footerlink">
               Profile
             </Link>
             <br />
-            <Link to="/team" className="link">
+            <Link to="/team" className="footerlink">
               Team
             </Link>
             <br />
@@ -57,43 +57,43 @@ class Footer extends Component {
               League
             </Link>
             <br />
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Help
             </Link>
             <br />
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Settings
             </Link>
             <br />
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Help
             </Link>
           </div>
           <div className="contact">
             <h5>CONTACT</h5>
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Volunteer
             </Link>
             <br />
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               E-Mail
             </Link>
             <br />
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Phone
             </Link>
             <br />
-            <Link to="/" className="link">
+            <Link to="/" className="footerlink">
               Address
             </Link>
           </div>
         </div>
-        <img
+        {/* <img
           alt=""
           src={this.state.logo}
           className="footerlogo"
           id="rightlogo"
-        />
+        /> */}
       </div>
     );
   }

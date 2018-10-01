@@ -15,11 +15,7 @@ class Home extends Component {
       <div>
         <div id="title">
           <h1>PLAY IT FORWARD</h1>
-          {/* <img
-            alt=""
-            src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
-            className="homepagelogo"
-          /> */}
+          <div className="playitforwardhomedescrip" />
           <Login />
           <Social />
         </div>

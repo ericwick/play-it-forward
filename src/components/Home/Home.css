@@ -10,7 +10,7 @@
 }
 
 .socialmediaicons {
-  z-index: 10;
+  z-index: 100;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -21,13 +21,15 @@
   height: 4.5vh;
   width: 3vw;
   border-radius: 50%;
-  /* background: white; */
-  margin-bottom: 3.2em;
+  margin-bottom: 2em;
 }
 .contacticonimage:hover {
   cursor: pointer;
 }
-
+.registrationinstruction {
+  margin: 1% 10% 7.5% 10%;
+  font-size: 1.5em;
+}
 .belowthetitlescreen {
   margin-left: 10%;
   margin-right: 10%;
@@ -54,26 +56,4 @@ h1 {
 
 .homelink:hover {
   text-decoration: none;
-}
-
-.started {
-  font-family: "Permanent Marker", cursive;
-  font-size: 4em;
-  margin-bottom: 10vh;
-}
-
-.loginhomebutton {
-  font-family: "Permanent Marker", cursive;
-  font-size: 3em;
-  margin-right: 2%;
-  padding: 3em 2.5em 3em 2.5em;
-  display: inline;
-}
-
-.registerhomebutton {
-  font-family: "Permanent Marker", cursive;
-  font-size: 3em;
-  margin-left: 2%;
-  padding: 3em 2em 3em 2em;
-  display: inline;
 }

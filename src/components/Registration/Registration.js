@@ -97,6 +97,12 @@ class Registration extends Component {
             <p className="teamnameregister">{e.team_name}</p>
             <h6>Sport:</h6>
             <p className="teamsportregister">{e.sport_type}</p>
+            <br />
+            <h6>Age Range:</h6>
+            <p className="teamsportregister">{e.age_range}</p>
+            <br />
+            <h6>Gender Type:</h6>
+            <p className="teamsportregister">{e.gender_type}</p>
           </div>
         );
       } else if (
@@ -105,12 +111,18 @@ class Registration extends Component {
         e.age_range === "14-17"
       ) {
         return (
-          <div key={i}>
+          <div key={i} className="teamoptions">
             <h6>Team Name:</h6>
             <br />
             <p className="teamnameregister">{e.team_name}</p>
             <h6>Sport:</h6>
             <p className="teamsportregister">{e.sport_type}</p>
+            <br />
+            <h6>Age Range:</h6>
+            <p className="teamsportregister">{e.age_range}</p>
+            <br />
+            <h6>Gender Type:</h6>
+            <p className="teamsportregister">{e.gender_type}</p>
           </div>
         );
       } else if (
@@ -119,12 +131,18 @@ class Registration extends Component {
         e.age_range === "13-14"
       ) {
         return (
-          <div key={i}>
+          <div key={i} className="teamoptions">
             <h6>Team Name:</h6>
             <br />
-            {e.team_name}
+            <p className="teamnameregister">{e.team_name}</p>
             <h6>Sport:</h6>
-            {e.sport_type}
+            <p className="teamsportregister">{e.sport_type}</p>
+            <br />
+            <h6>Age Range:</h6>
+            <p className="teamsportregister">{e.age_range}</p>
+            <br />
+            <h6>Gender Type:</h6>
+            <p className="teamsportregister">{e.gender_type}</p>
           </div>
         );
       } else if (
@@ -133,12 +151,18 @@ class Registration extends Component {
         e.age_range === "9-10"
       ) {
         return (
-          <div key={i}>
+          <div key={i} className="teamoptions">
             <h6>Team Name:</h6>
             <br />
-            {e.team_name}
+            <p className="teamnameregister">{e.team_name}</p>
             <h6>Sport:</h6>
-            {e.sport_type}
+            <p className="teamsportregister">{e.sport_type}</p>
+            <br />
+            <h6>Age Range:</h6>
+            <p className="teamsportregister">{e.age_range}</p>
+            <br />
+            <h6>Gender Type:</h6>
+            <p className="teamsportregister">{e.gender_type}</p>
           </div>
         );
       } else if (
@@ -147,12 +171,18 @@ class Registration extends Component {
         e.age_range === "7-8"
       ) {
         return (
-          <div key={i}>
+          <div key={i} className="teamoptions">
             <h6>Team Name:</h6>
             <br />
-            {e.team_name}
+            <p className="teamnameregister">{e.team_name}</p>
             <h6>Sport:</h6>
-            {e.sport_type}
+            <p className="teamsportregister">{e.sport_type}</p>
+            <br />
+            <h6>Age Range:</h6>
+            <p className="teamsportregister">{e.age_range}</p>
+            <br />
+            <h6>Gender Type:</h6>
+            <p className="teamsportregister">{e.gender_type}</p>
           </div>
         );
       } else if (
@@ -161,12 +191,18 @@ class Registration extends Component {
         e.age_range === "5-6"
       ) {
         return (
-          <div key={i}>
+          <div key={i} className="teamoptions">
             <h6>Team Name:</h6>
             <br />
-            {e.team_name}
+            <p className="teamnameregister">{e.team_name}</p>
             <h6>Sport:</h6>
-            {e.sport_type}
+            <p className="teamsportregister">{e.sport_type}</p>
+            <br />
+            <h6>Age Range:</h6>
+            <p className="teamsportregister">{e.age_range}</p>
+            <br />
+            <h6>Gender Type:</h6>
+            <p className="teamsportregister">{e.gender_type}</p>
           </div>
         );
       }
@@ -181,6 +217,12 @@ class Registration extends Component {
         />
         <div>
           <h2 id="registrationtitle">REGISTRATION</h2>
+          <p className="registrationinstruction">
+            Before filling out this form to complete registration, head over to
+            the login and enter your username/email and password to create an
+            account. <br />
+            Then complete this form to finish setting up your profile.
+          </p>
           <p className="formitem">
             FULL NAME
             <br />
