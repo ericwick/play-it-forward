@@ -39,7 +39,7 @@
   padding-bottom: 15em;
 }
 
-h1 {
+.websitetitle {
   margin: 18% auto 0 auto;
   vertical-align: middle;
   font-family: "Graduate", cursive;
@@ -55,5 +55,26 @@ h1 {
 }
 
 .homelink:hover {
+  text-decoration: none;
+}
+
+.titlelearnmore {
+  color: white;
+  margin-top: 4%;
+  height: 5vh;
+  width: 15vw;
+  font-size: 1em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  background: #fa4100;
+  border: none;
+  -webkit-box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
+}
+.titlelearnmore:hover {
+  color: slategray;
   text-decoration: none;
 }

@@ -44,6 +44,8 @@ class League extends Component {
       return newTeam;
     };
 
+
+    // [[{team: name, wins: 5}, {team: name, wins:6}, { team:name, win, 6}]]
     let division = leaguestandings(standingsarr).map((e, i) => {
       return (
         <div key={i} className="divisionrankingsdiv">

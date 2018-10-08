@@ -12,40 +12,46 @@
 }
 
 #abouttitle {
-  color: white;
+  color: black;
   font-family: "Graduate", cursive;
   font-size: 10em;
-  margin: 20% 36%;
+  margin: 11% 25% 0% 25%;
   position: absolute;
 }
 
 .aboutpagepicturediv {
-  width: 100%;
-  margin-bottom: 5%;
+  height: 50vh;
+  width: 80%;
+  margin: 20% auto auto auto;
+  top: 50;
+  display: flex;
+  flex-direction: row;
 }
 
 .aboutpagepic {
-  height: 60vh;
-  width: 100%;
+  height: 45vh;
+  width: 45%;
+  border-top-right-radius: 4%;
+  border-top-left-radius: 4%;
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
+  /* margin-top: 20%;
+  margin-left: 32%; */
 }
-
-.aboutpageinformation {
+/* .aboutpageinformation {
   display: flex;
   flex-direction: column;
-}
+  float: left;
+} */
 
 .aboutplayitforward {
-  font-size: 2em;
+  font-size: 1em;
   background: white;
-  border: 3px black solid;
-  margin: 2%;
-  padding: 5%;
-  border-top-right-radius: 1em;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  /* margin: 2%;
+  padding: 5%; */
+  /* float: left; */
 }
-
+/*
 .aboutpagefaq {
   display: flex;
   flex-direction: row;
@@ -162,4 +168,4 @@
 
 .sporttitletype {
   font-size: 2.5em;
-}
+} */

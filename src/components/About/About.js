@@ -9,29 +9,31 @@ class About extends Component {
   }
   render() {
     return (
-      <div className="aboutpage">
-        <Social />
-        <div className="aboutpagepicturediv">
-          <img
-            alt=""
-            src="https://static1.squarespace.com/static/54f52b66e4b06c271d076bd9/55c3af1ae4b02956758c5ac2/55c3af3fe4b052f7e9bda55a/1438887744462/TheSeason-004.jpg?format=1000w"
-            className="aboutpagepic"
-          />
-        </div>
-        <h1 id="abouttitle">ABOUT</h1>
-        <div className="aboutpageinformation">
-          <p className="aboutplayitforward">
-            Play It Forward is a national, nonprofit organization inspired by
-            the universal desire to become the best verison of yourself. Our
-            members are our power, and your support allows us to work toward a
-            nation where kids of any age are able to participate in any sport
-            they want regardless of their socioeconomic status. Play It Forward
-            wants to afford everyone who is able to Play the opportunity to
-            Play. The registration contributions from the adult leagues help
-            make the kids' leagues possible, but any additional efforts help the
-            leagues thrive and provide an exceptional experience for the
-            children.
-          </p>
+      <div>
+        <div className="aboutpage">
+          <Social />
+          <h1 id="abouttitle">ABOUT</h1>
+          <div className="aboutpagepicturediv">
+            <p className="aboutplayitforward">
+              Play It Forward is a national, nonprofit organization inspired by
+              the universal desire to become the best verison of yourself. Our
+              members are our power, and your support allows us to work toward a
+              nation where kids of any age are able to participate in any sport
+              they want regardless of their socioeconomic status. Play It
+              Forward wants to afford everyone who is able to Play the
+              opportunity to Play. The registration contributions from the adult
+              leagues help make the kids' leagues possible, but any additional
+              efforts help the leagues thrive and provide an exceptional
+              experience for the children.
+            </p>
+            <img
+              alt=""
+              src="https://static1.squarespace.com/static/54f52b66e4b06c271d076bd9/55c3af1ae4b02956758c5ac2/55c3af3fe4b052f7e9bda55a/1438887744462/TheSeason-004.jpg?format=1000w"
+              className="aboutpagepic"
+            />
+          </div>
+          {/* <div className="aboutpageinformation">
+          </div> */}
           <div className="aboutpagefaq">
             <p id="averageincomefaq">The average American income $31,786</p>
             <img
