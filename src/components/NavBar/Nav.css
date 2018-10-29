@@ -41,6 +41,14 @@ ul,
   font-weight: bold;
 }
 
+.scrolled .unorderedNavList {
+  padding-top: 2vh;
+}
+
+.scrolled .piflogo {
+  padding-top: 2vh;
+}
+
 .scrolled #navigationlinks {
   color: black;
   text-decoration: none;

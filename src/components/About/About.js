@@ -32,10 +32,9 @@ class About extends Component {
               className="aboutpagepic"
             />
           </div>
-          {/* <div className="aboutpageinformation">
-          </div> */}
+
           <div className="aboutpagefaq">
-            <p id="averageincomefaq">The average American income $31,786</p>
+            {/* <p id="averageincomefaq">The average American income $31,786</p>
             <img
               alt=""
               src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
@@ -44,7 +43,7 @@ class About extends Component {
             />
             <p id="averagesportfaq">
               The average American spends $2,292 per year per child on athletics
-            </p>
+            </p> */}
           </div>
           <div className="aboutpagefaqbysport">
             <p className="sportcost" id="sportlax">
