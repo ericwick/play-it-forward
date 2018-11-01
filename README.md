@@ -22,3 +22,9 @@ The user is brought to their profile page upon logging in and on that page they 
 
 
 ![screen shot 2018-11-01 at 3 58 44 am](https://user-images.githubusercontent.com/25443418/47842444-a350b180-dd8a-11e8-8a39-0e1a9af0f61e.png)
+
+From the team page or profile page, users can navigate to their league page where they can view the overall league standings and also the overall league donations standings. 
+
+![screen shot 2018-11-01 at 4 05 48 am](https://user-images.githubusercontent.com/25443418/47842738-96808d80-dd8b-11e8-9e12-63dbaa5f69cd.png)
+
+
