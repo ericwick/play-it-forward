@@ -6,4 +6,13 @@ The registration contributions from the adult leagues help make the kids' league
 
 The end result would afford everyone who is wanting to Play the opportunity to Play!
 
+
 ![screen shot 2018-11-01 at 3 41 43 am](https://user-images.githubusercontent.com/25443418/47841715-8915d400-dd88-11e8-9739-47ce654d8511.png)
+
+
+The application uses Auth0 to verify users' identify in the login process. 
+
+
+![screen shot 2018-11-01 at 3 50 24 am](https://user-images.githubusercontent.com/25443418/47841988-5c15f100-dd89-11e8-9ddb-bd58d4941690.png)
+
+
