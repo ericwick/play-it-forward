@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../Donate/Donate.css";
+// import "../Donate/Donate.css";
 import { Link } from "react-router-dom";
 import pic from "./tennisdonate.png";
-import Social from "../Home/Social";
+// import Social from "../Home/Social";
 
 class Donate extends Component {
   constructor() {
@@ -12,23 +12,20 @@ class Donate extends Component {
     };
   }
   render() {
-    // src = "http://wolfcreekcompany.com/wp-content/uploads/2017/05/huddle.jpg";
-    // src =
-    //   "http://i0.wp.com/www.floridafitnessconcepts.com/wp-content/uploads/2013/12/sports-conditioning.jpg?fit=900%2C587";
     return (
       <div className="donatepage">
-        <Social />
-        <div className="donatepicandtitle">
+        {/* <Social /> */}
+        {/* <div className="donatepicandtitle">
           <img
             alt=""
             src={this.state.picture}
             className="donationspagepicture"
           />
-        </div>
-        <h1 className="donation" id="homedonate">
+        </div> */}
+        {/* <h1 className="donation" id="homedonate">
           DONATE
-        </h1>
-        <h3 className="donatetopiftitle">Donate to Play It Forward</h3>
+        </h1> */}
+        <h3 className="donatetopiftitle">Donate </h3>
         <p className="donationdescription">
           Play It Forward is a national, nonprofit organization inspired by the
           universal desire to become the best verison of yourself. Our members

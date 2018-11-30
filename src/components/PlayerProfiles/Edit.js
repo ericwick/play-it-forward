@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Edit.css";
+// import "./Edit.css";
 import axios from "axios";
 import { connect } from "react-redux";
 import { updateSportsInfo } from "../../ducks/get_reducer";

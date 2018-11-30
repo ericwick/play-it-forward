@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./League.css";
+// import "./League.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
@@ -43,7 +43,6 @@ class League extends Component {
       newTeam.reverse();
       return newTeam;
     };
-
 
     // [[{team: name, wins: 5}, {team: name, wins:6}, { team:name, win, 6}]]
     let division = leaguestandings(standingsarr).map((e, i) => {
@@ -110,11 +109,11 @@ class League extends Component {
     let league = arr.map((e, i) => {
       return (
         <div key={i} className="leaguemapdiv">
-          <img
+          {/* <img
             alt=""
             src="http://rheacountyfootball.com/wp-content/uploads/2017/06/black-white-stadium-as-Smart-Object-1.jpg"
             className="leaguepagepic"
-          />
+          /> */}
           <div>
             <h1 id="leaguetitle">{e.league_name}</h1>
           </div>

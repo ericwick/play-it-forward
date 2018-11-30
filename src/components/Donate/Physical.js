@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../Donate/Donate.css";
-import Social from "../Home/Social";
+// import "../Donate/Donate.css";
+// import Social from "../Home/Social";
 
 class Physical extends Component {
   constructor() {
@@ -11,12 +11,12 @@ class Physical extends Component {
   render() {
     return (
       <div className="donate">
-        <Social />
-        <img
+        {/* <Social /> */}
+        {/* <img
           alt=""
           src="https://clicklovegrow.com/wp-content/new_folder/2015/06/20140601-_A0A1870-1024x683.jpg"
           className="physicaldonationdiv"
-        />
+        /> */}
         <h1 className="physicaldonationtitle">DONATIONS</h1>
         <p className="inputfield">
           There are a lot of ways to contribute to successful youth programs

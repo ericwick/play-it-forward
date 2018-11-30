@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Chat from "../Teams/Chat";
-import "./Team.css";
+// import "./Team.css";
 import { connect } from "react-redux";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
 import axios from "axios";
@@ -16,6 +17,7 @@ class Team extends Component {
       teamEmails: "",
       emails: ""
     };
+    this.myRef = React.createRef();
     this.schedulePractice = this.schedulePractice.bind(this);
     this.showPractice = this.showPractice.bind(this);
     this.getEmails = this.getEmails.bind(this);
@@ -52,6 +54,13 @@ class Team extends Component {
     });
     console.log(this.state.emails);
   }
+
+  scrollToDomRef = () => {
+    // console.log("DOM", ReactDOM);
+    // console.log("current", this.myRef);
+    const myDomNode = ReactDOM.findDOMNode(this.myRef);
+    window.scrollTo(0, myDomNode.offsetTop);
+  };
 
   render() {
     let { sportsInfo } = this.props;
@@ -107,12 +116,15 @@ class Team extends Component {
       <div id="teampagediv">
         <Carousel>
           <div>
-            <img
+            {/* <img
               alt=""
               src="https://images.fineartamerica.com/images-medium-large-5/closeup-of-american-football-on-field-danny-hooks.jpg"
-            />
+            /> */}
           </div>
         </Carousel>
+        <button onClick={() => this.scrollToDomRef()}>
+          Practice? We talmbout PRACTICE!
+        </button>
         <div className="squaddiv">{squad}</div>
         <div className="chaticon">
           <Chat teamName={sportsInfo.team_name} />

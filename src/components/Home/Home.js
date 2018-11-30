@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./Home.css";
-import "./bootstrap.css";
+// import "./Home.css";
+// import "./bootstrap.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../../ducks/get_reducer";
 import Login from "./Login";
-import Social from "./Social";
+// import Social from "./Social";
 
 class Home extends Component {
   constructor() {
@@ -24,10 +24,7 @@ class Home extends Component {
           <h1 className="websitetitle">PLAY IT FORWARD</h1>
           <div className="playitforwardhomedescrip" />
           <Login />
-          <Social />
-          <Link to="/about">
-            <button className="titlelearnmore">Learn More</button>
-          </Link>
+          {/* <Social /> */}
         </div>
       </div>
     );

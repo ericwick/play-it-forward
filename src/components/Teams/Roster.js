@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Team.css";
+// import "./Team.css";
 import { connect } from "react-redux";
 import { updateTeam } from "../../ducks/get_reducer";
 

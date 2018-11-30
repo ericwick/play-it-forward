@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Monetary.css";
+// import "./Monetary.css";
 import Checkout from "./Checkout";
 import axios from "axios";
-import Social from "../Home/Social";
+// import Social from "../Home/Social";
 
 class Monetary extends Component {
   constructor() {
@@ -54,12 +54,12 @@ class Monetary extends Component {
     console.log(this.state);
     return (
       <div className="donate">
-        <Social />
-        <img
+        {/* <Social /> */}
+        {/* <img
           alt=""
           src="http://www.zocalopublicsquare.org/wp-content/uploads/2012/09/Touchdown-600x399.jpg"
           className="monetarypagepic"
-        />
+        /> */}
         <p className="inputfield" id="instructions">
           Please enter your information below and then follow the prompts on the
           pop-up to complete your donation.

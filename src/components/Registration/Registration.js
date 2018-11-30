@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Registration.css";
+// import "./Registration.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -14,7 +14,7 @@ import {
   updateTeams,
   updateEmail
 } from "../../ducks/registration_reducer";
-import Social from "../Home/Social";
+// import Social from "../Home/Social";
 
 class Registration extends Component {
   constructor() {
@@ -210,11 +210,11 @@ class Registration extends Component {
 
     return (
       <div className="registrationpage">
-        <Social />
-        <img
+        {/* <Social /> */}
+        {/* <img
           alt=""
           src="https://buffaloriverworks.com/wp-content/uploads/2013/08/KickballPortfolioHeader.png"
-        />
+        /> */}
         <div>
           <h2 id="registrationtitle">REGISTRATION</h2>
           <p className="registrationinstruction">
