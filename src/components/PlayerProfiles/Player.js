@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./Player.css";
+// import "./Player.css";
 import Edit from "./Edit";
 import axios from "axios";
 import Registration from "../Registration/Registration";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateSportsInfo } from "../../ducks/get_reducer";
-import "./Carousel.css";
+// import "./Carousel.css";
 import { Carousel } from "react-responsive-carousel";
 
 class Player extends Component {
@@ -33,6 +33,9 @@ class Player extends Component {
   }
 
   render() {
+    console.log("Sports Info", this.props.sportsInfo);
+    console.log("Profile Image", this.state.profileImg);
+
     let { profileImg } = this.state;
     let profilePic =
       profileImg.length > 0 ? profileImg[profileImg.length - 1] : null;
@@ -75,7 +78,7 @@ class Player extends Component {
         <div className="playerspacer" key={i}>
           <div key={i} id="profilecard">
             <div className="picturedivonprofile">
-              <img alt="" src={avatarPicture()} className="profilepicture" />
+              {/* <img alt="" src={avatarPicture()} className="profilepicture" /> */}
             </div>
             <h6 id="playernameonprofile">{e.player_name}</h6>
             <div className="teamleaguelinks">
@@ -93,12 +96,6 @@ class Player extends Component {
             </div>
           </div>
           <div className="playerprofileinfo">
-            <img
-              alt=""
-              src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
-              className="playerprofileinfopic"
-              id="playerprofileinfopicleft"
-            />
             <p className="info">
               HOMETOWN: {e.hometown}
               <br />
@@ -108,12 +105,6 @@ class Player extends Component {
               <br />
               AGE: {e.age}
             </p>
-            <img
-              alt=""
-              src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
-              className="playerprofileinfopic"
-              id="playerprofileinfopicright"
-            />
           </div>
           <div className="aboutplayer">
             <h3 className="aboutplayertitle">About {e.player_name}</h3>
@@ -140,9 +131,7 @@ class Player extends Component {
         {this.props.sportsInfo.auth_id ? (
           <div id="playerCard">
             <Carousel>
-              <div>
-                <img alt="" src={coverPicture()} />
-              </div>
+              <div>{/* <img alt="" src={coverPicture()} /> */}</div>
             </Carousel>
             {player}
           </div>
