@@ -123,7 +123,7 @@ class Team extends Component {
           </div>
         </Carousel>
         <button onClick={() => this.scrollToDomRef()}>
-          Practice? We talmbout PRACTICE!
+          Practice!
         </button>
         {/* <div className="squaddiv">{squad}</div> */}
         <div className="chaticon">
