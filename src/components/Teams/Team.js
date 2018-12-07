@@ -56,8 +56,6 @@ class Team extends Component {
   }
 
   scrollToDomRef = () => {
-    // console.log("DOM", ReactDOM);
-    // console.log("current", this.myRef);
     const myDomNode = ReactDOM.findDOMNode(this.myRef);
     window.scrollTo(0, myDomNode.offsetTop);
   };
@@ -68,39 +66,6 @@ class Team extends Component {
     arr.push(sportsInfo);
 
     console.log(sportsInfo, "SPORTSINFO");
-
-    // let squad = arr.map((e, i) => {
-    //   return (
-    //     <div>
-    //       <div key={i} className="teampage">
-    //         <h1 id="teamtitle">{e.team_name}</h1>
-    //       </div>
-    //       <div className="teampageinfo">
-    //         <div className="donationsdiv">
-    //           <h2 id="donations">
-    //             {e.team_name}' Total Donations: ${e.donations}
-    //           </h2>
-    //         </div>
-    //         <div className="teaminformationdiv">
-    //           <Link to="/league" className="teampagelink">
-    //             <p>League: {e.league_name}</p>
-    //           </Link>
-    //           <p>Sport: {e.sport_type}</p>
-    //           <p>
-    //             Record: {e.wins}-{e.loses}
-    //             {e.ties !== 0 ? -e.ties : null}
-    //           </p>
-    //           <p>Age Range: {e.age_range}</p>
-    //           <p>Gender: {e.gender_type}</p>
-    //           <p>Location: {e.location}</p>
-    //         </div>
-    //         <div className="rostertitle">ROSTER</div>
-    //         <hr className="linebreak" />
-    //         <Roster />
-    //       </div>
-    //     </div>
-    //   );
-    // });
 
     var teamEmail = "";
 
@@ -122,9 +87,7 @@ class Team extends Component {
             /> */}
           </div>
         </Carousel>
-        <button onClick={() => this.scrollToDomRef()}>
-          Practice!
-        </button>
+        <button onClick={() => this.scrollToDomRef()}>Practice!</button>
         {/* <div className="squaddiv">{squad}</div> */}
         <div className="chaticon">
           <Chat teamName={sportsInfo.team_name} />

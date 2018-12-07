@@ -186,3 +186,38 @@
 //       console.log("Payment failed", { error });
 //     });
 // }
+
+// TEAM ROSTERS
+
+// let squad = arr.map((e, i) => {
+//   return (
+//     <div>
+//       <div key={i} className="teampage">
+//         <h1 id="teamtitle">{e.team_name}</h1>
+//       </div>
+//       <div className="teampageinfo">
+//         <div className="donationsdiv">
+//           <h2 id="donations">
+//             {e.team_name}' Total Donations: ${e.donations}
+//           </h2>
+//         </div>
+//         <div className="teaminformationdiv">
+//           <Link to="/league" className="teampagelink">
+//             <p>League: {e.league_name}</p>
+//           </Link>
+//           <p>Sport: {e.sport_type}</p>
+//           <p>
+//             Record: {e.wins}-{e.loses}
+//             {e.ties !== 0 ? -e.ties : null}
+//           </p>
+//           <p>Age Range: {e.age_range}</p>
+//           <p>Gender: {e.gender_type}</p>
+//           <p>Location: {e.location}</p>
+//         </div>
+//         <div className="rostertitle">ROSTER</div>
+//         <hr className="linebreak" />
+//         <Roster />
+//       </div>
+//     </div>
+//   );
+// });
