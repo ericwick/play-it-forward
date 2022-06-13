@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-// import "../Donate/Donate.css";
-import { Link } from "react-router-dom";
-import pic from "./tennisdonate.png";
+import React, { Component } from 'react';
+import '../Donate/Donate.css';
+import { Link } from 'react-router-dom';
+import pic from './tennisdonate.png';
 // import Social from "../Home/Social";
 
 class Donate extends Component {
@@ -13,7 +13,7 @@ class Donate extends Component {
   }
   render() {
     return (
-      <div className="donatepage">
+      <div className='donatepage'>
         {/* <Social /> */}
         {/* <div className="donatepicandtitle">
           <img
@@ -25,8 +25,8 @@ class Donate extends Component {
         {/* <h1 className="donation" id="homedonate">
           DONATE
         </h1> */}
-        <h3 className="donatetopiftitle">Donate </h3>
-        <p className="donationdescription">
+        <h3 className='donatetopiftitle'>Donate </h3>
+        <p className='donationdescription'>
           Play It Forward is a national, nonprofit organization inspired by the
           universal desire to become the best verison of yourself. Our members
           are our power, and your support allows us to work toward a nation
@@ -38,13 +38,13 @@ class Donate extends Component {
           and provide an exceptional experience for the children.
         </p>
         <br />
-        <div className="donationbuttons">
-          <Link to="/monetary" className="givebackbuttons">
-            <div className="donatemoneybutton">Help Raise Funds</div>
+        <div className='donationbuttons'>
+          <Link to='/monetary' className='givebackbuttons'>
+            <div className='donatemoneybutton'>Help Raise Funds</div>
           </Link>
 
-          <Link to="/physical" className="givebackbuttons">
-            <div className="donatephysicalbutton">Send Equipment</div>
+          <Link to='/physical' className='givebackbuttons'>
+            <div className='donatephysicalbutton'>Send Equipment</div>
           </Link>
         </div>
       </div>
