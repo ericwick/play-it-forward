@@ -1,21 +1,16 @@
-.loginpage {
-  text-align: center;
-  position: relative;
-}
-
-.link {
+.login-link {
   color: black;
   cursor: pointer;
   text-decoration-line: none;
   text-decoration: none;
 }
 
-.link:hover {
+.login-link:hover {
   text-decoration-line: none;
   text-decoration: none;
 }
 
-#titlelogin {
+.login {
   color: white;
   margin-top: 12%;
   height: 10vh;
@@ -32,12 +27,12 @@
   box-shadow: 22px 24px 50px 8px rgba(0, 0, 0, 0.75);
 }
 
-#titlelogin:hover {
+.login {
   color: slategray;
   text-decoration: none;
 }
 
-#loginlink {
+.login-link {
   margin: 0;
   text-decoration: none;
 }

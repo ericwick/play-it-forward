@@ -1,8 +1,8 @@
-#title {
+.website {
   width: 100%;
   height: 100vh;
   top: 0;
-  background: url("https://c1.staticflickr.com/7/6063/6065174738_6b94ca6775_b.jpg");
+  background: url('https://c1.staticflickr.com/7/6063/6065174738_6b94ca6775_b.jpg');
   background-size: 100% 100vh;
   text-align: center;
   position: relative;
@@ -16,12 +16,14 @@
   flex-direction: column;
   float: left;
   top: 50vh;
+  margin: 0;
+  padding: 0;
 }
 .contacticonimage {
-  height: 4.5vh;
-  width: 3vw;
+  /* height: 4.5vh; */
+  width: 2em;
   border-radius: 50%;
-  margin-bottom: 2em;
+  margin: 0.5em;
 }
 .contacticonimage:hover {
   cursor: pointer;
@@ -39,10 +41,10 @@
   padding-bottom: 15em;
 }
 
-.websitetitle {
+.website-title {
   margin: 18% auto 0 auto;
   vertical-align: middle;
-  font-family: "Graduate", cursive;
+  font-family: 'Graduate', cursive;
   font-size: 9em;
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,

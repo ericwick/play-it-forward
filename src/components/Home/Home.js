@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-// import "./Home.css";
-// import "./bootstrap.css";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { updateUser } from "../../ducks/get_reducer";
-import Login from "./Login";
-// import Social from "./Social";
+import React, { Component } from 'react';
+import './Home.css';
+// import './bootstrap.css';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateUser } from '../../ducks/get_reducer';
+import Login from './Login';
 
 class Home extends Component {
   constructor() {
@@ -19,21 +18,14 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <div id="title">
-          <h1 className="websitetitle">PLAY IT FORWARD</h1>
-          <div className="playitforwardhomedescrip" />
-          <Login />
-          {/* <Social /> */}
-        </div>
+      <div className='website'>
+        <h1 className='website-title'>PLAY IT FORWARD</h1>
+        {/* <Login /> */}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ ...state.getReducer });
+const mapStateToProps = (state) => ({ ...state.getReducer });
 
-export default connect(
-  mapStateToProps,
-  { updateUser }
-)(Home);
+export default connect(mapStateToProps, { updateUser })(Home);

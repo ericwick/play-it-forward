@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 // import "../Home/Login.css";
 
 class Login extends Component {
@@ -10,7 +10,7 @@ class Login extends Component {
   }
 
   login() {
-    axios.get("/login").then(response => {
+    axios.get('/login').then((response) => {
       return response.data;
     });
   }
@@ -23,13 +23,9 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="loginpage">
-        <p id="loginlink">
-          <a href={process.env.REACT_APP_LOGIN} className="link">
-            <button id="titlelogin">PLAY NOW</button>
-          </a>
-        </p>
-      </div>
+      <a href={''} className='login-link'>
+        <button className='login'>PLAY NOW</button>
+      </a>
     );
   }
 }
