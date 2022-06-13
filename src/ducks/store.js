@@ -1,16 +1,17 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-// import promiseMiddleware from 'redux-promise-middleware';
-import registration_reducer from './registration_reducer';
-import getReducer from './get_reducer';
+import { configureStore } from "@reduxjs/toolkit";
+import thunk from "redux-thunk";
+import registrationReducer from "./registration_reducer";
+import getReducer from "./get_reducer";
 
-const combinedReducers = combineReducers({
-  registration_reducer,
-  getReducer
+const reducer = {
+    registrationReducer,
+    getReducer,
+};
+
+const store = configureStore({
+    reducer,
+    middleware: [thunk],
+    initialState: {},
 });
-
-const store = createStore(
-  combinedReducers
-  //   applyMiddleware(promiseMiddleware())
-);
 
 export default store;
