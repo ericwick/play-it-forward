@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-// import "./League.css";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
+import "./League.css";
 
 const League = (props) => {
     useEffect(() => {

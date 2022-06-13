@@ -1,30 +1,22 @@
-import React, { Component } from 'react';
-import './Home.css';
+import { useEffect } from "react";
+import "./Home.css";
+import { connect } from "react-redux";
+import { updateUser } from "../../ducks/get_reducer";
+import Login from "./Login";
 // import './bootstrap.css';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { updateUser } from '../../ducks/get_reducer';
-import Login from './Login';
 
-class Home extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+const Home = () => {
+    useEffect(() => {
+        // props.updateUser();
+    }, []);
 
-  componentDidMount() {
-    this.props.updateUser();
-  }
-
-  render() {
     return (
-      <div className='website'>
-        <h1 className='website-title'>PLAY IT FORWARD</h1>
-        {/* <Login /> */}
-      </div>
+        <div className="website">
+            <h1 className="website-title">PLAY IT FORWARD</h1>
+            {/* <Login /> */}
+        </div>
     );
-  }
-}
+};
 
 const mapStateToProps = (state) => ({ ...state.getReducer });
 

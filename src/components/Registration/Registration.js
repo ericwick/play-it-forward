@@ -1,6 +1,5 @@
-import React, { Component, useEffect } from "react";
+import { useEffect } from "react";
 import "./Registration.css";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -14,7 +13,6 @@ import {
     updateTeams,
     updateEmail,
 } from "../../ducks/registration_reducer";
-// import Social from "../Home/Social";
 
 const Registration = (props) => {
     useEffect(() => {

@@ -1,45 +1,27 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import axios from "axios";
+import { connect } from "react-redux";
+import {
+    updateAdultUsername,
+    updateAdultPassword,
+    updateKidUsername,
+    updateKidPassword,
+} from "../../ducks/registration_reducer";
 // import "../Home/Login.css";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.login = this.login.bind(this);
-  }
+const Login = (props) => {
+    const login = () => {
+        axios.get("/login").then((response) => {
+            return response.data;
+        });
+    };
 
-  login() {
-    axios.get('/login').then((response) => {
-      return response.data;
-    });
-  }
-
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  render() {
     return (
-      <a href={''} className='login-link'>
-        <button className='login'>PLAY NOW</button>
-      </a>
+        <a href={""} className="login-link">
+            <button className="login">Play Now</button>
+        </a>
     );
-  }
-}
+};
 
-export default Login;
+const mapStateToProps = (state) => ({ ...state.registration_reducer });
 
-// const mapStateToProps = state => ({ ...state.registration_reducer });
-
-// export default connect(
-//   mapStateToProps,
-//   {
-//     updateAdultUsername,
-//     updateAdultPassword,
-//     updateKidUsername,
-//     updateKidPassword
-//   }
-// )(Login);
+export default connect(mapStateToProps)(Login);

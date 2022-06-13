@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-// import "./Edit.css";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import "./Edit.css";
 import { connect } from "react-redux";
 import { updateSportsInfo } from "../../ducks/get_reducer";
 import { Link } from "react-router-dom";
@@ -14,8 +13,8 @@ const Edit = (props) => {
     const [coverPhoto, setCoverPhoto] = useState("");
 
     useEffect(() => {
-        props.updateSportsInfo();
-    });
+        // props.updateSportsInfo();
+    }, []);
 
     return (
         <div>
