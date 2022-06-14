@@ -1,85 +1,76 @@
 -- SELECT team_name FROM leagues;
 
 -- CREATE TABLE leagues (
--- league_id SERIAL PRIMARY KEY,
--- sport_type VARCHAR(30),
--- league_name VARCHAR(50),
--- location VARCHAR(100),
+-- id SERIAL PRIMARY KEY,
+-- name VARCHAR(30),
+-- sport VARCHAR(30),
+-- location VARCHAR(30),
 -- teams INTEGER
 -- );
 
 -- CREATE TABLE teams (
--- team_id SERIAL PRIMARY KEY,
--- sport_type VARCHAR(30),
--- league_name VARCHAR(50),
--- team_name VARCHAR(100),
--- location VARCHAR(100),
--- players INTEGER
+-- id SERIAL PRIMARY KEY,
+-- name VARCHAR(30),
+-- players INTEGER,
+-- FOREIGN KEY (league_id)
+--  REFERENCES leagues (id)
 -- );
 
 -- CREATE TABLE players (
--- player_id SERIAL PRIMARY KEY,
--- sports VARCHAR(100),
--- team_name VARCHAR(100),
--- team_id INTEGER,
--- location VARCHAR(100)
+-- id SERIAL PRIMARY KEY,
+-- first_name VARCHAR(30),
+-- last_name VARCHAR(30),
+-- age INTEGER,
+-- FOREIGN KEY (team_id)
+--  REFERENCES teams (id),
+-- FOREIGN KEY (league_id)
+--  REFERENCES leagues (id)
 -- );
 
--- INSERT INTO leagues (sport_type, league_name, location, teams)
--- VALUES ('football', 'BIG 12', 'Dallas, TX', 8),
--- ('soccer', 'Premier', 'Austin, TX', 12),
--- ('basketball', 'ACC', 'Atlanta, GA', 9),
--- ('tennis', 'Wimbledon', 'Houston, TX', 15),
--- ('kickball', 'Kicking and Screaming', 'Dallas, TX', 4),
--- ('basketball', 'American', 'Savannah, GA', 7);
+-- INSERT INTO players (first_name, last_name, age, team_id, league_id)
+-- VALUES ('Eric','Wickham',29,3,1),
+-- ('Garrett','Yaworski',31,13,4),
+-- ('Ashley','Nguyen',26,20,3);
 
--- INSERT INTO teams (sport_type, league_name, team_name, location, players)
--- VALUES ('football','BIG 12','Longhorns','Dallas, TX', 18),
--- ('football','BIG 12','Raiders','Dallas, TX', 14),
--- ('football','BIG 12','Mustangs','Dallas, TX', 19),
--- ('football','BIG 12','Cougars','Dallas, TX', 12),
--- ('basketball','ACC','Wildcats','Alpharetta, GA', 8),
--- ('basketball','ACC','Tigers','Roswell, GA', 6),
--- ('basketball','ACC','Hokies','Suwanee, GA', 8),
--- ('soccer','Premier','Titans','Austin, TX', 12),
--- ('soccer','Premier','Bears','Austin, TX', 13),
--- ('soccer','Premier','Chiefs','Austin, TX', 13),
--- ('soccer','Premier','Kings','Austin, TX', 16),
--- ('soccer','Premier','Valor','Austin, TX', 11),
--- ('kickball','Kicking and Screaming','Ground n Pound','Allen, TX', 9),
--- ('kickball','Kicking and Screaming','Heel Music','Fort Worth, TX', 9),
--- ('kickball','Kicking and Screaming','Foot Loose','Irving, TX', 9),
--- ('kickball','Kicking and Screaming','Big Toe Bombers','Dallas, TX', 9),
--- ('tennis','Wimbledon','Duet','Houston, TX', 2),
--- ('tennis','Wimbledon','Twos a Pair','Houston, TX', 2),
--- ('tennis','Wimbledon','Tandom Aces','Houston, TX', 2),
--- ('tennis','Wimbledon','Seeing Double','Houston, TX', 2),
--- ('tennis','Wimbledon','Han Solo','Houston, TX', 1),
--- ('tennis','Wimbledon','Lone Ranger','Houston, TX', 1),
--- ('tennis','Wimbledon','Ace','Houston, TX', 1),
--- ('tennis','Wimbledon','3rd Williams Sister','Houston, TX', 1),
--- ('basketball', 'American','Hawks', 'Savannah, GA', 7),
--- ('basketball', 'American','Bulldogs', 'Pooler, GA', 9),
--- ('basketball', 'American','Jackets', 'Richmond Hill, GA', 6),
--- ('basketball', 'American','Pirates', 'Rincon, GA', 6),
--- ('basketball', 'American','Eagles', 'Port Wentworth, GA', 7),
--- ('basketball', 'American','Raiders', 'Whitemarsh Island, GA', 7);
+-- INSERT INTO leagues (name, sport, location, teams)
+-- VALUES ('Football League', 'football', 'Dallas, TX', 5),
+-- ('Soccer League', 'soccer', 'Austin, TX', 7),
+-- ('Tennis League', 'tennis', 'Houston, TX', 8),
+-- ('Kickball League', 'kickball', 'Atlanta, GA', 4),
+-- ('Basketball League', 'basketball', 'Savannah, GA', 6);
 
--- DROP TABLE players;
+-- INSERT INTO teams (name, players, league_id)
+-- VALUES ('Longhorns',27,1),
+-- ('Raiders',24,1),
+-- ('Mustangs',27,1),
+-- ('Cougars',23,1),
+-- ('Wildcats',25,1),
+-- ('Tigers',10,2),
+-- ('Hokies',11,2),
+-- ('Titans',12,2),
+-- ('Bears',13,2),
+-- ('Chiefs',13,2),
+-- ('Kings', 12,2),
+-- ('Valor',11,2),
+-- ('Ground n Pound',9,4),
+-- ('Heel Music', 9,4),
+-- ('Foot Loose',9,4),
+-- ('Big Toe Bombers',9,4),
+-- ('Duet',2,3),
+-- ('Twos a Pair',2,3),
+-- ('Tandom Aces',2,3),
+-- ('Seeing Double',2,3),
+-- ('Han Solo',4,3),
+-- ('Lone Ranger',4,3),
+-- ('Ace',4,3),
+-- ('3rd Williams Sister',4,3),
+-- ('Hawks',7,5),
+-- ('Bulldogs',9,5),
+-- ('Jackets',8,5),
+-- ('Pirates',8,5),
+-- ('Eagles',7,5),
+-- ('Raiders',7,5);
 
--- CREATE TABLE players (
--- player_id SERIAL PRIMARY KEY,
--- player_name VARCHAR(100),
--- sports VARCHAR(100),
--- team_name VARCHAR(100),
--- team_id INTEGER,
--- location VARCHAR(100)
--- );
-
--- INSERT INTO players (player_name, sports, team_name, location)
--- VALUES ('Eric Wickham','football','Raiders','Dallas, TX'),
--- ('Garrett Yaworski','kickball','Big Toe Bombers','Dallas, TX'),
--- ('Ashley Nguyen','tennis','3rd Williams Sister','Houston, TX');
 
 -- SELECT * FROM teams;
 

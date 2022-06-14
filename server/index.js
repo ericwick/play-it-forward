@@ -1,117 +1,20 @@
-// require("dotenv").config();
-const express = require('express');
-const { json } = require('body-parser');
-const massive = require('massive');
-const session = require('express-session');
-const passport = require('passport');
-const Auth0Strategy = require('passport-auth0');
-
-const {
-  getPlayer,
-  loggedIn,
-  roster,
-  getLeague,
-  getTeams
-} = require('./controllers/get_controller');
-const { checkout } = require('./controllers/stripe_controller');
-const { newPlayer, logout, login } = require('./controllers/auth_controller');
-const { updateInfo, deleteInfo } = require('./controllers/edit_controller');
-const { chatMessage } = require('./controllers/chat_controller');
-const { paymentDonation } = require('./controllers/donate_controller');
-const {
-  registerUser,
-  schedulePractice
-} = require('./controllers/mailer_controller');
-const {
-  profilePic,
-  coverPhotos,
-  getPictures
-} = require('./controllers/image_controller');
+require("dotenv").config();
+const express = require("express");
+const { MongoClient } = require("mongodb");
+const cors = require("cors");
+const { json } = require("body-parser");
+const { getPlayers } = require("./controllers/retrieve");
 
 const app = express();
-
+app.use(express.urlencoded({ extended: false }));
 app.use(json());
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//       maxAge: 1223334444
-//     }
-//   })
-// );
-// app.use(express.static(`${__dirname}/../build`));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(
-  new Auth0Strategy(
-    {
-      // domain: process.env.DOMAIN,
-      // clientID: process.env.CLIENT_ID,
-      // clientSecret: process.env.CLIENT_SECRET,
-      scope: 'openid email profile',
-      callbackURL: '/login'
-    },
-    (accessToken, refreshToken, extraParams, profile, done) => {
-      return done(null, profile);
-    }
-  )
-);
+app.use(cors());
 
-// massive(process.env.CONNECTION_STRING)
-//   .then(db => app.set("db", db))
-//   .catch(err => console.log("ERROR", err));
+const client = new MongoClient(process.env.CONNECTION_STRING);
 
-// checkout(app);
+app.get("/players", getPlayers);
 
-// passport.serializeUser((user, done) => {
-//   const db = app.get("db");
-//   db.get_player(user.id)
-//     .then(response => {
-//       if (!response[0]) {
-//         db.new_user([user.displayName, user.id]);
-//       } else {
-//         return done(null, response[0]);
-//       }
-//     })
-//     .catch(err => console.log(err));
-// });
-
-// passport.deserializeUser((obj, done) => {
-//   done(null, obj);
-// });
-
-// app.get(
-//   "/login",
-//   passport.authenticate("auth0", {
-//     successRedirect: process.env.REACT_APP_SUCCESSREDIRECT,
-//     failureRedirect: process.env.REACT_APP_FAILUREREDIRECT
-//   })
-// );
-
-app.get('/user', loggedIn);
-app.get('/player', getPlayer);
-app.get('/logout', logout);
-app.get('/roster', roster);
-app.get('/league', getLeague);
-app.get('/teams', getTeams);
-app.get('/profile/images', getPictures);
-
-app.post('/registration', newPlayer);
-app.post('/login', login);
-app.post('/team/chat', chatMessage);
-app.post('/donate/paymentInfo', paymentDonation);
-app.post('/registration/email', registerUser);
-app.post('/team/practice', schedulePractice);
-app.post('/player/upload/:id', coverPhotos);
-app.post('/player/uploadprofilepic/:id', profilePic);
-
-app.put('/playerInfo/:id', updateInfo);
-
-app.delete('/playerInfo/:id', deleteInfo);
-
-const port = 3001;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+    console.log(`listening on port ${port}`);
 });

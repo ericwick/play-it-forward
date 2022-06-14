@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Edit.css";
 import { connect } from "react-redux";
-import { updateSportsInfo } from "../../ducks/get_reducer";
+// import { updateSportsInfo } from "../../ducks/get_reducer";
 import { Link } from "react-router-dom";
 // import firebase from "../../firebase";
 import FileUploader from "react-firebase-file-uploader";
@@ -18,12 +18,7 @@ const Edit = (props) => {
 
     return (
         <div>
-            <button
-                onClick={() => this.showEdit()}
-                className="editprofilebutton"
-            >
-                Edit Profile
-            </button>
+            <button className="editprofilebutton">Edit Profile</button>
 
             {this.state.editMode === true ? (
                 <div className="editprofilediv">
@@ -81,63 +76,15 @@ const Edit = (props) => {
                             </label>
                         </form>
                     </div>
-                    <input
-                        name={sportsInfo.player_name}
-                        placeholder="Player Name"
-                        onChange={(e) => this.updateName(e)}
-                        required
-                        className="editinput"
-                    />
-                    <input
-                        name={sportsInfo.hometown}
-                        placeholder="Hometown"
-                        onChange={(e) => this.updateHometown(e)}
-                        required
-                        className="editinput"
-                    />
-                    <input
-                        name={sportsInfo.sport_type}
-                        placeholder="Sports"
-                        onChange={(e) => this.updateSport(e)}
-                        required
-                        className="editinput"
-                    />
-                    <input
-                        name={sportsInfo.age}
-                        placeholder="Age"
-                        onChange={(e) => this.updateAge(e)}
-                        required
-                        className="editinput"
-                    />
-                    <input
-                        name={sportsInfo.position}
-                        placeholder="Position"
-                        onChange={(e) => this.updatePosition(e)}
-                        required
-                        className="editinput"
-                    />
-                    <button
-                        onClick={() =>
-                            this.updateInfo(sportsInfo.auth_id, {
-                                player_name: this.state.player_name,
-                                hometown: this.state.hometown,
-                                sport_type: this.state.sport_type,
-                                age: this.state.age,
-                                position: this.state.position,
-                            })
-                        }
-                        className="savechangesbutton"
-                    >
-                        SAVE CHANGES
-                    </button>
+                    <input placeholder="Player Name" className="editinput" />
+                    <input placeholder="Hometown" className="editinput" />
+                    <input placeholder="Sports" className="editinput" />
+                    <input placeholder="Age" className="editinput" />
+                    <input placeholder="Position" className="editinput" />
+                    <button className="savechangesbutton">SAVE CHANGES</button>
                     <div>
                         <Link to="/">
-                            <button
-                                onClick={() =>
-                                    this.deleteProfile(sportsInfo.auth_id)
-                                }
-                                className="deleteprofile"
-                            >
+                            <button className="deleteprofile">
                                 DELETE PROFILE
                             </button>
                         </Link>
@@ -152,4 +99,4 @@ const mapStateToProps = ({ state }) => ({
     ...state,
 });
 
-export default connect(mapStateToProps, { updateSportsInfo })(Edit);
+export default connect(mapStateToProps)(Edit);

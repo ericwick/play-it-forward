@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Chat from "../Teams/Chat";
 import { connect } from "react-redux";
-import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
+// import { updateSportsInfo, updateTeam } from "../../ducks/get_reducer";
 import "./Team.css";
 
 const Team = () => {
@@ -20,15 +20,15 @@ const Team = () => {
         //     console.log(response);
         //   })
         //   .catch(err => console.log(err));
-        showPractice();
+        // showPractice();
     };
 
     const showPractice = () => {
-        let arr = props.team.map((e, i) => {
-            return e.email;
-        });
-        setTeamEmails(arr);
-        setTogglePractice(!this.state.togglePractice);
+        // let arr = props.team.map((e, i) => {
+        //     return e.email;
+        // });
+        // setTeamEmails(arr);
+        // setTogglePractice(!this.state.togglePractice);
     };
 
     const getEmails = (e) => {
@@ -59,24 +59,15 @@ const Team = () => {
             {this.state.togglePractice ? (
                 <div className="schedulepracticediv">
                     <input placeholder="Date and Time" />
-                    <textarea
-                        rows="3"
-                        columns="2"
-                        defaultValue={teamEmail}
-                        onChange={(e) => this.getEmails(e.target.value)}
-                        className="emailsofroster"
-                    />
+                    <textarea rows="3" columns="2" className="emailsofroster" />
                     <textarea
                         row="10"
                         columns="4"
                         defaultValue=""
                         className="messagetoteam"
                     />
-                    <button
-                        onClick={() => this.schedulePractice()}
-                        className="sendpracticeschedule"
-                    >
-                        Schedule Practice For {sportsInfo.team_name}
+                    <button className="sendpracticeschedule">
+                        Schedule Practice
                     </button>
                 </div>
             ) : (
@@ -93,4 +84,4 @@ const Team = () => {
 
 const mapStateToProps = (state) => ({ ...state.getReducer });
 
-export default connect(mapStateToProps, { updateSportsInfo, updateTeam })(Team);
+export default connect(mapStateToProps)(Team);

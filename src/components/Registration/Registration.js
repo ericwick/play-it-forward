@@ -2,33 +2,33 @@ import { useEffect } from "react";
 import "./Registration.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-    updatePlayerName,
-    updateTeamName,
-    updateSports,
-    updatePosition,
-    updateGender,
-    updateAge,
-    updateHometown,
-    updateTeams,
-    updateEmail,
-} from "../../ducks/registration_reducer";
+// import {
+//     updatePlayerName,
+//     updateTeamName,
+//     updateSports,
+//     updatePosition,
+//     updateGender,
+//     updateAge,
+//     updateHometown,
+//     updateTeams,
+//     updateEmail,
+// } from "../../ducks/reducer/registration_reducer";
 
 const Registration = (props) => {
     useEffect(() => {
-        props.updateTeams();
+        // props.updateTeams();
     }, []);
 
-    const {
-        updatePlayerName,
-        updateSports,
-        updatePosition,
-        updateGender,
-        updateAge,
-        updateHometown,
-        updateEmail,
-        updateTeamName,
-    } = props;
+    // const {
+    //     updatePlayerName,
+    //     updateSports,
+    //     updatePosition,
+    //     updateGender,
+    //     updateAge,
+    //     updateHometown,
+    //     updateEmail,
+    //     updateTeamName,
+    // } = props;
 
     const submit = () => {
         let {
@@ -44,116 +44,116 @@ const Registration = (props) => {
         // axios/http post call here
     };
 
-    let teamOptions = props.teams.map((e, i, arr) => {
-        if (e.sport === null) {
-            e.sport = "football";
-        }
-        if (props.age >= 18 && e.age_range === "18+") {
-            return (
-                <div key={i} className="teamoptions">
-                    <h6>Team Name:</h6>
-                    <br />
-                    <p className="teamnameregister">{e.team_name}</p>
-                    <h6>Sport:</h6>
-                    <p className="teamsportregister">{e.sport_type}</p>
-                    <br />
-                    <h6>Age Range:</h6>
-                    <p className="teamsportregister">{e.age_range}</p>
-                    <br />
-                    <h6>Gender Type:</h6>
-                    <p className="teamsportregister">{e.gender_type}</p>
-                </div>
-            );
-        } else if (
-            props.age < 18 &&
-            props.age >= 14 &&
-            e.age_range === "14-17"
-        ) {
-            return (
-                <div key={i} className="teamoptions">
-                    <h6>Team Name:</h6>
-                    <br />
-                    <p className="teamnameregister">{e.team_name}</p>
-                    <h6>Sport:</h6>
-                    <p className="teamsportregister">{e.sport_type}</p>
-                    <br />
-                    <h6>Age Range:</h6>
-                    <p className="teamsportregister">{e.age_range}</p>
-                    <br />
-                    <h6>Gender Type:</h6>
-                    <p className="teamsportregister">{e.gender_type}</p>
-                </div>
-            );
-        } else if (
-            props.age < 14 &&
-            props.age >= 11 &&
-            e.age_range === "13-14"
-        ) {
-            return (
-                <div key={i} className="teamoptions">
-                    <h6>Team Name:</h6>
-                    <br />
-                    <p className="teamnameregister">{e.team_name}</p>
-                    <h6>Sport:</h6>
-                    <p className="teamsportregister">{e.sport_type}</p>
-                    <br />
-                    <h6>Age Range:</h6>
-                    <p className="teamsportregister">{e.age_range}</p>
-                    <br />
-                    <h6>Gender Type:</h6>
-                    <p className="teamsportregister">{e.gender_type}</p>
-                </div>
-            );
-        } else if (props.age < 11 && props.age >= 9 && e.age_range === "9-10") {
-            return (
-                <div key={i} className="teamoptions">
-                    <h6>Team Name:</h6>
-                    <br />
-                    <p className="teamnameregister">{e.team_name}</p>
-                    <h6>Sport:</h6>
-                    <p className="teamsportregister">{e.sport_type}</p>
-                    <br />
-                    <h6>Age Range:</h6>
-                    <p className="teamsportregister">{e.age_range}</p>
-                    <br />
-                    <h6>Gender Type:</h6>
-                    <p className="teamsportregister">{e.gender_type}</p>
-                </div>
-            );
-        } else if (props.age < 9 && props.age >= 7 && e.age_range === "7-8") {
-            return (
-                <div key={i} className="teamoptions">
-                    <h6>Team Name:</h6>
-                    <br />
-                    <p className="teamnameregister">{e.team_name}</p>
-                    <h6>Sport:</h6>
-                    <p className="teamsportregister">{e.sport_type}</p>
-                    <br />
-                    <h6>Age Range:</h6>
-                    <p className="teamsportregister">{e.age_range}</p>
-                    <br />
-                    <h6>Gender Type:</h6>
-                    <p className="teamsportregister">{e.gender_type}</p>
-                </div>
-            );
-        } else if (props.age < 7 && props.age >= 5 && e.age_range === "5-6") {
-            return (
-                <div key={i} className="teamoptions">
-                    <h6>Team Name:</h6>
-                    <br />
-                    <p className="teamnameregister">{e.team_name}</p>
-                    <h6>Sport:</h6>
-                    <p className="teamsportregister">{e.sport_type}</p>
-                    <br />
-                    <h6>Age Range:</h6>
-                    <p className="teamsportregister">{e.age_range}</p>
-                    <br />
-                    <h6>Gender Type:</h6>
-                    <p className="teamsportregister">{e.gender_type}</p>
-                </div>
-            );
-        }
-    });
+    // let teamOptions = props.teams.map((e, i, arr) => {
+    //     if (e.sport === null) {
+    //         e.sport = "football";
+    //     }
+    //     if (props.age >= 18 && e.age_range === "18+") {
+    //         return (
+    //             <div key={i} className="teamoptions">
+    //                 <h6>Team Name:</h6>
+    //                 <br />
+    //                 <p className="teamnameregister">{e.team_name}</p>
+    //                 <h6>Sport:</h6>
+    //                 <p className="teamsportregister">{e.sport_type}</p>
+    //                 <br />
+    //                 <h6>Age Range:</h6>
+    //                 <p className="teamsportregister">{e.age_range}</p>
+    //                 <br />
+    //                 <h6>Gender Type:</h6>
+    //                 <p className="teamsportregister">{e.gender_type}</p>
+    //             </div>
+    //         );
+    //     } else if (
+    //         props.age < 18 &&
+    //         props.age >= 14 &&
+    //         e.age_range === "14-17"
+    //     ) {
+    //         return (
+    //             <div key={i} className="teamoptions">
+    //                 <h6>Team Name:</h6>
+    //                 <br />
+    //                 <p className="teamnameregister">{e.team_name}</p>
+    //                 <h6>Sport:</h6>
+    //                 <p className="teamsportregister">{e.sport_type}</p>
+    //                 <br />
+    //                 <h6>Age Range:</h6>
+    //                 <p className="teamsportregister">{e.age_range}</p>
+    //                 <br />
+    //                 <h6>Gender Type:</h6>
+    //                 <p className="teamsportregister">{e.gender_type}</p>
+    //             </div>
+    //         );
+    //     } else if (
+    //         props.age < 14 &&
+    //         props.age >= 11 &&
+    //         e.age_range === "13-14"
+    //     ) {
+    //         return (
+    //             <div key={i} className="teamoptions">
+    //                 <h6>Team Name:</h6>
+    //                 <br />
+    //                 <p className="teamnameregister">{e.team_name}</p>
+    //                 <h6>Sport:</h6>
+    //                 <p className="teamsportregister">{e.sport_type}</p>
+    //                 <br />
+    //                 <h6>Age Range:</h6>
+    //                 <p className="teamsportregister">{e.age_range}</p>
+    //                 <br />
+    //                 <h6>Gender Type:</h6>
+    //                 <p className="teamsportregister">{e.gender_type}</p>
+    //             </div>
+    //         );
+    //     } else if (props.age < 11 && props.age >= 9 && e.age_range === "9-10") {
+    //         return (
+    //             <div key={i} className="teamoptions">
+    //                 <h6>Team Name:</h6>
+    //                 <br />
+    //                 <p className="teamnameregister">{e.team_name}</p>
+    //                 <h6>Sport:</h6>
+    //                 <p className="teamsportregister">{e.sport_type}</p>
+    //                 <br />
+    //                 <h6>Age Range:</h6>
+    //                 <p className="teamsportregister">{e.age_range}</p>
+    //                 <br />
+    //                 <h6>Gender Type:</h6>
+    //                 <p className="teamsportregister">{e.gender_type}</p>
+    //             </div>
+    //         );
+    //     } else if (props.age < 9 && props.age >= 7 && e.age_range === "7-8") {
+    //         return (
+    //             <div key={i} className="teamoptions">
+    //                 <h6>Team Name:</h6>
+    //                 <br />
+    //                 <p className="teamnameregister">{e.team_name}</p>
+    //                 <h6>Sport:</h6>
+    //                 <p className="teamsportregister">{e.sport_type}</p>
+    //                 <br />
+    //                 <h6>Age Range:</h6>
+    //                 <p className="teamsportregister">{e.age_range}</p>
+    //                 <br />
+    //                 <h6>Gender Type:</h6>
+    //                 <p className="teamsportregister">{e.gender_type}</p>
+    //             </div>
+    //         );
+    //     } else if (props.age < 7 && props.age >= 5 && e.age_range === "5-6") {
+    //         return (
+    //             <div key={i} className="teamoptions">
+    //                 <h6>Team Name:</h6>
+    //                 <br />
+    //                 <p className="teamnameregister">{e.team_name}</p>
+    //                 <h6>Sport:</h6>
+    //                 <p className="teamsportregister">{e.sport_type}</p>
+    //                 <br />
+    //                 <h6>Age Range:</h6>
+    //                 <p className="teamsportregister">{e.age_range}</p>
+    //                 <br />
+    //                 <h6>Gender Type:</h6>
+    //                 <p className="teamsportregister">{e.gender_type}</p>
+    //             </div>
+    //         );
+    //     }
+    // });
 
     return (
         <div className="registrationpage">
@@ -173,60 +173,37 @@ const Registration = (props) => {
                 <p className="formitem">
                     FULL NAME
                     <br />
-                    <input
-                        onChange={(e) => updatePlayerName(e.target.value)}
-                        required
-                        className="registrationsignuplink"
-                    />
+                    <input className="registrationsignuplink" />
                 </p>
                 <br />
                 <p className="formitem">
                     EMAIL
                     <br />
-                    <input
-                        onChange={(e) => updateEmail(e.target.value)}
-                        required
-                        className="registrationsignuplink"
-                    />
+                    <input className="registrationsignuplink" />
                 </p>
                 <br />
                 <p className="formitem">
                     HOMETOWN
                     <br />
-                    <input
-                        onChange={(e) => updateHometown(e.target.value)}
-                        required
-                        className="registrationsignuplink"
-                    />
+                    <input className="registrationsignuplink" />
                 </p>
                 <br />
                 <p className="formitem">
                     POSITION
                     <br />
-                    <input
-                        onChange={(e) => updatePosition(e.target.value)}
-                        className="registrationsignuplink"
-                    />
+                    <input className="registrationsignuplink" />
                 </p>
                 <br />
                 <p className="formitem">
                     GENDER
                     <br />
-                    <input
-                        onChange={(e) => updateGender(e.target.value)}
-                        required
-                        className="registrationsignuplink"
-                    />
+                    <input className="registrationsignuplink" />
                 </p>
                 <br />
                 <p className="formitem">
                     AGE
                     <br />
-                    <input
-                        onChange={(e) => updateAge(e.target.value)}
-                        required
-                        className="registrationsignuplink"
-                    />
+                    <input className="registrationsignuplink" />
                 </p>
                 <br />
                 <div className="availableteamoptions">{teamOptions}</div>
@@ -234,8 +211,6 @@ const Registration = (props) => {
                     TEAM NAME
                     <br />
                     <input
-                        onChange={(e) => updateTeamName(e.target.value)}
-                        required
                         placeholder="Select team from list above"
                         className="registrationsignuplink"
                     />
@@ -244,8 +219,6 @@ const Registration = (props) => {
                     SPORT
                     <br />
                     <input
-                        onChange={(e) => updateSports(e.target.value)}
-                        required
                         placeholder="Input Sport with Chosen Team name"
                         className="registrationsignuplink"
                     />
@@ -253,12 +226,7 @@ const Registration = (props) => {
                 <br />
                 <br />
                 <Link to="/player">
-                    <button
-                        onClick={() => submit()}
-                        className="registrationlink"
-                    >
-                        Submit
-                    </button>
+                    <button className="registrationlink">Submit</button>
                 </Link>
             </div>
         </div>
@@ -268,13 +236,13 @@ const Registration = (props) => {
 const mapStateToProps = (state) => ({ ...state.registration_reducer });
 
 export default connect(mapStateToProps, {
-    updatePlayerName,
-    updateTeamName,
-    updateSports,
-    updatePosition,
-    updateGender,
-    updateAge,
-    updateHometown,
-    updateTeams,
-    updateEmail,
+    // updatePlayerName,
+    // updateTeamName,
+    // updateSports,
+    // updatePosition,
+    // updateGender,
+    // updateAge,
+    // updateHometown,
+    // updateTeams,
+    // updateEmail,
 })(Registration);

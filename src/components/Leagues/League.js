@@ -1,108 +1,108 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
+// import { updateSportsInfo, updateLeague } from "../../ducks/get_reducer";
 import "./League.css";
 
 const League = (props) => {
     useEffect(() => {
-        props.updateSportsInfo();
-        props.updateLeague();
+        // props.updateSportsInfo();
+        // props.updateLeague();
     }, []);
 
-    let leagueDonations = (arr) => {
-        let sorted = [];
-        let newTeams = [];
-        let sort = arr[0];
+    // let leagueDonations = (arr) => {
+    //     let sorted = [];
+    //     let newTeams = [];
+    //     let sort = arr[0];
 
-        for (var i = 0; i < sort.length; i++) {
-            sorted.push(sort[i].donations);
-            sorted.sort();
-        }
-        for (var i = 0; i < sorted.length; i++) {
-            for (var j = 0; j < sort.length; j++) {
-                if (sort[j].donations === sorted[i]) {
-                    newTeams.push(sort[j]);
-                }
-            }
-        }
+    //     for (var i = 0; i < sort.length; i++) {
+    //         sorted.push(sort[i].donations);
+    //         sorted.sort();
+    //     }
+    //     for (var i = 0; i < sorted.length; i++) {
+    //         for (var j = 0; j < sort.length; j++) {
+    //             if (sort[j].donations === sorted[i]) {
+    //                 newTeams.push(sort[j]);
+    //             }
+    //         }
+    //     }
 
-        newTeams.reverse();
-        return newTeams;
-    };
+    //     newTeams.reverse();
+    //     return newTeams;
+    // };
 
-    let donations = leagueDonations(donationsarr).map((e, i) => {
-        return (
-            <div
-                key={i}
-                // className="donationstandingsdiv"
-            >
-                <ol>
-                    <li value={i++ + 1}>
-                        {e.team_name}
-                        <img
-                            alt=""
-                            src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
-                            className="nameandwins"
-                        />
-                        $ {e.donations}
-                    </li>
-                </ol>
-            </div>
-        );
-    });
+    // let donations = leagueDonations(donationsarr).map((e, i) => {
+    //     return (
+    //         <div
+    //             key={i}
+    //             // className="donationstandingsdiv"
+    //         >
+    //             <ol>
+    //                 <li value={i++ + 1}>
+    //                     {e.team_name}
+    //                     <img
+    //                         alt=""
+    //                         src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+    //                         className="nameandwins"
+    //                     />
+    //                     $ {e.donations}
+    //                 </li>
+    //             </ol>
+    //         </div>
+    //     );
+    // });
 
-    let division = leagueStandings(standingsarr).map((e, i) => {
-        return (
-            <div key={i} className="divisionrankingsdiv">
-                <ol>
-                    <li value={i++ + 1}>
-                        {e.team_name}
-                        <img
-                            alt=""
-                            src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
-                            className="nameandwins"
-                        />
-                        {e.wins}-{e.loses}-{e.ties}
-                    </li>
-                </ol>
-            </div>
-        );
-    });
+    // let division = leagueStandings(standingsarr).map((e, i) => {
+    //     return (
+    //         <div key={i} className="divisionrankingsdiv">
+    //             <ol>
+    //                 <li value={i++ + 1}>
+    //                     {e.team_name}
+    //                     <img
+    //                         alt=""
+    //                         src="https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+    //                         className="nameandwins"
+    //                     />
+    //                     {e.wins}-{e.loses}-{e.ties}
+    //                 </li>
+    //             </ol>
+    //         </div>
+    //     );
+    // });
 
-    let league = arr.map((e, i) => {
-        return (
-            <div key={i} className="leaguemapdiv">
-                {/* <img
-                  alt=""
-                  src="http://rheacountyfootball.com/wp-content/uploads/2017/06/black-white-stadium-as-Smart-Object-1.jpg"
-                  className="leaguepagepic"
-                /> */}
-                <div>
-                    <h1 id="leaguetitle">{e.league_name}</h1>
-                </div>
+    // let league = arr.map((e, i) => {
+    //     return (
+    //         <div key={i} className="leaguemapdiv">
+    //             {/* <img
+    //               alt=""
+    //               src="http://rheacountyfootball.com/wp-content/uploads/2017/06/black-white-stadium-as-Smart-Object-1.jpg"
+    //               className="leaguepagepic"
+    //             /> */}
+    //             <div>
+    //                 <h1 id="leaguetitle">{e.league_name}</h1>
+    //             </div>
 
-                <div className="recordstandings">
-                    <p className="recordstandingstitle">Standings</p>
-                    <div className="reverseorder">{division}</div>
-                </div>
-                <div className="donationstandings">
-                    <p className="donationstandingstitle">
-                        Team Donations Standings
-                    </p>
-                    <div className="reverseorder">{donations}</div>
-                </div>
-                <div className="leagueinfodiv">
-                    <u>Sport:</u> {e.sport_type}
-                    <br />
-                    <u>Age Range:</u> {e.age_range}
-                    <br />
-                    <u>Gender:</u> {e.gender}
-                    <br />
-                    <u>Location:</u> {e.location}
-                </div>
-            </div>
-        );
-    });
+    //             <div className="recordstandings">
+    //                 <p className="recordstandingstitle">Standings</p>
+    //                 <div className="reverseorder">{division}</div>
+    //             </div>
+    //             <div className="donationstandings">
+    //                 <p className="donationstandingstitle">
+    //                     Team Donations Standings
+    //                 </p>
+    //                 <div className="reverseorder">{donations}</div>
+    //             </div>
+    //             <div className="leagueinfodiv">
+    //                 <u>Sport:</u> {e.sport_type}
+    //                 <br />
+    //                 <u>Age Range:</u> {e.age_range}
+    //                 <br />
+    //                 <u>Gender:</u> {e.gender}
+    //                 <br />
+    //                 <u>Location:</u> {e.location}
+    //             </div>
+    //         </div>
+    //     );
+    // });
 
     return (
         <div className="leaguepagediv">
@@ -175,6 +175,6 @@ const mapStateToProps = ({ state }) => ({
 });
 
 export default connect(mapStateToProps, {
-    updateLeague,
-    updateSportsInfo,
+    // updateLeague,
+    // updateSportsInfo,
 })(League);

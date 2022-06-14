@@ -1,11 +1,11 @@
 import axios from "axios";
 import { connect } from "react-redux";
-import {
-    updateAdultUsername,
-    updateAdultPassword,
-    updateKidUsername,
-    updateKidPassword,
-} from "../../ducks/registration_reducer";
+// import {
+//     updateAdultUsername,
+//     updateAdultPassword,
+//     updateKidUsername,
+//     updateKidPassword,
+// } from "../../ducks/registration_reducer";
 // import "../Home/Login.css";
 
 const Login = (props) => {

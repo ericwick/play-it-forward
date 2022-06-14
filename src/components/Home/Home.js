@@ -1,14 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
+import axios from "axios";
 import { connect } from "react-redux";
-import { updateUser } from "../../ducks/get_reducer";
+import {
+    getPlayers,
+    // getLeagues,
+    // getTeams,
+} from "../../ducks/reducers/get_reducer";
 import Login from "./Login";
-// import './bootstrap.css';
 
-const Home = () => {
+const Home = (props) => {
+    const [players, setPlayers] = useState({});
+    const [teams, setTeams] = useState({});
+    const [leagues, setLeagues] = useState({});
+
     useEffect(() => {
-        // props.updateUser();
+        setPlayers(props.getPlayers());
+        // setTeams(props.getTeams());
+        // setLeagues(props.getLeagues());
     }, []);
+
+    // console.log("players", players);
+    // console.log("teams", teams);
+    // console.log("leagues", leagues);
 
     return (
         <div className="website">
@@ -20,4 +34,8 @@ const Home = () => {
 
 const mapStateToProps = (state) => ({ ...state.getReducer });
 
-export default connect(mapStateToProps, { updateUser })(Home);
+export default connect(mapStateToProps, {
+    getPlayers,
+    // getTeams,
+    // getLeagues,
+})(Home);

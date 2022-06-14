@@ -3,9 +3,9 @@ import "../Footer/Footer.css";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-    const [logo, setLogo] = useState(
-        "https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
-    );
+    // const [logo, setLogo] = useState(
+    //     "https://clip2art.com/images/drawn-arrow-transparent-background-13.png"
+    // );
 
     return (
         <footer id="footer">
