@@ -1,41 +1,34 @@
-import { useEffect, useState } from "react";
 import "./Home.css";
-import axios from "axios";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
-    getPlayers,
-    // getLeagues,
-    // getTeams,
-} from "../../ducks/reducers/get_reducer";
-import Login from "./Login";
+    fetchCharacters,
+    charactersSelector,
+} from "../../redux/slices/charactersSlice";
+import {
+    fetchEpisodes,
+    episodesSelector,
+} from "../../redux/slices/episodesSlice";
+import {
+    fetchLocations,
+    locationsSelector,
+} from "../../redux/slices/locationsSlice";
 
-const Home = (props) => {
-    const [players, setPlayers] = useState({});
-    const [teams, setTeams] = useState({});
-    const [leagues, setLeagues] = useState({});
+export default function Home() {
+    const dispatch = useDispatch();
+    const { characters } = useSelector(charactersSelector);
+    const { locations } = useSelector(locationsSelector);
+    const { episodes } = useSelector(episodesSelector);
 
     useEffect(() => {
-        setPlayers(props.getPlayers());
-        // setTeams(props.getTeams());
-        // setLeagues(props.getLeagues());
-    }, []);
-
-    // console.log("players", players);
-    // console.log("teams", teams);
-    // console.log("leagues", leagues);
+        dispatch(fetchCharacters());
+        dispatch(fetchEpisodes());
+        dispatch(fetchLocations());
+    }, [dispatch]);
 
     return (
         <div className="website">
             <h1 className="website-title">PLAY IT FORWARD</h1>
-            {/* <Login /> */}
         </div>
     );
-};
-
-const mapStateToProps = (state) => ({ ...state.getReducer });
-
-export default connect(mapStateToProps, {
-    getPlayers,
-    // getTeams,
-    // getLeagues,
-})(Home);
+}

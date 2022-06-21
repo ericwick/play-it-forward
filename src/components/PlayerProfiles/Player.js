@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 // import { updateSportsInfo } from "../../ducks/get_reducer";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import Registration from "../Registration/Registration";
 import Edit from "./Edit";
 import "./Player.css";

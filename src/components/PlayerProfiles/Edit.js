@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 // import { updateSportsInfo } from "../../ducks/get_reducer";
 import { Link } from "react-router-dom";
 // import firebase from "../../firebase";
-import FileUploader from "react-firebase-file-uploader";
+// import FileUploader from "react-firebase-file-uploader";
 
 const Edit = (props) => {
     const [editMode, setEditMode] = useState(false);
@@ -29,7 +29,7 @@ const Edit = (props) => {
                                 <h5 className="uploadprofilepic">
                                     Upload Cover Photo
                                 </h5>
-                                <FileUploader
+                                {/* <FileUploader
                                     accept="image/*"
                                     name="avatar"
                                     randomizeFilename
@@ -41,7 +41,7 @@ const Edit = (props) => {
                                     onUploadSuccess={this.handleUploadSuccess}
                                     multiple={"multiple"}
                                     className="fileuploader"
-                                />
+                                /> */}
                                 <span>
                                     <img
                                         src={this.state.coverphotos}
@@ -54,7 +54,7 @@ const Edit = (props) => {
                                 <h5 className="uploadprofilepic">
                                     Upload Profile Picture
                                 </h5>
-                                <FileUploader
+                                {/* <FileUploader
                                     accept="image/*"
                                     name="avatar"
                                     randomizeFilename
@@ -65,7 +65,7 @@ const Edit = (props) => {
                                     onUploadError={this.handleUploadError}
                                     onUploadSuccess={this.handleUploadAvatar}
                                     className="fileuploader"
-                                />
+                                /> */}
                                 <span>
                                     <img
                                         src={this.state.avatar}

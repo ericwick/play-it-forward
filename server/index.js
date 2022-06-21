@@ -1,18 +1,23 @@
 require("dotenv").config();
 const express = require("express");
-const { MongoClient } = require("mongodb");
 const cors = require("cors");
+const axios = require("axios");
 const { json } = require("body-parser");
-const { getPlayers } = require("./controllers/retrieve");
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(json());
 app.use(cors());
 
-const client = new MongoClient(process.env.CONNECTION_STRING);
+const {
+    getCharacters,
+    getEpisodes,
+    getLocations,
+} = require("./controllers/rickandmorty");
 
-app.get("/players", getPlayers);
+app.get("/characters", getCharacters);
+app.get("/locations", getLocations);
+app.get("/episodes", getEpisodes);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
