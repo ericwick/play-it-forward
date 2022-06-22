@@ -7,7 +7,7 @@ export default function App() {
 		<>
 			<Header />
 			{routes}
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 }
