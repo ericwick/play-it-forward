@@ -1,0 +1,31 @@
+.search {
+	display: flex;
+
+	&__input {
+		padding-left: 0.5rem;
+		border: none;
+		background: transparent;
+		color: white;
+
+		&:focus {
+			outline: none;
+			border: none;
+		}
+	}
+	&__icon {
+		border: none;
+		background: transparent;
+		width: 4rem;
+		color: white;
+		padding-top: 4px;
+		margin: 0;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+	&:focus-within {
+		border: 1px solid white;
+		border-radius: 0.25rem;
+	}
+}

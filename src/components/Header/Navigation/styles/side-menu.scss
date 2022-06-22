@@ -1,0 +1,10 @@
+.header {
+	&__sidenav {
+		margin: 0;
+		padding: 0;
+
+		&--menu {
+			list-style: none;
+		}
+	}
+}

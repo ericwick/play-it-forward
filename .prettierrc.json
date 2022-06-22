@@ -1,0 +1,11 @@
+{
+	"arrowParens": "avoid",
+	"bracketSameLine": true,
+	"bracketSpacing": true,
+	"semi": true,
+	"singleQuote": true,
+	"singleAttributePerLine": true,
+	"trailingComma": "none",
+	"useTabs": true,
+	"tabWidth": 2
+}

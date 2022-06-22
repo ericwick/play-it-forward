@@ -1,0 +1,21 @@
+.header {
+	&__sidenav {
+		&--menu-icon {
+			width: 5rem;
+			height: 4rem;
+			vertical-align: middle;
+			background: transparent;
+			border: none;
+			color: white;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:active {
+			}
+			&:focus {
+			}
+		}
+	}
+}
