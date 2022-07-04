@@ -4,15 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
 	fetchCharacters,
 	charactersSelector
-} from '../../redux/slices/charactersSlice';
-import {
-	fetchEpisodes,
-	episodesSelector
-} from '../../redux/slices/episodesSlice';
+} from '../../redux/slices/characters';
+import { fetchEpisodes, episodesSelector } from '../../redux/slices/episodes';
 import {
 	fetchLocations,
 	locationsSelector
-} from '../../redux/slices/locationsSlice';
+} from '../../redux/slices/locations';
 
 export default function Home() {
 	const dispatch = useDispatch();
