@@ -1,41 +1,37 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": ["plugin:react/recommended", "standard", "prettier"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["react"],
-  "rules": {
-    "array-bracket-spacing": "always",
-    "comma-dangle": "never",
-    "comma-style": "last",
-    "jsx-quotes": "prefer-double",
-    "multiline-ternary": "always-multiline",
-    "no-multi-spaces": true,
-    "no-multiple-empty-lines": {
-      "max": 1,
-      "maxEOF": 1,
-      "maxBOF": 1
-    },
-    "no-trailing-spaces": {
-      "skipBlankLines": false,
-      "ignoreComments": false
-    },
-    "object-curly-spacing": [
-      "always",
-      {
-        "arraysInObjects": false,
-        "objectsInObjects": false
-      }
-    ],
-    "operator-linebreak": "before",
-    "space-before-function-paren": ["error", "always"]
-  }
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["plugin:react/recommended", "standard", "prettier"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"array-bracket-spacing": 1,
+		"comma-dangle": 0,
+		"no-multi-spaces": true,
+		"no-multiple-empty-lines": {
+			"max": 1,
+			"maxEOF": 1,
+			"maxBOF": 1
+		},
+		"no-trailing-spaces": {
+			"skipBlankLines": false,
+			"ignoreComments": false
+		},
+		"object-curly-spacing": [
+			1,
+			{
+				"arraysInObjects": false,
+				"objectsInObjects": false
+			}
+		],
+		"space-before-function-paren": [2, 1]
+	}
 }
